@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import com.yadong.huawei.ui.widget.LoadingPager;
 
 /**
  * 基类fragment
@@ -20,16 +18,27 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment {
 
 
-    private View mRootView;
-    private Unbinder mUnbinder;
     private App mApplication;
+    private LoadingPager mLoadingPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRootView = inflater.inflate(setLayout(), container, false);
-        mUnbinder = ButterKnife.bind(this, mRootView);
-        return mRootView;
+
+        mLoadingPager = new LoadingPager(getContext()) {
+            @Override
+            protected View createLoadedView() {
+                View view = BaseFragment.this.createSuccessView();
+                return view;
+            }
+
+            @Override
+            protected void load() {
+                BaseFragment.this.load();
+            }
+        };
+
+        return mLoadingPager;
     }
 
     @Override
@@ -39,24 +48,19 @@ public abstract class BaseFragment extends Fragment {
         mApplication = (App) getActivity().getApplication();
         AppComponent appComponent = mApplication.getAppComponent();
         initInjector(appComponent);
-
         initViews();
         updateViews();
     }
 
     /**
      * 设置布局
-     *
-     * @return
      */
     public abstract int setLayout();
 
     /**
      * 用dagger进行注入
-     *
-     * @param mAppComponent application中得到的
      */
-    public abstract void initInjector(AppComponent mAppComponent);
+    public abstract void initInjector(AppComponent appComponent);
 
     /**
      * 初始化视图控件
@@ -70,12 +74,22 @@ public abstract class BaseFragment extends Fragment {
     public abstract void updateViews();
 
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        //解除butterKnife
-        if (mUnbinder != Unbinder.EMPTY) {
-            mUnbinder.unbind();
+
+    public void show() {
+        if (mLoadingPager != null) {
+            mLoadingPager.show();
+        }
+
+    }
+
+    public void setCurrentState(LoadingPager.LoadResult result) {
+        if (mLoadingPager != null) {
+            mLoadingPager.setCurrentState(result);
         }
     }
+
+
+    public abstract View createSuccessView();
+
+    public abstract void load();
 }

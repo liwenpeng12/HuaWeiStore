@@ -1,6 +1,7 @@
 package com.yadong.huawei.common.app;
 
 import android.app.Application;
+import android.os.Handler;
 
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
@@ -16,10 +17,15 @@ public class App extends Application {
     private static App instance;
     private AppComponent mAppComponent;
 
+    private static int mMainThreadId;
+    private static Handler mHandler;
+
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+        mHandler=new Handler();
+
 
         initSdk();
         initInjector();
@@ -29,7 +35,6 @@ public class App extends Application {
      * 初始化SDK
      */
     private void initSdk() {
-
 
     }
 
@@ -52,6 +57,22 @@ public class App extends Application {
 
     public AppComponent getAppComponent() {
         return mAppComponent;
+    }
+
+
+    /**
+     * 返回主线程的pid
+     * @return
+     */
+    public static int getMainThreadId() {
+        return mMainThreadId;
+    }
+    /**
+     * 返回Handler
+     * @return
+     */
+    public static Handler getHandler() {
+        return mHandler;
     }
 
 }

@@ -86,7 +86,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                         Integer resId = section.getLoadingResourceId();
 
                         if (resId == null)
-                            throw new NullPointerException("Missing 'loading state' resource id");
+                            throw new NullPointerException("Missing 'loading mCurrentState' resource id");
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the loading viewholder from the section
@@ -97,7 +97,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                         Integer resId = section.getFailedResourceId();
 
                         if (resId == null)
-                            throw new NullPointerException("Missing 'failed state' resource id");
+                            throw new NullPointerException("Missing 'failed mCurrentState' resource id");
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the failed load viewholder from the section
@@ -278,7 +278,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case FAILED:
                         return viewType + 4;
                     default:
-                        throw new IllegalStateException("Invalid state");
+                        throw new IllegalStateException("Invalid mCurrentState");
                 }
 
             }

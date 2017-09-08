@@ -40,8 +40,8 @@ public abstract class Section {
     /**
      * Create a Section object with loading/failed states but no header and footer
      * @param itemResourceId layout resource for its items
-     * @param loadingResourceId layout resource for its loading state
-     * @param failedResourceId layout resource for its failed state
+     * @param loadingResourceId layout resource for its loading mCurrentState
+     * @param failedResourceId layout resource for its failed mCurrentState
      */
     public Section(int itemResourceId, int loadingResourceId, int failedResourceId) {
         this.itemResourceId = itemResourceId;
@@ -53,8 +53,8 @@ public abstract class Section {
      * Create a Section object with loading/failed states, a custom header but no footer
      * @param headerResourceId layout resource for its header
      * @param itemResourceId layout resource for its items
-     * @param loadingResourceId layout resource for its loading state
-     * @param failedResourceId layout resource for its failed state
+     * @param loadingResourceId layout resource for its loading mCurrentState
+     * @param failedResourceId layout resource for its failed mCurrentState
      */
     public Section(int headerResourceId, int itemResourceId, int loadingResourceId, int failedResourceId) {
         this(itemResourceId, loadingResourceId, failedResourceId);
@@ -67,8 +67,8 @@ public abstract class Section {
      * @param headerResourceId layout resource for its header
      * @param footerResourceId layout resource for its footer
      * @param itemResourceId layout resource for its items
-     * @param loadingResourceId layout resource for its loading state
-     * @param failedResourceId layout resource for its failed state
+     * @param loadingResourceId layout resource for its loading mCurrentState
+     * @param failedResourceId layout resource for its failed mCurrentState
      */
     public Section(int headerResourceId, int footerResourceId, int itemResourceId, int loadingResourceId, int failedResourceId) {
         this(headerResourceId, itemResourceId, loadingResourceId, failedResourceId);
@@ -78,7 +78,7 @@ public abstract class Section {
 
     /**
      * Set the State of this Section
-     * @param state state of this section
+     * @param state mCurrentState of this section
      */
     public final void setState(State state) {
         this.state = state;
@@ -86,7 +86,7 @@ public abstract class Section {
 
     /**
      * Return the current State of this Section
-     * @return current state of this section
+     * @return current mCurrentState of this section
      */
     public final State getState() {
         return state;
@@ -182,7 +182,7 @@ public abstract class Section {
 
     /**
      * Bind the data to the ViewHolder for the Content of this Section, that can be the Items,
-     * Loading view or Failed view, depending on the current state of the section
+     * Loading view or Failed view, depending on the current mCurrentState of the section
      * @param holder ViewHolder for the Content of this Section
      * @param position position of the item in the Section, not in the RecyclerView
      */
@@ -198,13 +198,13 @@ public abstract class Section {
                 onBindFailedViewHolder(holder);
                 break;
             default:
-                throw new IllegalStateException("Invalid state");
+                throw new IllegalStateException("Invalid mCurrentState");
         }
     }
 
     /**
      * Return the total of items of this Section, including content items (according to the section
-     * state) plus header and footer
+     * mCurrentState) plus header and footer
      * @return total of items of this section
      */
     public final int getSectionItemsTotal() {
@@ -221,7 +221,7 @@ public abstract class Section {
                 contentItemsTotal = 1;
                 break;
             default:
-                throw new IllegalStateException("Invalid state");
+                throw new IllegalStateException("Invalid mCurrentState");
         }
 
         return contentItemsTotal + (hasHeader? 1 : 0) + (hasFooter? 1 : 0);
@@ -281,23 +281,23 @@ public abstract class Section {
     public abstract void onBindItemViewHolder(ViewHolder holder, int position);
 
     /**
-     * Return the ViewHolder for the Loading state of this Section
+     * Return the ViewHolder for the Loading mCurrentState of this Section
      * @param view View inflated by resource returned by getItemResourceId
-     * @return ViewHolder for the Loading state of this Section
+     * @return ViewHolder for the Loading mCurrentState of this Section
      */
     public ViewHolder getLoadingViewHolder(Context context, View view) {
         return new SectionRVAdapter.EmptyViewHolder(context,view);
     }
     /**
-     * Bind the data to the ViewHolder for Loading state of this Section
-     * @param holder ViewHolder for the Loading state of this Section
+     * Bind the data to the ViewHolder for Loading mCurrentState of this Section
+     * @param holder ViewHolder for the Loading mCurrentState of this Section
      */
     public void onBindLoadingViewHolder(ViewHolder holder) {
         // Nothing to bind here.
     }
 
     /**
-     * Return the ViewHolder for the Failed state of this Section
+     * Return the ViewHolder for the Failed mCurrentState of this Section
      * @param view View inflated by resource returned by getItemResourceId
      * @return ViewHolder for the Failed of this Section
      */
@@ -305,8 +305,8 @@ public abstract class Section {
         return new SectionRVAdapter.EmptyViewHolder(context,view);
     }
     /**
-     * Bind the data to the ViewHolder for the Failed state of this Section
-     * @param holder ViewHolder for the Failed state of this Section
+     * Bind the data to the ViewHolder for the Failed mCurrentState of this Section
+     * @param holder ViewHolder for the Failed mCurrentState of this Section
      */
     public void onBindFailedViewHolder(ViewHolder holder) {
         // Nothing to bind here.
