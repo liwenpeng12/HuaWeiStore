@@ -45,7 +45,9 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.init();
+        mImmersionBar
+                .statusBarDarkFont(true)
+                .init();
     }
 
     /**
@@ -78,27 +80,26 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void updateViews();
 
 
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
-    }
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
-    }
-
-    protected void openActivity(Class clazz) {
-        Intent intent = new Intent(this, clazz);
+    /**
+     * 带打开动画的开启
+     * @param isHaveAnim 是否有动画
+     */
+    public void startActivity(Intent intent, boolean isHaveAnim) {
         startActivity(intent);
+        if (isHaveAnim) {
+            overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+        }
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+    /**
+     * 带退出动画的关闭
+     * @param isHaveAnim 是否有动画
+     */
+    public void finish(boolean isHaveAnim) {
+        finish();
+        if (isHaveAnim) {
+            overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+        }
     }
 
     @Override
