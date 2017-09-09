@@ -16,6 +16,10 @@
 
 
 
+    <style name="CustomTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">@dimen/tab_textsize_15sp</item>
+    </style>
+
     <style name="nodata_bluebuttonbottom">
         <item name="android:textSize">@dimen/res_textsize_15sp</item>
         <item name="android:textColor">@color/blue_text_007dff</item>

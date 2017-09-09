@@ -1,7 +1,6 @@
 package com.yadong.huawei.ui.fragment;
 
 import android.os.SystemClock;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
@@ -12,22 +11,16 @@ import com.yadong.huawei.ui.widget.LoadingPager;
 import butterknife.BindView;
 
 /**
- *
+ * 分类
  */
 
-public class RecommendFragment extends BaseFragment {
-
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
-
+public class CategoryFragment extends BaseFragment {
     @BindView(R.id.tv_name)
     TextView mTvName;
 
-
-
     @Override
     public int setLayout() {
-        return R.layout.fragment_recommend;
+        return R.layout.fragment_catagory;
     }
 
     @Override
@@ -49,11 +42,8 @@ public class RecommendFragment extends BaseFragment {
             {
                 SystemClock.sleep(2000);
                 setCurrentState(LoadingPager.LoadResult.success);
-                mTvName.setText("HELLO WORD");
+                mTvName.setText("分类");
             }
         }).start();
     }
-
-
-
 }

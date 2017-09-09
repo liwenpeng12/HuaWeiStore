@@ -47,6 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar
                 .statusBarDarkFont(true)
+                .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
+                .statusBarColor(R.color.white)
                 .init();
     }
 
