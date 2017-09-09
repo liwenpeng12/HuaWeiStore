@@ -12,11 +12,9 @@ import android.widget.FrameLayout;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.UIUtils;
 
-
 /**
  *
  */
-
 public abstract class LoadingPager extends FrameLayout {
 
     /**
@@ -43,12 +41,12 @@ public abstract class LoadingPager extends FrameLayout {
     /**
      * 当前状态
      */
-    protected int mCurrentState = STATE_DEFAULT;
+    private int mCurrentState = STATE_DEFAULT;
 
-    private View loadingView;//加载中界面
-    private View errorView;//加载失败界面
-    private View emptyView;//空界面
-    private View successView;//加载成功界面
+    private View mLoadingView;//加载中界面
+    private View mErrorView;//加载失败界面
+    private View mEmptyView;//空界面
+    private View mSuccessView;//加载成功界面
 
     public LoadingPager(@NonNull Context context) {
         this(context, null);
@@ -68,17 +66,21 @@ public abstract class LoadingPager extends FrameLayout {
      */
     private void init() {
         this.setBackgroundColor(UIUtils.getColor(R.color.bg_page));
-        loadingView = createLoadingView();
-        if (loadingView != null) {
-            this.addView(loadingView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        mLoadingView = createLoadingView();
+        if (mLoadingView != null) {
+            this.addView(mLoadingView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         }
-        errorView = createErrorView();
-        if (errorView != null) {
-            this.addView(errorView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        mErrorView = createErrorView();
+        if (mErrorView != null) {
+            this.addView(mErrorView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         }
-        emptyView = createEmptyView();
-        if (emptyView != null) {
-            this.addView(emptyView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        mEmptyView = createEmptyView();
+        if (mEmptyView != null) {
+            this.addView(mEmptyView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        }
+        mSuccessView = createSuccessView();
+        if (mSuccessView != null) {
+            this.addView(mSuccessView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         }
         showPager();
     }
@@ -87,34 +89,20 @@ public abstract class LoadingPager extends FrameLayout {
      * 根据状态显示界面
      */
     private void showPager() {
-        if (loadingView != null) {
-            loadingView.setVisibility(mCurrentState == STATE_LOADING || mCurrentState == STATE_DEFAULT ? View.VISIBLE : View.GONE);
+        if (mLoadingView != null) {
+            mLoadingView.setVisibility(mCurrentState == STATE_LOADING || mCurrentState == STATE_DEFAULT ? View.VISIBLE : View.GONE);
         }
-        if (errorView != null) {
-            errorView.setVisibility(mCurrentState == STATE_ERROR ? View.VISIBLE : View.GONE);
+        if (mErrorView != null) {
+            mErrorView.setVisibility(mCurrentState == STATE_ERROR ? View.VISIBLE : View.GONE);
         }
-        if (emptyView != null) {
-            emptyView.setVisibility(mCurrentState == STATE_EMPTY ? View.VISIBLE : View.GONE);
+        if (mEmptyView != null) {
+            mEmptyView.setVisibility(mCurrentState == STATE_EMPTY ? View.VISIBLE : View.GONE);
         }
-        if (mCurrentState == STATE_SUCCESS && successView == null) {
-            successView = createLoadedView();
-            this.addView(successView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        if (mSuccessView != null) {
+            mSuccessView.setVisibility(mCurrentState == STATE_SUCCESS ? View.VISIBLE : View.GONE);
         }
     }
 
-    /**
-     * 显示布局
-     */
-    public void show() {
-        if (mCurrentState == STATE_EMPTY || mCurrentState == STATE_ERROR) {
-            mCurrentState = STATE_DEFAULT;
-        }
-        if (mCurrentState == STATE_DEFAULT) {
-            mCurrentState = STATE_LOADING;
-            load();
-        }
-        showPager();
-    }
 
     /**
      * 创建加载中界面
@@ -149,18 +137,13 @@ public abstract class LoadingPager extends FrameLayout {
      * 创建空界面
      */
     private View createEmptyView() {
-        return null;
+        return UIUtils.inflate(R.layout.loading_empty_page);
     }
 
     /**
      * 加载成功界面
      */
-    protected abstract View createLoadedView();
-
-    /**
-     * 加载获取数据
-     */
-    protected abstract void load();
+    public abstract View createSuccessView();
 
 
     /**
@@ -178,6 +161,26 @@ public abstract class LoadingPager extends FrameLayout {
             return value;
         }
     }
+
+
+    /**
+     * 显示布局
+     */
+    public void show() {
+        if (mCurrentState == STATE_EMPTY || mCurrentState == STATE_ERROR) {
+            mCurrentState = STATE_DEFAULT;
+        }
+        if (mCurrentState == STATE_DEFAULT) {
+            mCurrentState = STATE_LOADING;
+            loadData();
+        }
+        showPager();
+    }
+
+    /**
+     * 加载获取数据
+     */
+    public abstract void loadData();
 
 
     public void setCurrentState(LoadResult result) {

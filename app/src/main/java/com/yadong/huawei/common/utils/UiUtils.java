@@ -70,7 +70,6 @@ public class UIUtils {
 
     /**
      * 在主线程中执行代码
-     *
      */
     public static void runOnUiThread(Runnable runnable) {
         if (isRunOnMainThread()) {

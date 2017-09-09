@@ -100,7 +100,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                             throw new NullPointerException("Missing 'failed mCurrentState' resource id");
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
-                        // get the failed load viewholder from the section
+                        // get the failed loadData viewholder from the section
                         viewHolder = section.getFailedViewHolder(mContext,view);
                         break;
                     }
@@ -241,7 +241,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
          2) footer
          3) items
          4) loading
-         5) load failed
+         5) loadData failed
          */
         int currentPos = 0;
 

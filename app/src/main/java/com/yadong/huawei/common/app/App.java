@@ -3,6 +3,7 @@ package com.yadong.huawei.common.app;
 import android.app.Application;
 import android.os.Handler;
 
+import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
@@ -28,6 +29,7 @@ public class App extends Application {
 
 
         initSdk();
+        initUtils();
         initInjector();
     }
 
@@ -36,6 +38,11 @@ public class App extends Application {
      */
     private void initSdk() {
 
+
+    }
+
+    private void initUtils() {
+        RetrofitUtils.getInstance().initOkHttp(this);
     }
 
     /**
@@ -62,14 +69,12 @@ public class App extends Application {
 
     /**
      * 返回主线程的pid
-     * @return
      */
     public static int getMainThreadId() {
         return mMainThreadId;
     }
     /**
      * 返回Handler
-     * @return
      */
     public static Handler getHandler() {
         return mHandler;

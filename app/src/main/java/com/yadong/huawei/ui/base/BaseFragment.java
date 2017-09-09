@@ -11,6 +11,9 @@ import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * 基类fragment
  */
@@ -20,36 +23,36 @@ public abstract class BaseFragment extends Fragment {
 
     private App mApplication;
     private LoadingPager mLoadingPager;
+    private Unbinder mUnBinder;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         mLoadingPager = new LoadingPager(getContext()) {
             @Override
-            protected View createLoadedView() {
-                View view = BaseFragment.this.createSuccessView();
-                return view;
+            public View createSuccessView() {
+                return inflater.inflate(setLayout(), container, false);
             }
 
             @Override
-            protected void load() {
-                BaseFragment.this.load();
+            public void loadData() {
+                BaseFragment.this.loadData();
             }
         };
 
+        mUnBinder = ButterKnife.bind(this, mLoadingPager);
         return mLoadingPager;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mApplication = (App) getActivity().getApplication();
         AppComponent appComponent = mApplication.getAppComponent();
         initInjector(appComponent);
         initViews();
-        updateViews();
+        show();
     }
 
     /**
@@ -68,18 +71,12 @@ public abstract class BaseFragment extends Fragment {
     public abstract void initViews();
 
 
-    /**
-     * 更新视图控件
-     */
-    public abstract void updateViews();
-
 
 
     public void show() {
         if (mLoadingPager != null) {
             mLoadingPager.show();
         }
-
     }
 
     public void setCurrentState(LoadingPager.LoadResult result) {
@@ -89,7 +86,15 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-    public abstract View createSuccessView();
+    public abstract void loadData();
 
-    public abstract void load();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //解除butterKnife
+        if (mUnBinder != Unbinder.EMPTY) {
+            mUnBinder.unbind();
+        }
+    }
 }

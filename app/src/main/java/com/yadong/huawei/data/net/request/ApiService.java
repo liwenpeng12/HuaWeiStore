@@ -1,5 +1,9 @@
 package com.yadong.huawei.data.net.request;
 
+import io.reactivex.Observable;
+import okhttp3.ResponseBody;
+import retrofit2.http.GET;
+
 /**
  *
  */
@@ -7,21 +11,13 @@ package com.yadong.huawei.data.net.request;
 public interface ApiService {
 
 
-    String BASE_URL = "http://192.168.1.113:8080/";
-    // 登陆
-    String LOGIN = "TakeoutService/login";
-    // http://localhost:8080/TakeoutService/home
-    String HOME = "TakeoutService/home";
-    // http://localhost:8080/TakeoutService/goods?sellerId=1
-    String GOODS = "TakeoutService/goods";
-    //    http://localhost:8080/TakeoutService/address?userId=2163&&&&&&
-    String ADDRESS = "TakeoutService/address";
+     String BASE_URL = "http://112.124.22.238:8081/appstore/";
 
-    String ORDER = "TakeoutService/order";
-    String PAY = "TakeoutService/pay";
-
-
-
+    /**
+     * 推荐页面的所有数据
+     */
+    @GET("recommend")
+    Observable<ResponseBody> getRecommendData();
 
 
 }
