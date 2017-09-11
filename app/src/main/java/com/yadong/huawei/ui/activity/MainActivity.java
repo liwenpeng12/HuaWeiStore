@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.factory.FragmentFactory;
-import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.adapter.FixPagerAdapter;
 import com.yadong.huawei.ui.base.BaseActivity;
 import com.yadong.huawei.ui.base.BaseFragment;
@@ -37,7 +36,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void initInjector(AppComponent appComponent) {
+    public void initInjector() {
 
     }
 

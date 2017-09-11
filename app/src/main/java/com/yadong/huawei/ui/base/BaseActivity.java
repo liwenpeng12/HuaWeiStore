@@ -25,12 +25,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayout());
-        App application = (App) getApplication();
 
         initImmersionBar();
         initButterKnife();
         addActivityToStack();
-        initInjector(application.getAppComponent());
+        initInjector();
         initViews();
         updateViews();
     }
@@ -69,7 +68,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 用dagger进行注入
      */
-    public abstract void initInjector(AppComponent appComponent);
+    public abstract void initInjector();
 
     /**
      * 初始化
@@ -80,6 +79,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 更新视图控件
      */
     public abstract void updateViews();
+
+
+    /**
+     * 获取 ApplicationComponent
+     */
+    protected AppComponent getAppComponent() {
+        return App.getAppComponent();
+    }
 
 
     /**

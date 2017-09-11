@@ -11,7 +11,6 @@ import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.MyToast;
 import com.yadong.huawei.common.utils.PreferenceUtils;
-import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.base.BaseActivity;
 
 import butterknife.OnClick;
@@ -28,7 +27,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    public void initInjector(AppComponent appComponent) {
+    public void initInjector() {
 
     }
 
