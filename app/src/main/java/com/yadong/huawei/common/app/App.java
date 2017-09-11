@@ -15,22 +15,28 @@ import com.yadong.huawei.dagger.module.HttpModule;
  */
 
 public class App extends Application {
-    private static App instance;
-    private  static AppComponent mAppComponent;
 
+    private static App instance;
+    private static AppComponent mAppComponent;
     private static int mMainThreadId;
     private static Handler mHandler;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
-        mHandler=new Handler();
 
-
+        initConfig();
         initSdk();
         initUtils();
         initInjector();
+    }
+
+    /**
+     * 初始化配置
+     */
+    private void initConfig() {
+        instance = this;
+        mHandler = new Handler();
     }
 
     /**
@@ -44,6 +50,7 @@ public class App extends Application {
     private void initUtils() {
         RetrofitUtils.getInstance().initOkHttp(this);
     }
+
 
     /**
      * 初始化注射器
@@ -66,13 +73,13 @@ public class App extends Application {
         return mAppComponent;
     }
 
-
     /**
      * 返回主线程的pid
      */
     public static int getMainThreadId() {
         return mMainThreadId;
     }
+
     /**
      * 返回Handler
      */
