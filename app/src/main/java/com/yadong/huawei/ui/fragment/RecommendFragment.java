@@ -36,21 +36,20 @@ public class RecommendFragment extends BaseFragment {
     @Override
     protected void initViews() {
 
+
     }
 
     @Override
     protected void updateViews() {
         new Thread(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 SystemClock.sleep(2000);
                 setCurrentState(LoadingPager.LoadResult.success);
                 mTvName.setText("HELLO WORD");
             }
         }).start();
     }
-
 
 
 }
