@@ -150,7 +150,7 @@ public abstract class LoadingPager extends FrameLayout {
      * 服务器返回状态枚举
      */
     public enum LoadResult {
-        error(STATE_ERROR), empty(STATE_EMPTY), success(STATE_SUCCESS);
+        loading(STATE_LOADING), error(STATE_ERROR), empty(STATE_EMPTY), success(STATE_SUCCESS);
         int value;
 
         LoadResult(int value) {
@@ -167,7 +167,7 @@ public abstract class LoadingPager extends FrameLayout {
      * 显示布局
      */
     public void show() {
-        if(mCurrentState==STATE_LOADING){
+        if (mCurrentState == STATE_LOADING) {
             showPager();
             return;
         }

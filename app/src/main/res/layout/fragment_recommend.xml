@@ -4,21 +4,19 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:visibility="gone"
+
+    <com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView
+        android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:text="今天天天真晴朗  啊啊啊啊 "
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+    </com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView>
 
 </LinearLayout>
