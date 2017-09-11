@@ -84,7 +84,6 @@ public class MainActivity extends BaseActivity {
                 System.out.println("页面切换" + position);
                 BaseFragment fragment = FragmentFactory.createFragment(position);
                 fragment.show();
-
             }
         });
     }

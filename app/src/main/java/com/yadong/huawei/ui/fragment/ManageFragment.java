@@ -3,7 +3,6 @@ package com.yadong.huawei.ui.fragment;
 import android.os.SystemClock;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
@@ -11,24 +10,26 @@ import com.yadong.huawei.ui.widget.LoadingPager;
  *管理
  */
 
-public class ManageFragment extends BaseFragment{
+public class ManageFragment extends BaseFragment {
+
+
     @Override
-    public int setLayout() {
+    protected int attachLayoutRes() {
         return R.layout.fragment_manage;
     }
 
     @Override
-    public void initInjector(AppComponent appComponent) {
+    protected void initInjector() {
 
     }
 
     @Override
-    public void initViews() {
+    protected void initViews() {
 
     }
 
     @Override
-    public void loadData() {
+    protected void updateViews() {
         new Thread(new Runnable() {
             @Override
             public void run()
@@ -39,4 +40,5 @@ public class ManageFragment extends BaseFragment{
             }
         }).start();
     }
+
 }

@@ -16,7 +16,7 @@ import com.yadong.huawei.dagger.module.HttpModule;
 
 public class App extends Application {
     private static App instance;
-    private AppComponent mAppComponent;
+    private  static AppComponent mAppComponent;
 
     private static int mMainThreadId;
     private static Handler mHandler;
@@ -62,7 +62,7 @@ public class App extends Application {
         return instance;
     }
 
-    public AppComponent getAppComponent() {
+    public static AppComponent getAppComponent() {
         return mAppComponent;
     }
 

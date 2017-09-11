@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
@@ -24,25 +23,23 @@ public class RecommendFragment extends BaseFragment {
     TextView mTvName;
 
 
-
     @Override
-    public int setLayout() {
+    protected int attachLayoutRes() {
         return R.layout.fragment_recommend;
     }
 
     @Override
-    public void initInjector(AppComponent appComponent) {
+    protected void initInjector() {
 
     }
 
     @Override
-    public void initViews() {
+    protected void initViews() {
 
     }
 
     @Override
-    public void loadData() {
-
+    protected void updateViews() {
         new Thread(new Runnable() {
             @Override
             public void run()

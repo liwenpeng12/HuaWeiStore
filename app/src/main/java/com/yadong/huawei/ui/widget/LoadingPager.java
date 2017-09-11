@@ -167,6 +167,10 @@ public abstract class LoadingPager extends FrameLayout {
      * 显示布局
      */
     public void show() {
+        if(mCurrentState==STATE_LOADING){
+            showPager();
+            return;
+        }
         if (mCurrentState == STATE_EMPTY || mCurrentState == STATE_ERROR) {
             mCurrentState = STATE_DEFAULT;
         }

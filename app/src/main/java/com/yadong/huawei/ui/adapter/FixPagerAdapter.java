@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -88,5 +89,41 @@ public class FixPagerAdapter extends FragmentStatePagerAdapter {
         this.fragments=fragments;
         notifyDataSetChanged();
 
+    }
+
+
+
+
+
+    public void setItems(List<Fragment> fragments, List<String> mTitles) {
+        this.fragments = fragments;
+        this.titles = mTitles;
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<Fragment> fragments, String[] mTitles) {
+        this.fragments = fragments;
+        this.titles = Arrays.asList(mTitles);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(Fragment fragment, String title) {
+        fragments.add(fragment);
+        titles.add(title);
+        notifyDataSetChanged();
+    }
+
+    public void delItem(int position) {
+        titles.remove(position);
+        fragments.remove(position);
+        notifyDataSetChanged();
+    }
+
+    public int delItem(String title) {
+        int index = titles.indexOf(title);
+        if (index != -1) {
+            delItem(index);
+        }
+        return index;
     }
 }

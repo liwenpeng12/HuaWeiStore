@@ -4,7 +4,6 @@ import android.os.SystemClock;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
@@ -18,24 +17,25 @@ public class CategoryFragment extends BaseFragment {
     @BindView(R.id.tv_name)
     TextView mTvName;
 
+
+
     @Override
-    public int setLayout() {
+    protected int attachLayoutRes() {
         return R.layout.fragment_catagory;
     }
 
     @Override
-    public void initInjector(AppComponent appComponent) {
+    protected void initInjector() {
 
     }
 
     @Override
-    public void initViews() {
+    protected void initViews() {
 
     }
 
     @Override
-    public void loadData() {
-
+    protected void updateViews() {
         new Thread(new Runnable() {
             @Override
             public void run()
@@ -46,4 +46,6 @@ public class CategoryFragment extends BaseFragment {
             }
         }).start();
     }
+
+
 }
