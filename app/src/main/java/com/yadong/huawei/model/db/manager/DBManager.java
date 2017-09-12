@@ -20,7 +20,6 @@ public class DBManager {
 
     private static DBManager instance;
     private final static String dbName = "test_db";
-
     private Context mContext;
     private DaoMaster.DevOpenHelper openHelper = null;
 
@@ -54,55 +53,81 @@ public class DBManager {
         return openHelper.getReadableDatabase();
     }
 
-
+    /**
+     * 存入User
+     */
     public void saveUser(User user) {
-        DaoMaster daoMaster = new DaoMaster(getWriteableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
-        //存入user对象
+        UserDao userDao = getWriteUserDao();
         userDao.save(user);
     }
 
+    /**
+     * 存入User集合
+     *
+     * @param users
+     */
     public void saveUsers(List<User> users) {
-        DaoMaster daoMaster = new DaoMaster(getWriteableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
+        UserDao userDao = getWriteUserDao();
         userDao.saveInTx(users);
     }
 
+    /**
+     * 删除
+     *
+     * @param user
+     */
     public void delteUser(User user) {
-        DaoMaster daoMaster = new DaoMaster(getWriteableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
+        UserDao userDao = getWriteUserDao();
         userDao.delete(user);
     }
 
 
+    /**
+     * 更新
+     *
+     * @param user
+     */
     public void updateUser(User user) {
-        DaoMaster daoMaster = new DaoMaster(getWriteableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
+        UserDao userDao = getWriteUserDao();
         userDao.update(user);
     }
 
+    /**
+     * 查找全部
+     *
+     * @return
+     */
     public List<User> queryUser() {
-        DaoMaster daoMaster = new DaoMaster(getRedadableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
+        UserDao userDao = getReadUserDao();
         QueryBuilder<User> qb = userDao.queryBuilder();
-        List<User> list = qb.list();
-        return list;
+        return qb.list();
     }
 
+    /**
+     * 根据姓名查找user
+     *
+     * @param age
+     * @return
+     */
     public List<User> queryUser(int age) {
-        DaoMaster daoMaster = new DaoMaster(getRedadableDatabase());
-        DaoSession daoSession = daoMaster.newSession();
-        UserDao userDao = daoSession.getUserDao();
+        UserDao userDao = getReadUserDao();
         QueryBuilder<User> qb = userDao.queryBuilder();
         //添加查询条件
         qb.where(UserDao.Properties.Age.eq(age));
-        List<User> list = qb.list();
-        return list;
+        return qb.list();
+    }
+
+
+    private UserDao getWriteUserDao() {
+        DaoMaster daoMaster = new DaoMaster(getWriteableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession.getUserDao();
+    }
+
+    private UserDao getReadUserDao() {
+        DaoMaster daoMaster = new DaoMaster(getRedadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession.getUserDao();
     }
 
 }
