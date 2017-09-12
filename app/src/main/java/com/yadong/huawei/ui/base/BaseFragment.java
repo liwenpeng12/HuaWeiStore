@@ -10,19 +10,25 @@ import android.view.ViewGroup;
 
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
+import com.yadong.huawei.presenter.base.IBasePresenter;
 import com.yadong.huawei.ui.widget.LoadingPager;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
 /**
  * 基类Fragment
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<T extends IBasePresenter> extends Fragment {
 
 
     protected Context mContext;
     protected LoadingPager mLoadingPager; //缓存Fragment view
     protected boolean mIsLoad = false;//是否加载数据
+
+    @Inject
+    protected T mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

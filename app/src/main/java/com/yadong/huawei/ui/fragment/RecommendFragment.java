@@ -19,16 +19,15 @@ import com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 
 /**
  * 推荐
- * <p>
+ *
  * V层
  */
-public class RecommendFragment extends BaseFragment implements RecommendContract.View {
+public class RecommendFragment extends BaseFragment<RecommendPresenter>
+        implements RecommendContract.View {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -36,13 +35,9 @@ public class RecommendFragment extends BaseFragment implements RecommendContract
     @BindView(R.id.pull_to_refresh)
     PullToRefreshView mPullToRefresh;
 
-    @Inject
-    RecommendPresenter mPresenter;
-
     private RecommendAdapter mRecommendAdapter;
     private RecommendTopWrapper mTopWrapper;
     private List<RecommendBean.RecommendAppBean> recommendAppBeanList = new ArrayList<>();//加载更多的集合数据
-
 
     @Override
     protected int attachLayoutRes() {
