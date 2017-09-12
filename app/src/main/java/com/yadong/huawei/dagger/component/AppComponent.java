@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.yadong.huawei.dagger.module.AppModule;
 import com.yadong.huawei.dagger.module.HttpModule;
-import com.yadong.huawei.data.net.request.ApiService;
+import com.yadong.huawei.model.net.request.ApiService;
 
 import javax.inject.Singleton;
 

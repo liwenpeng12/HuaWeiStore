@@ -1,4 +1,4 @@
-package com.yadong.huawei.data.net.bean;
+package com.yadong.huawei.model.net.bean;
 
 import java.util.List;
 
@@ -8,11 +8,12 @@ import java.util.List;
  * @author xzhang
  */
 
-public class CategoryNewBean {
+public class CategoryNecessaryBean {
+
     private Head head ;
     private List<AppBean> appBeanList ;
 
-    public CategoryNewBean(Head head, List<AppBean> appBeanList) {
+    public CategoryNecessaryBean(Head head, List<AppBean> appBeanList) {
         this.head = head;
         this.appBeanList = appBeanList;
     }

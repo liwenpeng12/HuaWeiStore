@@ -1,4 +1,4 @@
-package com.yadong.huawei.data.net.bean;
+package com.yadong.huawei.model.net.bean;
 
 import java.util.List;
 
@@ -8,25 +8,25 @@ import java.util.List;
  * @author xzhang
  */
 
-public class RecommendBean {
+public class CategoryToolBean {
 
     private List<String> bannerList ;
-    private List<RecommendAppBean> recommendAppBeanList ;
+    private List<CategoryToolAppBean> categoryToolAppBeanList;
 
-    public RecommendBean(List<String> bannerList, List<RecommendAppBean> recommendAppBeanList) {
+    public CategoryToolBean(List<String> bannerList, List<CategoryToolAppBean> recommendAppBeanList) {
         this.bannerList = bannerList;
-        this.recommendAppBeanList = recommendAppBeanList;
+        this.categoryToolAppBeanList = recommendAppBeanList;
     }
 
     public List<String> getBannerList() {
         return bannerList;
     }
 
-    public List<RecommendAppBean> getRecommendAppBeanList() {
-        return recommendAppBeanList;
+    public List<CategoryToolAppBean> getCategoryToolAppBeanList() {
+        return categoryToolAppBeanList;
     }
 
-    public static class RecommendAppBean {
+    public static class CategoryToolAppBean {
         /** 标题 */
         private String title ;
         /** 广告 */
@@ -35,7 +35,7 @@ public class RecommendBean {
         private List<AppBean> appList ;
         private int type = 0 ;
 
-        public RecommendAppBean(String title, List<String> iconList, List<AppBean> appList, int type) {
+        public CategoryToolAppBean(String title, List<String> iconList, List<AppBean> appList, int type) {
             this.title = title;
             this.iconList = iconList;
             this.appList = appList;

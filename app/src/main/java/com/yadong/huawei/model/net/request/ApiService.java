@@ -1,4 +1,4 @@
-package com.yadong.huawei.data.net.request;
+package com.yadong.huawei.model.net.request;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;

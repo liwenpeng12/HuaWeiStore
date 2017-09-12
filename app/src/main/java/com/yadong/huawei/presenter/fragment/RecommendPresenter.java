@@ -1,8 +1,8 @@
 package com.yadong.huawei.presenter.fragment;
 
 import com.yadong.huawei.common.utils.JsonParseUtils;
-import com.yadong.huawei.data.net.bean.RecommendBean;
-import com.yadong.huawei.data.net.request.ApiService;
+import com.yadong.huawei.model.net.bean.RecommendBean;
+import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.ui.widget.LoadingPager;
 

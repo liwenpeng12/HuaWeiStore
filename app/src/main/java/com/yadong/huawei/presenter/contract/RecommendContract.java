@@ -1,6 +1,6 @@
 package com.yadong.huawei.presenter.contract;
 
-import com.yadong.huawei.data.net.bean.RecommendBean;
+import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.presenter.base.IBasePresenter;
 import com.yadong.huawei.presenter.base.IBaseView;
 

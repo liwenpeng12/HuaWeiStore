@@ -3,7 +3,7 @@ package com.yadong.huawei.dagger.module;
 import android.app.Application;
 
 import com.google.gson.Gson;
-import com.yadong.huawei.data.net.request.ApiService;
+import com.yadong.huawei.model.net.request.ApiService;
 
 import java.util.concurrent.TimeUnit;
 

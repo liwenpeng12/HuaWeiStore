@@ -1,7 +1,7 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.data.net.request.ApiService;
+import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 

@@ -2,7 +2,7 @@ package com.yadong.huawei.common.utils;
 
 import android.content.Context;
 
-import com.yadong.huawei.data.net.request.ApiService;
+import com.yadong.huawei.model.net.request.ApiService;
 
 import java.util.concurrent.TimeUnit;
 

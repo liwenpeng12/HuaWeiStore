@@ -1,4 +1,4 @@
-package com.yadong.huawei.data.net.bean;
+package com.yadong.huawei.model.net.bean;
 
 /**
  * Created by xzhang on 2017/5/25.

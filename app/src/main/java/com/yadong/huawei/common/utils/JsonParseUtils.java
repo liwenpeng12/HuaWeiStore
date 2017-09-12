@@ -1,18 +1,18 @@
 package com.yadong.huawei.common.utils;
 
-import com.yadong.huawei.data.net.bean.AppBean;
-import com.yadong.huawei.data.net.bean.AppCommentBean;
-import com.yadong.huawei.data.net.bean.AppDetailBean;
-import com.yadong.huawei.data.net.bean.AppIntroductionBean;
-import com.yadong.huawei.data.net.bean.AppMoreRecommendBean;
-import com.yadong.huawei.data.net.bean.AppRecommendBean;
-import com.yadong.huawei.data.net.bean.CategoryBean;
-import com.yadong.huawei.data.net.bean.CategoryNecessaryBean;
-import com.yadong.huawei.data.net.bean.CategoryNewBean;
-import com.yadong.huawei.data.net.bean.CategorySubscribeBean;
-import com.yadong.huawei.data.net.bean.CategoryToolBean;
-import com.yadong.huawei.data.net.bean.RecommendBean;
-import com.yadong.huawei.data.net.bean.TopBean;
+import com.yadong.huawei.model.net.bean.AppBean;
+import com.yadong.huawei.model.net.bean.AppCommentBean;
+import com.yadong.huawei.model.net.bean.AppDetailBean;
+import com.yadong.huawei.model.net.bean.AppIntroductionBean;
+import com.yadong.huawei.model.net.bean.AppMoreRecommendBean;
+import com.yadong.huawei.model.net.bean.AppRecommendBean;
+import com.yadong.huawei.model.net.bean.CategoryBean;
+import com.yadong.huawei.model.net.bean.CategoryNecessaryBean;
+import com.yadong.huawei.model.net.bean.CategoryNewBean;
+import com.yadong.huawei.model.net.bean.CategorySubscribeBean;
+import com.yadong.huawei.model.net.bean.CategoryToolBean;
+import com.yadong.huawei.model.net.bean.RecommendBean;
+import com.yadong.huawei.model.net.bean.TopBean;
 
 import org.json.JSONArray;
 import org.json.JSONException;

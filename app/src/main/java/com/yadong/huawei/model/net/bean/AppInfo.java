@@ -1,4 +1,4 @@
-package com.yadong.huawei.data.net.bean;
+package com.yadong.huawei.model.net.bean;
 
 import android.graphics.drawable.Drawable;
 

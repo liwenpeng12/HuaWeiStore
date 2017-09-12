@@ -7,7 +7,7 @@ import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.MyToast;
 import com.yadong.huawei.dagger.component.DaggerRecommendComponent;
 import com.yadong.huawei.dagger.module.RecommendModule;
-import com.yadong.huawei.data.net.bean.RecommendBean;
+import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 import com.yadong.huawei.ui.adapter.RecommendAdapter;

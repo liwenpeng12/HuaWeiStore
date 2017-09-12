@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.data.net.bean.AppBean;
-import com.yadong.huawei.data.net.bean.RecommendBean;
+import com.yadong.huawei.model.net.bean.AppBean;
+import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.ui.widget.recyclerview.adapter.CommonAdapter;
 import com.yadong.huawei.ui.widget.recyclerview.adapter.MultiItemTypeAdapter;
 import com.yadong.huawei.ui.widget.recyclerview.base.ItemViewDelegate;
