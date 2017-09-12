@@ -115,8 +115,8 @@
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
 #修改成你对应的包名
--keep class com.yadong.huawei.data.net.bean.** { *; }
--keep class com.yadong.huawei.data.db.bean.** { *; }
+-keep class com.yadong.huawei.model.net.bean.** { *; }
+-keep class com.yadong.huawei.model.db.bean.** { *; }
 
 #---------------------------------第三方包-------------------------------
 
@@ -371,11 +371,24 @@ public void xxxxxx(**);
 
 # #  ######## greenDao混淆  ##########
 # # -------------------------------------------
--keep class de.greenrobot.dao.** {*;}
--keepclassmembers class * extends de.greenrobot.dao.AbstractDao {
-    public static Java.lang.String TABLENAME;
+#-keep class de.greenrobot.dao.** {*;}
+#-keepclassmembers class * extends de.greenrobot.dao.AbstractDao {
+#    public static Java.lang.String TABLENAME;
+#}
+#-keep class **$Properties
+
+### greenDAO 3
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+public static java.lang.String TABLENAME;
 }
 -keep class **$Properties
+
+# If you do not use SQLCipher:
+-dontwarn org.greenrobot.greendao.database.**
+# If you do not use RxJava:
+-dontwarn rx.**
+
+
 # #  ############### volley混淆  ###############
 # # -------------------------------------------
 -keep class com.android.volley.** {*;}

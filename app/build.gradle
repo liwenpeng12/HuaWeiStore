@@ -19,6 +19,16 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+
+        greendao{
+            schemaVersion 1
+        }
     }
 }
 
@@ -44,6 +54,7 @@ dependencies {
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+    compile 'zlc.season:rxdownload2:2.0.4'
 
 
     //network
@@ -71,10 +82,6 @@ dependencies {
     compile 'com.gyf.barlibrary:barlibrary:2.2.9'
     compile 'org.greenrobot:greendao:3.2.0'
 
-    //大图轮播的库
-//    compile 'com.android.support:support-v4:+'
-    compile 'com.daimajia.slider:library:1.1.5@aar'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.squareup.picasso:picasso:2.3.2'
+
 
 }
