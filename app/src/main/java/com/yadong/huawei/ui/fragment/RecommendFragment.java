@@ -56,7 +56,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
 
     @Override
     protected void initViews() {
-
+        show();//在这调用show,是因为,页面刚进来的时候,外界的Tab并不会默认调用第一个fragment的show方法,所有需要在这手动调用下
     }
 
     @Override

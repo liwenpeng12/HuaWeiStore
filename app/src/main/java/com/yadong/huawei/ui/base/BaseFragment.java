@@ -62,29 +62,32 @@ public abstract class BaseFragment<T extends IBasePresenter> extends Fragment {
         return mLoadingPager;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (getUserVisibleHint() && mLoadingPager != null && !mIsLoad) {
-            mIsLoad = true;
-            show();
-        }
-    }
-
     /**
-     * 为什么要在setUserVisibleHint方法和onActivityCreated两处都调用获取数据进行界面更新的方法updateViews呢？
-     * 原因:第一次进入界面，第一个Fragment获取数据是在onActivityCreated里面，剩余的Fragment获取数据是在setUserVisibleHint里面。
+     * 不用这个方式,也可以实现懒加载,调用的方式统一放到了Tab切换的时候,去获取数据,如果已经是成功状态就不获取了,只有是失败或者空的状态才去获取
      */
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        if (isVisibleToUser && isVisible() && mLoadingPager != null && !mIsLoad) {
-            mIsLoad = true;
-            System.out.println("setUserVisibleHint  1次");
-            show();
-        } else {
-            super.setUserVisibleHint(isVisibleToUser);
-        }
-    }
+    //    @Override
+//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+//        super.onActivityCreated(savedInstanceState);
+//        if (getUserVisibleHint() && mLoadingPager != null && !mIsLoad) {
+//            mIsLoad = true;
+//            show();
+//        }
+//    }
+//
+//    /**
+//     * 为什么要在setUserVisibleHint方法和onActivityCreated两处都调用获取数据进行界面更新的方法updateViews呢？
+//     * 原因:第一次进入界面，第一个Fragment获取数据是在onActivityCreated里面，剩余的Fragment获取数据是在setUserVisibleHint里面。
+//     */
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        if (isVisibleToUser && isVisible() && mLoadingPager != null && !mIsLoad) {
+//            mIsLoad = true;
+//            System.out.println("setUserVisibleHint  1次");
+//            show();
+//        } else {
+//            super.setUserVisibleHint(isVisibleToUser);
+//        }
+//    }
 
     /**
      * 绑定布局文件
