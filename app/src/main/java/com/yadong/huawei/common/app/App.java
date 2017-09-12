@@ -8,7 +8,6 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
-import com.yadong.huawei.dagger.module.HttpModule;
 
 
 /**
@@ -38,8 +37,6 @@ public class App extends Application {
     private void initConfig() {
         instance = this;
         mHandler = new Handler();
-
-        CrashHandler.getInstance().init(this);
     }
 
     /**
@@ -51,6 +48,7 @@ public class App extends Application {
     }
 
     private void initUtils() {
+        CrashHandler.getInstance().init(this);
         RetrofitUtils.getInstance().initOkHttp(this);
     }
 
@@ -63,7 +61,6 @@ public class App extends Application {
         mAppComponent = DaggerAppComponent
                 .builder()
                 .appModule(new AppModule(this))
-                .httpModule(new HttpModule())
                 .build();
     }
 

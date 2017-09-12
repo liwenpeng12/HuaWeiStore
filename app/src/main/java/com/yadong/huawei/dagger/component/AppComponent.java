@@ -3,8 +3,6 @@ package com.yadong.huawei.dagger.component;
 import android.app.Application;
 
 import com.yadong.huawei.dagger.module.AppModule;
-import com.yadong.huawei.dagger.module.HttpModule;
-import com.yadong.huawei.model.net.request.ApiService;
 
 import javax.inject.Singleton;
 
@@ -16,11 +14,8 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {AppModule.class, HttpModule.class})
+@Component(modules = {AppModule.class})
 public interface AppComponent {
-
-    //作为桥接而已
-    ApiService getApiService();
 
     //作为桥接而已,要不然引用这个Component的那个component拿不到这个对象
     Application getMyApplication();

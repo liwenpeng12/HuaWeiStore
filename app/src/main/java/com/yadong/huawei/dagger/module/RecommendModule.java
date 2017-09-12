@@ -1,7 +1,6 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 
@@ -31,8 +30,8 @@ public class RecommendModule {
      * 提供了RecommendPresenter对象
      */
     @Provides
-    public RecommendPresenter provideRecommendPresenter(RecommendContract.View view, ApiService apiService) {
-        return new RecommendPresenter(view,apiService);
+    public RecommendPresenter provideRecommendPresenter(RecommendContract.View view) {
+        return new RecommendPresenter(view);
     }
 
 

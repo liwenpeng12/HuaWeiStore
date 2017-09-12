@@ -19,13 +19,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtils {
 
-    private static Retrofit retrofit;
+    private Retrofit retrofit;
+    private static ApiService mApiService;
 
     public void initOkHttp(Context context) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         //CommonParamsInterceptor interceptor = new CommonParamsInterceptor(context, new Gson());
-        OkHttpClient client = new OkHttpClient.Builder()
+        OkHttpClient client = new OkHttpClient
+                .Builder()
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)       //设置连接超时
                 .readTimeout(10000L, TimeUnit.MILLISECONDS)          //设置读取超时
                 .writeTimeout(10000L, TimeUnit.MILLISECONDS)         //设置写入超时
@@ -39,11 +41,13 @@ public class RetrofitUtils {
                 .addConverterFactory(GsonConverterFactory.create()) //  添加数据解析ConverterFactory
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())   //添加RxJava
                 .build();
+
+        mApiService = retrofit.create(ApiService.class);
     }
 
 
-    public static <S> S createService(Class<S> serviceClass) {
-        return retrofit.create(serviceClass);
+    public static ApiService getApiService() {
+        return mApiService;
     }
 
 
@@ -54,5 +58,9 @@ public class RetrofitUtils {
     private static class SingleLoader {
         private static final RetrofitUtils INSTANCE = new RetrofitUtils();
     }
+
+    //    public static <S> S createService(Class<S> serviceClass) {
+    //        return retrofit.create(serviceClass);
+    //    }
 
 }

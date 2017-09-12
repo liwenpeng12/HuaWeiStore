@@ -2,8 +2,6 @@ package com.yadong.huawei.dagger.module;
 
 import android.app.Application;
 
-import com.google.gson.Gson;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -30,10 +28,4 @@ public class AppModule {
         return mApplication;
     }
 
-
-    @Provides
-    @Singleton
-    public Gson provideGson() {
-        return new Gson();
-    }
 }
