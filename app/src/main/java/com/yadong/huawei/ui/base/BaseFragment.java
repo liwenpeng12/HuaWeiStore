@@ -3,14 +3,16 @@ package com.yadong.huawei.ui.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.presenter.base.IBasePresenter;
+import com.yadong.huawei.presenter.base.IBaseView;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
 import javax.inject.Inject;
@@ -20,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * 基类Fragment
  */
-public abstract class BaseFragment<T extends IBasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment implements IBaseView {
 
 
     protected Context mContext;
@@ -129,10 +131,15 @@ public abstract class BaseFragment<T extends IBasePresenter> extends Fragment {
     /**
      * 设置当前的状态(用于加载完页面的数据,是成功还是失败)
      */
-    protected void setCurrentState(LoadingPager.LoadResult result) {
+    public void setCurrentState(LoadingPager.LoadResult result) {
         if (mLoadingPager != null) {
             mLoadingPager.setCurrentState(result);
         }
     }
 
+
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.<T>bindToLifecycle();
+    }
 }

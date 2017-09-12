@@ -1,7 +1,7 @@
 package com.yadong.huawei.presenter.base;
 
 
-import com.yadong.huawei.ui.widget.LoadingPager;
+import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
  *
@@ -10,10 +10,7 @@ import com.yadong.huawei.ui.widget.LoadingPager;
 public interface IBaseView {
 
     /**
-     * 设置当前的页面状态
-     * @param result 加载中,成功,失败,空
+     * 绑定生命周期
      */
-    void setCurrentState(LoadingPager.LoadResult result);
-
-
+    <T> LifecycleTransformer<T> bindToLife();
 }

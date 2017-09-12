@@ -2,20 +2,22 @@ package com.yadong.huawei.ui.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.manager.AppActivityManager;
 import com.yadong.huawei.dagger.component.AppComponent;
+import com.yadong.huawei.presenter.base.IBaseView;
 
 import butterknife.ButterKnife;
 
 /**
  * 基类Activity
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends RxAppCompatActivity implements IBaseView {
 
 
     private ImmersionBar mImmersionBar;
@@ -87,6 +89,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         return App.getAppComponent();
     }
 
+    /**
+     * 绑定生命周期
+     */
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.<T>bindToLifecycle();
+    }
 
     /**
      * 带打开动画的开启

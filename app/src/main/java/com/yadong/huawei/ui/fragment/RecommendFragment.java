@@ -123,8 +123,6 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
         super.setCurrentState(result);
     }
 
-
-
     /**
      * 获取更多数据
      * @param recommendBean

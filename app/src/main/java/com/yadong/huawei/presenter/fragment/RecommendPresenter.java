@@ -17,7 +17,6 @@ import okhttp3.ResponseBody;
  *
  * P层
  */
-
 public class RecommendPresenter implements RecommendContract.Presenter {
 
     private ApiService mApiService;
@@ -34,6 +33,7 @@ public class RecommendPresenter implements RecommendContract.Presenter {
                 .getRecommendData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .compose(mView.<ResponseBody>bindToLife())
                 .subscribe(new Consumer<ResponseBody>() {
                     @Override
                     public void accept(@NonNull ResponseBody responseBody) throws Exception {
@@ -58,6 +58,7 @@ public class RecommendPresenter implements RecommendContract.Presenter {
                 .getRecommendData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .compose(mView.<ResponseBody>bindToLife())
                 .subscribe(new Consumer<ResponseBody>() {
                     @Override
                     public void accept(@NonNull ResponseBody responseBody) throws Exception {
