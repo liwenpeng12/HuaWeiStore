@@ -37,7 +37,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
 
     private RecommendAdapter mRecommendAdapter;
     private RecommendTopWrapper mTopWrapper;
-    private List<RecommendBean.RecommendAppBean> recommendAppBeanList = new ArrayList<>();//加载更多的集合数据
+    private List<RecommendBean.RecommendAppBean> mRecommendAppList = new ArrayList<>();//加载更多的集合数据
 
     @Override
     protected int attachLayoutRes() {
@@ -81,8 +81,12 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
     }
 
     private void showRevData(RecommendBean recommendBean) {
+        mRecommendAppList.clear();
+        mRecommendAppList.addAll(recommendBean.getRecommendAppBeanList());
+
         mRecommendAdapter = new RecommendAdapter(getContext());
-        mRecommendAdapter.addDataAll(recommendBean.getRecommendAppBeanList());
+        mRecommendAdapter.addDataAll(mRecommendAppList);
+
         mTopWrapper = new RecommendTopWrapper(getContext(), mRecommendAdapter);
         mTopWrapper.addDataAll(recommendBean.getBannerList());
 
@@ -125,16 +129,14 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
 
     /**
      * 获取更多数据
-     * @param recommendBean
      */
     @Override
     public void getDataMoreSuccess(RecommendBean recommendBean) {
-        recommendAppBeanList.addAll(recommendBean.getRecommendAppBeanList());
-        mRecommendAdapter.clearData();
-        mRecommendAdapter.addDataAll(recommendAppBeanList);
+        mPullToRefresh.onFinishLoading();//完成加载更多
+        //把获取到的数据塞到之前的集合中
+        mRecommendAppList.addAll(recommendBean.getRecommendAppBeanList());
+        mRecommendAdapter.addDataAll(mRecommendAppList);
         mTopWrapper.notifyDataSetChanged();
-
-        mPullToRefresh.onFinishLoading();
     }
 
 }
