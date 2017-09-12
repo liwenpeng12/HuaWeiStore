@@ -13,7 +13,6 @@ import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 基类Fragment
@@ -24,7 +23,6 @@ public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected LoadingPager mLoadingPager; //缓存Fragment view
     protected boolean mIsLoad = false;//是否加载数据
-    protected Unbinder mUnBinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public abstract class BaseFragment extends Fragment {
                     BaseFragment.this.updateViews();
                 }
             };
-            mUnBinder = ButterKnife.bind(this, mLoadingPager);
+            ButterKnife.bind(this, mLoadingPager);
             initInjector();
             initViews();
         }
@@ -112,7 +110,6 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * 进行展示,默认是展示的Loading转圈圈,然后同时去调用loadData方法去加载数据(就是上面创建loadingPager重写的那个loadData方法)
-     *
      */
     public void show() {
         if (mLoadingPager != null) {
@@ -129,12 +126,4 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        //解除butterKnife
-        if (mUnBinder != Unbinder.EMPTY) {
-            mUnBinder.unbind();
-        }
-    }
 }

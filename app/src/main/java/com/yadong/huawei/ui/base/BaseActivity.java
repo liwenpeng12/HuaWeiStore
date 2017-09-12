@@ -11,14 +11,13 @@ import com.yadong.huawei.common.manager.AppActivityManager;
 import com.yadong.huawei.dagger.component.AppComponent;
 
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 基类Activity
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private Unbinder mUnBinder;
+
     private ImmersionBar mImmersionBar;
 
     @Override
@@ -55,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 添加Activity进栈和初始化ButterKnife绑定控件
      */
     private void initButterKnife() {
-        mUnBinder = ButterKnife.bind(this);
+        ButterKnife.bind(this);
     }
 
     /**
@@ -91,6 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 带打开动画的开启
+     *
      * @param isHaveAnim 是否有动画
      */
     public void startActivity(Intent intent, boolean isHaveAnim) {
@@ -102,6 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 带退出动画的关闭
+     *
      * @param isHaveAnim 是否有动画
      */
     public void finish(boolean isHaveAnim) {
@@ -115,10 +116,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         AppActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
-        //解除butterKnife
-        if (mUnBinder != Unbinder.EMPTY) {
-            mUnBinder.unbind();
-        }
+
         //必须调用该方法，防止内存泄漏
         if (mImmersionBar != null) {
             mImmersionBar.destroy();

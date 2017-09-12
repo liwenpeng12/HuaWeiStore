@@ -3,6 +3,7 @@ package com.yadong.huawei.common.app;
 import android.app.Application;
 import android.os.Handler;
 
+import com.yadong.huawei.common.utils.CrashHandler;
 import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
@@ -37,6 +38,8 @@ public class App extends Application {
     private void initConfig() {
         instance = this;
         mHandler = new Handler();
+
+        CrashHandler.getInstance().init(this);
     }
 
     /**
