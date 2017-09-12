@@ -22,6 +22,15 @@ public final class ImageLoader {
         throw new RuntimeException("ImageLoader cannot be initialized!");
     }
 
+    public static void load(Context context, String url, ImageView view, int defaultResId) {
+        if (NetUtil.isWifiConnected(context) || NetUtil.isNetworkAvailable(context)) {
+            Glide.with(context).load(url).into(view) ;
+        } else {
+            view.setScaleType(ImageView.ScaleType.MATRIX);
+            view.setImageResource(defaultResId);
+        }
+    }
+
 
     public static void loadFit(Context context, String url, ImageView view, int defaultResId) {
         if (NetUtil.isWifiConnected(context) || NetUtil.isNetworkAvailable(context)) {

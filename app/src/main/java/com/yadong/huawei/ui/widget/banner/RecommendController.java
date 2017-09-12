@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.DefIconFactory;
+import com.yadong.huawei.common.utils.NetUtil;
 import com.yadong.huawei.common.utils.UIUtils;
 
 import java.util.List;
@@ -109,7 +111,14 @@ public class RecommendController {
             } else {
                 holder = (Holder) convertView.getTag();
             }
-            Glide.with(UIUtils.getContext()).load(urls.get(position % urls.size())).into(holder.item_head_gallery_img);
+            if (NetUtil.isWifiConnected(mContext) || NetUtil.isNetworkAvailable(mContext)) {
+                Glide.with(UIUtils.getContext()).load(urls.get(position % urls.size())).into(holder.item_head_gallery_img);
+            } else {
+                holder.item_head_gallery_img.setScaleType(ImageView.ScaleType.MATRIX);
+                holder.item_head_gallery_img.setImageResource(DefIconFactory.provideIcon());
+            }
+
+
 
             return convertView;
         }
