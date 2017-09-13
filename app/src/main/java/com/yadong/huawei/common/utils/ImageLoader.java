@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.yadong.huawei.common.app.App;
 
 import java.io.File;
 import java.util.concurrent.ExecutionException;
@@ -24,7 +25,7 @@ public final class ImageLoader {
 
     public static void load(Context context, String url, ImageView view, int defaultResId) {
         if (NetUtil.isWifiConnected(context) || NetUtil.isNetworkAvailable(context)) {
-            Glide.with(context).load(url).into(view) ;
+            Glide.with(App.getInstance()).load(url).into(view) ;
         } else {
             view.setScaleType(ImageView.ScaleType.MATRIX);
             view.setImageResource(defaultResId);

@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.utils.DefIconFactory;
 import com.yadong.huawei.common.utils.ImageLoader;
 
@@ -103,12 +104,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public ViewHolder setImageUrl(int viewId, String url) {
         ImageView view = getView(viewId);
 //        Glide.with(App.getInstance()).load(url).into(view) ;
-        ImageLoader.load(mContext, url, view, DefIconFactory.provideIcon());
+        ImageLoader.load(App.getInstance(), url, view, DefIconFactory.provideIcon());
         return this;
     }
-
-
-
 
     public ViewHolder setImageBitmap(int viewId, Bitmap bitmap) {
         ImageView view = getView(viewId);
