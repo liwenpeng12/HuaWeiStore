@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.yadong.huawei.R;
@@ -45,6 +46,15 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 重写初始化沉浸式状态栏
+     */
+    protected void initImmersionBar() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar
+                .statusBarDarkFont(true)
+                .init();
+    }
 
     @OnClick(R.id.bt_enter)
     public void onViewClicked() {

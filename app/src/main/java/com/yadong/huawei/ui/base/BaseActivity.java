@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends RxAppCompatActivity implements IBaseView {
 
 
-    private ImmersionBar mImmersionBar;
+    protected ImmersionBar mImmersionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +125,6 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     protected void onDestroy() {
         AppActivityManager.getInstance().removeActivity(this);
         super.onDestroy();
-
         //必须调用该方法，防止内存泄漏
         if (mImmersionBar != null) {
             mImmersionBar.destroy();
