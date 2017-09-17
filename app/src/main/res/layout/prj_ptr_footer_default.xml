@@ -17,9 +17,9 @@
             android:layout_gravity="center_vertical"
             wheel:matProg_progressIndeterminate="false"
             wheel:matProg_spinSpeed="0.64"
-            wheel:matProg_barColor="@color/colorPrimary"
+            wheel:matProg_barColor="@color/CS_item_pressed"
             wheel:matProg_barWidth="2dp"
-            wheel:matProg_rimColor="@color/colorPrimary"
+            wheel:matProg_rimColor="@color/CS_item_pressed"
             wheel:matProg_rimWidth="2dp" />
 
         <TextView

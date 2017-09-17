@@ -16,9 +16,6 @@ import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 
 /**
@@ -37,7 +34,6 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
 
     private RecommendAdapter mRecommendAdapter;
     private RecommendTopWrapper mTopWrapper;
-    private List<RecommendBean.RecommendAppBean> mRecommendAppList = new ArrayList<>();//加载更多的集合数据
 
     @Override
     protected int attachLayoutRes() {
@@ -77,24 +73,30 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
     @Override
     public void getDataSuccess(RecommendBean recommendBean) {
         showRevData(recommendBean);
-        setLoadMore();
+        setLoadMoreListener();
     }
 
+    /**
+     * 展示条目数据
+     */
     private void showRevData(RecommendBean recommendBean) {
-        mRecommendAppList.clear();
-        mRecommendAppList.addAll(recommendBean.getRecommendAppBeanList());
-
+        //多条目的Adapter
         mRecommendAdapter = new RecommendAdapter(getContext());
-        mRecommendAdapter.addDataAll(mRecommendAppList);
+        mRecommendAdapter.addDataAll(recommendBean.getRecommendAppBeanList());
 
+        //头的Adapter
         mTopWrapper = new RecommendTopWrapper(getContext(), mRecommendAdapter);
         mTopWrapper.addDataAll(recommendBean.getBannerList());
 
+        //设置Adapter给RecyclerView
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mTopWrapper);
     }
 
-    private void setLoadMore() {
+    /**
+     * 设置加载更多监听
+     */
+    private void setLoadMoreListener() {
         mPullToRefresh.setPullDownEnable(false);//不允许下拉刷新
 
         mPullToRefresh.setListener(new PullToRefreshView.OnRefreshListener() {
@@ -133,9 +135,8 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
     @Override
     public void getDataMoreSuccess(RecommendBean recommendBean) {
         mPullToRefresh.onFinishLoading();//完成加载更多
-        //把获取到的数据塞到之前的集合中
-        mRecommendAppList.addAll(recommendBean.getRecommendAppBeanList());
-        mRecommendAdapter.addDataAll(mRecommendAppList);
+        //把获取到的数据塞到集合中
+        mRecommendAdapter.addDataAll(recommendBean.getRecommendAppBeanList());
         mTopWrapper.notifyDataSetChanged();
     }
 
