@@ -46,7 +46,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar
-                .statusBarDarkFont(true)
+                .statusBarDarkFont(true,0.1f)
                 .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
                 .statusBarColor(R.color.white)
                 .init();

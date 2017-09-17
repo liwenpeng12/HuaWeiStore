@@ -119,6 +119,8 @@
 -keep class com.yadong.huawei.model.db.bean.** { *; }
 
 #---------------------------------第三方包-------------------------------
+#沉浸式状态栏
+-keep class com.gyf.barlibrary.* {*;}
 
 #支付宝支付
 -keep class com.alipay.android.app.IAlixPay{*;}
