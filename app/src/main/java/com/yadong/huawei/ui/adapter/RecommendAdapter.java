@@ -59,6 +59,7 @@ public class RecommendAdapter extends MultiItemTypeAdapter<RecommendBean.Recomme
         public void convert(ViewHolder holder, final RecommendBean.RecommendAppBean recommendAppBean, int position) {
             holder.setText(R.id.tv_item_title, recommendAppBean.getTitle());
             RecyclerView rv = holder.getView(R.id.rv_applist_item);
+
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
             linearLayoutManager.setOrientation(LinearLayout.HORIZONTAL);
             rv.setLayoutManager(linearLayoutManager);
