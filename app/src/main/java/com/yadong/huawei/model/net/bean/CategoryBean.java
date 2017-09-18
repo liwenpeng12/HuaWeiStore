@@ -3,16 +3,14 @@ package com.yadong.huawei.model.net.bean;
 import java.util.List;
 
 /**
- * <p>Description:
  *
- * @author xzhang
  */
-
 public class CategoryBean {
 
-    private String title ;
-    private List<CategoryTopBean> categoryTopBeanList ;
-    private List<CategoryDataBean> categoryDataBeanList ;
+    private List<CategoryTopBean> categoryTopBeanList ;//头部信息数据
+
+    private String title ;//标题
+    private List<CategoryDataBean> categoryDataBeanList ;//内容
 
     public CategoryBean(String title,List<CategoryTopBean> categoryTopBeanList, List<CategoryDataBean> categoryDataBeanList) {
         this.title = title ;

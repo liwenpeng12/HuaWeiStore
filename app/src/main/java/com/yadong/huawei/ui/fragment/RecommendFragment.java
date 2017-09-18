@@ -11,7 +11,7 @@ import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 import com.yadong.huawei.ui.adapter.RecommendAdapter;
-import com.yadong.huawei.ui.adapter.RecommendTopWrapper;
+import com.yadong.huawei.ui.adapter.wrapper.RecommendTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView;

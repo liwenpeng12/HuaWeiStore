@@ -1,4 +1,4 @@
-package com.yadong.huawei.ui.adapter;
+package com.yadong.huawei.ui.adapter.wrapper;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

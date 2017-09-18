@@ -30,7 +30,7 @@ public class RecommendModule {
      * 提供了RecommendPresenter对象
      */
     @Provides
-    public RecommendPresenter provideRecommendPresenter(RecommendContract.View view) {
+    public RecommendPresenter providePresenter(RecommendContract.View view) {
         return new RecommendPresenter(view);
     }
 
@@ -39,7 +39,7 @@ public class RecommendModule {
      * 提供了RecommendContract.View对象
      */
     @Provides
-    public RecommendContract.View provideRecommendView() {
+    public RecommendContract.View provideView() {
         return mView;
     }
 
