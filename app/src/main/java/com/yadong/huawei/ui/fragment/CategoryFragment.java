@@ -21,7 +21,6 @@ import butterknife.BindView;
 /**
  * 分类
  */
-
 public class CategoryFragment extends BaseFragment<CategoryPresenter>
         implements CategoryContract.View {
 
@@ -61,14 +60,14 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
 
     @Override
     public void getDataSuccess(CategoryBean bean) {
-        showRecData(bean);
+        showRevData(bean);
         setSearchListener();
     }
 
     /**
      * 展示RecyclerView列表
      */
-    private void showRecData(CategoryBean bean) {
+    private void showRevData(CategoryBean bean) {
         SectionRVAdapter adapter = new SectionRVAdapter(getContext());
 
         CategorySection categoryContactsSection = new CategorySection(getContext(),

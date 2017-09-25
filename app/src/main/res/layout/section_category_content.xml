@@ -3,9 +3,12 @@
                 android:id="@+id/rl_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/list_item_all_selector"
+                android:background="?android:attr/selectableItemBackground"
                 android:paddingLeft="16.0dp"
                 android:paddingRight="16.0dp">
+
+    <!-- 自己写的Selector -->
+    <!--android:background="@drawable/list_item_all_selector"-->
 
     <ImageView
         android:id="@+id/appicon"

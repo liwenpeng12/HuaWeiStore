@@ -20,11 +20,11 @@ import okhttp3.ResponseBody;
 public class CategoryPresenter implements CategoryContract.Presenter {
 
 
-    private  CategoryContract.View mView;
+    private CategoryContract.View mView;
     private ApiService mApiService;
 
-    public CategoryPresenter(CategoryContract.View view){
-        this.mView=view;
+    public CategoryPresenter(CategoryContract.View view) {
+        this.mView = view;
         mApiService = RetrofitUtils.getApiService();
     }
 
