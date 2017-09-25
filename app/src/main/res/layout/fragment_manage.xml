@@ -116,8 +116,8 @@
         <com.yadong.huawei.ui.widget.EnterLayout
             android:id="@+id/install_manager_layout"
             android:layout_width="match_parent"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
             />
 
         <com.yadong.huawei.ui.widget.EnterLayout
@@ -125,22 +125,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
-           />
+            />
 
         <com.yadong.huawei.ui.widget.EnterLayout
             android:id="@+id/system_manager_layout"
             android:layout_width="match_parent"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
             />
 
 
         <com.yadong.huawei.ui.widget.EnterLayout
             android:id="@+id/connect_computer"
             android:layout_width="match_parent"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"
-           />
+            android:background="?android:attr/selectableItemBackground"
+            />
 
         <View
             android:layout_width="match_parent"

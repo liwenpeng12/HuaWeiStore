@@ -40,6 +40,7 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
     @BindView(R.id.connect_computer)
     EnterLayout connect ;
 
+
     @Override
     protected int attachLayoutRes() {
         return R.layout.fragment_manage;
@@ -73,6 +74,7 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
     protected void updateViews() {
         setCurrentState(LoadingPager.LoadResult.success);
     }
+
 
     @OnClick({R.id.install_manager_layout, R.id.apk_manager_layout,
             R.id.system_manager_layout, R.id.connect_computer,R.id.update_manager_layout})
