@@ -79,6 +79,7 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
         categoryTopWrapper.addDataAll(bean.getCategoryTopBeanList());
 
         mRecyclerView.setAdapter(categoryTopWrapper);
+
     }
 
     /**

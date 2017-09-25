@@ -35,4 +35,23 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="item_title_true_15sp">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/title_name_black</item>
+    </style>
+
+    <style name="master_content_style_13sp_50alpha">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="content_style_13sp_50alpha">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
 </resources>
