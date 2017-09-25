@@ -13,7 +13,6 @@ import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 import com.yadong.huawei.ui.adapter.RecommendAdapter;
 import com.yadong.huawei.ui.adapter.wrapper.RecommendTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
-import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView;
 
 import butterknife.BindView;
@@ -124,10 +123,10 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
      * 设置页面的状态
      * @param result 加载中,成功,失败,空
      */
-    @Override
-    public void setCurrentState(LoadingPager.LoadResult result) {
-        super.setCurrentState(result);
-    }
+//    @Override
+//    public void setCurrentState(LoadingPager.LoadResult result) {
+//        super.setCurrentState(result);
+//    }
 
     /**
      * 获取更多数据

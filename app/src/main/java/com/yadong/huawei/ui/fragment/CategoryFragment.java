@@ -95,6 +95,7 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
                 /**
                  * 1.是第一个条目 2.是展开状态 3.dy>0:是向上滑动
                  * 搜索框应该隐藏,标记也跟着改
+                 * firstVisibleItemPosition==0 并且 mIsExpand==true 并且 dy>0
                  */
                 if (firstVisibleItemPosition == 0 && mIsExpand && dy > 0) {
                     mViewUpSearch.updateShow(false);
@@ -104,6 +105,7 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
                 /**
                  * 1.是第一个条目 2.没有展开 3.dy<0:是向下滑动
                  * 搜索框应显示
+                 * firstVisibleItemPosition==0 并且 mIsExpand==false 并且 dy>0
                  */
                 else if (firstVisibleItemPosition == 0 && !mIsExpand && dy < 0) {
                     mViewUpSearch.updateShow(true);

@@ -27,4 +27,12 @@
         <item name="android:background">@drawable/no_wifi_setting_button</item>
     </style>
 
+    <style name="download_button">
+        <item name="android:textSize">@dimen/res_textsize_12dp</item>
+        <item name="android:textColor">@color/white_text_7c7c7c</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

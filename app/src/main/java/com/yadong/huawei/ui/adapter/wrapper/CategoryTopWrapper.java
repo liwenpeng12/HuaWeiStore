@@ -71,7 +71,9 @@ public class CategoryTopWrapper extends HeaderAndFooterWrapper {
     }
 
     public void clearData() {
-        if(topBeanList != null)
+        if(topBeanList != null){
+
             topBeanList.clear();
+        }
     }
 }

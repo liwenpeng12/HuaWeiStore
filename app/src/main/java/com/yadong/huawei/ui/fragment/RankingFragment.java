@@ -1,24 +1,41 @@
 package com.yadong.huawei.ui.fragment;
 
-import android.os.SystemClock;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.MyToast;
+import com.yadong.huawei.dagger.component.DaggerRankingComponent;
+import com.yadong.huawei.dagger.module.RankingModule;
+import com.yadong.huawei.model.net.bean.AppBean;
+import com.yadong.huawei.model.net.bean.TopBean;
+import com.yadong.huawei.presenter.contract.RankingContract;
+import com.yadong.huawei.presenter.fragment.RankingPresenter;
+import com.yadong.huawei.ui.adapter.section.RankingSection;
+import com.yadong.huawei.ui.adapter.wrapper.RankingTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
-import com.yadong.huawei.ui.widget.LoadingPager;
+import com.yadong.huawei.ui.widget.ViewUpSearch;
+import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 
 /**
- *排行
+ * 排行
  */
+public class RankingFragment extends BaseFragment<RankingPresenter>
+        implements RankingContract.View {
 
-public class RankingFragment extends BaseFragment {
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
 
-    @BindView(R.id.tv_name)
-    TextView mTvName;
+    @BindView(R.id.view_up_search)
+    ViewUpSearch mViewUpSearch;
 
-
+    private boolean mIsExpand = true;//是否展开,默认是展开的
 
     @Override
     protected int attachLayoutRes() {
@@ -27,26 +44,88 @@ public class RankingFragment extends BaseFragment {
 
     @Override
     protected void initInjector() {
-
+        DaggerRankingComponent
+                .builder()
+                .appComponent(getAppComponent())
+                .rankingModule(new RankingModule(this))
+                .build()
+                .inject(this);
     }
 
     @Override
     protected void initViews() {
-
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     @Override
     protected void updateViews() {
-        new Thread(new Runnable() {
-            @Override
-            public void run()
-            {
-                SystemClock.sleep(2000);
-                setCurrentState(LoadingPager.LoadResult.success);
-                mTvName.setText("排行");
-            }
-        }).start();
+        mPresenter.getData();
     }
 
 
+    @Override
+    public void getDataSuccess(TopBean bean) {
+        showRevData(bean);
+        setSearchListener();
+    }
+
+    /**
+     * 展示RecyclerView列表
+     */
+    private void showRevData(TopBean bean) {
+        //创建带Section的Adapter
+        SectionRVAdapter sectionAdapter = new SectionRVAdapter(getContext());
+
+        Map<String, List<AppBean>> appBeanMap = bean.getAppBeanMap();
+        Set<String> strings = appBeanMap.keySet();
+
+        //体数据  包含:标题和内容List
+        for (String name : strings) {
+            List<AppBean> appBeanList = appBeanMap.get(name);
+            RankingSection section = new RankingSection(getContext(), name, appBeanList);
+            sectionAdapter.addSection(section);
+        }
+
+        //头
+        RankingTopWrapper topTopWrapper = new RankingTopWrapper(getContext(), sectionAdapter);
+        topTopWrapper.addDataAll(bean.getTopTopBeanList());
+
+        mRecyclerView.setAdapter(topTopWrapper);
+    }
+
+    /**
+     * 设置搜索框的显示,监听RecyclerView
+     */
+    private void setSearchListener() {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int firstVisibleItemPosition = ((LinearLayoutManager) (mRecyclerView.getLayoutManager())).findFirstVisibleItemPosition();
+                /**
+                 * 1.是第一个条目 2.是展开状态 3.dy>0:是向上滑动
+                 * 搜索框应该隐藏,标记也跟着改
+                 * firstVisibleItemPosition==0 并且 mIsExpand==true 并且 dy>0
+                 */
+                if (firstVisibleItemPosition == 0 && mIsExpand && dy > 0) {
+                    mViewUpSearch.updateShow(false);
+                    mIsExpand = false;
+                }
+                /**
+                 * 1.是第一个条目 2.没有展开 3.dy<0:是向下滑动
+                 * 搜索框应显示
+                 * firstVisibleItemPosition==0 并且 mIsExpand==false 并且 dy>0
+                 */
+                else if (firstVisibleItemPosition == 0 && !mIsExpand && dy < 0) {
+                    mViewUpSearch.updateShow(true);
+                    mIsExpand = true;
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getDataFail(String message) {
+        MyToast.show(getContext(), message);
+    }
 }
