@@ -10,4 +10,5 @@ public interface Constants {
     String IS_ENTER = "is_enter";//是否进入主页面
 
 
+    String PACKAGE_NAME="package_name";//app详情的包名
 }

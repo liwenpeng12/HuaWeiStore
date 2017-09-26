@@ -24,7 +24,6 @@ public class RankingSection extends StatelessSection {
     private String mTitle;
     private List<AppBean> mDataBeanList;
 
-
     public RankingSection(Context context, String title,List<AppBean> appBeanList) {
         super(R.layout.section_category_title, R.layout.section_ranking_content);
         this.mContext = context;
@@ -53,7 +52,7 @@ public class RankingSection extends StatelessSection {
      */
     @Override
     public void onBindItemViewHolder(ViewHolder holder, final int position) {
-        AppBean bean = mDataBeanList.get(position);
+        final AppBean bean = mDataBeanList.get(position);
 
         holder.setText(R.id.appSerial,bean.getAliasName());
         holder.setImageUrl(R.id.appicon,bean.getIcon()) ;
@@ -61,14 +60,11 @@ public class RankingSection extends StatelessSection {
         holder.setText(R.id.ItemText_star,bean.getSizeDesc()) ;
         holder.setText(R.id.memo,bean.getMemo()) ;
 
-
-
-
         holder.setOnClickListener(R.id.AppListItem, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
-                    mListener.onItemClick(position);
+                    mListener.onItemClick(position,bean.getPackageName());
                 }
             }
         });
@@ -108,7 +104,6 @@ public class RankingSection extends StatelessSection {
 
             tvMore.setVisibility(View.GONE);
             ivMore.setVisibility(View.GONE);
-
         }
     }
 
@@ -145,7 +140,7 @@ public class RankingSection extends StatelessSection {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(int position,String packageName);
     }
 
 }

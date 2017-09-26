@@ -1,9 +1,11 @@
 package com.yadong.huawei.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.MyToast;
 import com.yadong.huawei.dagger.component.DaggerRankingComponent;
 import com.yadong.huawei.dagger.module.RankingModule;
@@ -11,6 +13,7 @@ import com.yadong.huawei.model.net.bean.AppBean;
 import com.yadong.huawei.model.net.bean.TopBean;
 import com.yadong.huawei.presenter.contract.RankingContract;
 import com.yadong.huawei.presenter.fragment.RankingPresenter;
+import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.section.RankingSection;
 import com.yadong.huawei.ui.adapter.wrapper.RankingTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
@@ -27,7 +30,7 @@ import butterknife.BindView;
  * 排行
  */
 public class RankingFragment extends BaseFragment<RankingPresenter>
-        implements RankingContract.View {
+        implements RankingContract.View, RankingSection.OnItemClickListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -83,6 +86,8 @@ public class RankingFragment extends BaseFragment<RankingPresenter>
         for (String name : strings) {
             List<AppBean> appBeanList = appBeanMap.get(name);
             RankingSection section = new RankingSection(getContext(), name, appBeanList);
+            section.setOnItemClickListener(this);//条目的点击事件的监听
+
             sectionAdapter.addSection(section);
         }
 
@@ -127,5 +132,12 @@ public class RankingFragment extends BaseFragment<RankingPresenter>
     @Override
     public void getDataFail(String message) {
         MyToast.show(getContext(), message);
+    }
+
+    @Override
+    public void onItemClick(int position, String packageName) {
+        Intent intent = new Intent(getContext(), AppDetailActivity.class);
+        intent.putExtra(Constants.PACKAGE_NAME, packageName);
+        mContext.startActivity(intent, true);
     }
 }

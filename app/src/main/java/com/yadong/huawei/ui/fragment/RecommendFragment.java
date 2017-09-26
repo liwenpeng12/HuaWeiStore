@@ -1,15 +1,18 @@
 package com.yadong.huawei.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.MyToast;
 import com.yadong.huawei.dagger.component.DaggerRecommendComponent;
 import com.yadong.huawei.dagger.module.RecommendModule;
 import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.presenter.contract.RecommendContract;
 import com.yadong.huawei.presenter.fragment.RecommendPresenter;
+import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.RecommendAdapter;
 import com.yadong.huawei.ui.adapter.wrapper.RecommendTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
@@ -73,7 +76,9 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
     public void getDataSuccess(RecommendBean recommendBean) {
         showRevData(recommendBean);
         setLoadMoreListener();
+        setItemClickListener();
     }
+
 
     /**
      * 展示条目数据
@@ -107,6 +112,20 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
             @Override
             public void onLoadMore() {
                 mPresenter.getRecommendDataMore();
+            }
+        });
+    }
+
+    /**
+     * 设置条目的点击事件
+     */
+    private void setItemClickListener() {
+        mRecommendAdapter.setAppItemListener(new RecommendAdapter.AppItemListener() {
+            @Override
+            public void goAppDetail(String packageName) {
+                Intent intent = new Intent(getContext(), AppDetailActivity.class);
+                intent.putExtra(Constants.PACKAGE_NAME,packageName);
+                mContext.startActivity(intent,true);
             }
         });
     }
