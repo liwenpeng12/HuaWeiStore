@@ -25,7 +25,8 @@ import butterknife.OnClick;
  * 我的
  */
 
-public class MineFragment extends BaseFragment<MinePresenter> implements MineContract.View {
+public class MineFragment extends BaseFragment<MinePresenter>
+        implements MineContract.View {
 
 
     @BindView(R.id.gv_title_grid)
@@ -97,7 +98,10 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
     }
 
 
-    @OnClick({R.id.book_game_layout, R.id.buy_layout, R.id.huaban_layout, R.id.setting_computer, R.id.faq_layout, R.id.check_update_layout, R.id.about_layout})
+    @OnClick({R.id.book_game_layout, R.id.buy_layout,
+            R.id.huaban_layout, R.id.setting_computer,
+            R.id.faq_layout, R.id.check_update_layout,
+            R.id.about_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.book_game_layout:
