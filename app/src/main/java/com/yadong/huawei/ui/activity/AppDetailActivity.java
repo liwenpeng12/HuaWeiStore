@@ -61,6 +61,8 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     @Override
     public void updateViews() {
 
+
+
     }
 
 

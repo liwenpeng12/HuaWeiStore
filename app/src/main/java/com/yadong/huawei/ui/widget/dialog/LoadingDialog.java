@@ -64,4 +64,5 @@ public class LoadingDialog extends DialogFragment {
         return loadingView;
     }
 
+
 }
