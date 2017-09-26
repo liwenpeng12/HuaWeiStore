@@ -49,4 +49,41 @@
         <attr name="download_textSize" format="dimension"/>
     </declare-styleable>
 
+
+
+    <declare-styleable name="sub_tab">
+
+        <attr name="textSize" format="dimension" />
+        <attr name="textSelectColor" format="color" />
+        <attr name="textUnSelectColor" format="color" />
+        <attr name="round_left_text" format="string"/>
+        <attr name="round_none_text" format="string"/>
+        <attr name="round_right_text" format="string"/>
+        <attr name="round_all_unselected" format="reference|color" />
+        <attr name="round_left_unselected" format="reference|color" />
+        <attr name="round_right_unselected" format="reference|color" />
+        <attr name="round_none_unselected" format="reference|color" />
+        <attr name="round_all_selected" format="reference|color" />
+        <attr name="round_left_selected" format="reference|color" />
+        <attr name="round_right_selected" format="reference|color" />
+        <attr name="round_none_selected" format="reference|color" />
+        <attr name="dividerDrawable" format="reference|color" />
+        <attr name="dividerWidth" format="integer|dimension">
+            <enum name="fill_parent" value="-1" />
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="dividerHeight" format="integer|dimension">
+            <enum name="fill_parent" value="-1" />
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <attr name="paddingLeft" format="dimension" />
+        <attr name="paddingRight" format="dimension" />
+
+
+
+
+    </declare-styleable>
+
 </resources>

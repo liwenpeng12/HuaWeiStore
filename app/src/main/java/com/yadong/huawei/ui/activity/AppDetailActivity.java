@@ -1,5 +1,6 @@
 package com.yadong.huawei.ui.activity;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.orhanobut.logger.Logger;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.Constants;
@@ -34,6 +35,18 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
                 .inject(this);
     }
 
+    /**
+     * 重写初始化沉浸式状态栏
+     */
+    protected void initImmersionBar() {
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar
+                .statusBarColor(R.color.white)
+                .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
+                .statusBarColor(R.color.tab_background)
+                .init();
+    }
+
     @Override
     public void initViews() {
         getIntentData();
@@ -41,7 +54,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     private void getIntentData() {
         String packageName = getIntent().getStringExtra(Constants.PACKAGE_NAME);
-
         Logger.i(packageName);
 
     }
