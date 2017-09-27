@@ -1,23 +1,33 @@
 package com.yadong.huawei.presenter.contract;
 
-import com.yadong.huawei.presenter.base.IBasePresenter;
+import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.presenter.base.IBaseView;
 
 /**
- *
- *
  * 契约借口
  */
 public interface AppDetailContract {
 
-    interface View extends IBaseView{
+    interface View extends IBaseView {
 
+        /**
+         * 显示加载动画
+         */
+        void showLoading();
 
+        /**
+         * 隐藏加载
+         */
+        void hideLoading();
+
+        void getDataSuccess(AppDetailBean bean);
+
+        void getDataFail(String message);
 
     }
 
-    interface Presenter extends IBasePresenter {
-
+    interface Presenter {
+        void getData(String packageName);
 
     }
 

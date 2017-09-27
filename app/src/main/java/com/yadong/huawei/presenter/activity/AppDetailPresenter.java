@@ -1,15 +1,22 @@
 package com.yadong.huawei.presenter.activity;
 
+import com.yadong.huawei.common.utils.JsonParseUtils;
 import com.yadong.huawei.common.utils.RetrofitUtils;
+import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.AppDetailContract;
-import com.yadong.huawei.presenter.contract.CategoryContract;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import okhttp3.ResponseBody;
 
 /**
  *
  */
 
-public class AppDetailPresenter implements CategoryContract.Presenter {
+public class AppDetailPresenter implements AppDetailContract.Presenter {
 
 
     private AppDetailContract.View mView;
@@ -21,8 +28,27 @@ public class AppDetailPresenter implements CategoryContract.Presenter {
     }
 
     @Override
-    public void getData() {
-
-
+    public void getData(String  packageName) {
+        mView.showLoading();
+        mApiService
+                .getAppDetailData(packageName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .compose(mView.<ResponseBody>bindToLife())
+                .subscribe(new Consumer<ResponseBody>() {
+                    @Override
+                    public void accept(@NonNull ResponseBody responseBody) throws Exception {
+                        String string = responseBody.string();
+                        AppDetailBean detailBean = JsonParseUtils.parseAppDetailBean(string);
+                        mView.getDataSuccess(detailBean);
+                        mView.hideLoading();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+                        mView.hideLoading();
+                        mView.getDataFail(throwable.getMessage());
+                    }
+                });
     }
 }

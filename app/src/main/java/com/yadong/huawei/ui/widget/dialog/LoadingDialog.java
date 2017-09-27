@@ -2,9 +2,7 @@ package com.yadong.huawei.ui.widget.dialog;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,7 @@ import com.yadong.huawei.common.manager.GlobalDialogManager;
  *
  * Android 普通加载框
  */
-public class LoadingDialog extends DialogFragment implements DialogInterface.OnKeyListener {
+public class LoadingDialog extends DialogFragment /*implements DialogInterface.OnKeyListener*/ {
 
     /**
      * 默认点击外面无效
@@ -70,16 +68,16 @@ public class LoadingDialog extends DialogFragment implements DialogInterface.OnK
         });
 
         //不响应返回键
-        dialog.setOnKeyListener(this);
+//        dialog.setOnKeyListener(this);
         return loadingView;
     }
 
 
-    @Override
-    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

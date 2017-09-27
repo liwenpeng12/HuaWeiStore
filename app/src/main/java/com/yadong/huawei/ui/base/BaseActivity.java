@@ -1,6 +1,7 @@
 package com.yadong.huawei.ui.base;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -25,6 +26,8 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制竖屏
+
         setContentView(setLayout());
 
         initImmersionBar();

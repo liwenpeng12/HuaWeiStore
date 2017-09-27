@@ -3,9 +3,12 @@ package com.yadong.huawei.ui.activity;
 import com.gyf.barlibrary.ImmersionBar;
 import com.orhanobut.logger.Logger;
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.Constants;
+import com.yadong.huawei.common.utils.MyToast;
 import com.yadong.huawei.dagger.component.DaggerAppDetailComponent;
 import com.yadong.huawei.dagger.module.AppDetailModule;
+import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.presenter.activity.AppDetailPresenter;
 import com.yadong.huawei.presenter.contract.AppDetailContract;
 import com.yadong.huawei.ui.base.BaseActivity;
@@ -19,6 +22,7 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     @Inject
     AppDetailPresenter mPresenter;
+    private String mPackageName;
 
     @Override
     public int setLayout() {
@@ -53,16 +57,33 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     }
 
     private void getIntentData() {
-        String packageName = getIntent().getStringExtra(Constants.PACKAGE_NAME);
-        Logger.i(packageName);
+        mPackageName = getIntent().getStringExtra(Constants.PACKAGE_NAME);
+        Logger.i(mPackageName);
 
     }
 
     @Override
     public void updateViews() {
+        mPresenter.getData(mPackageName);
+    }
 
+    @Override
+    public void showLoading() {
+        GlobalDialogManager.getInstance().show(getFragmentManager());
+    }
+
+    @Override
+    public void hideLoading() {
+        GlobalDialogManager.getInstance().dismiss();
+    }
+
+    @Override
+    public void getDataSuccess(AppDetailBean bean) {
 
     }
 
-
+    @Override
+    public void getDataFail(String message) {
+        MyToast.show(this,message);
+    }
 }
