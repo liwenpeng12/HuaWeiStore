@@ -62,7 +62,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     public void updateViews() {
 
 
-
     }
 
 

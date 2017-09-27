@@ -3,6 +3,7 @@ package com.yadong.huawei.common.app;
 import android.app.Application;
 import android.os.Handler;
 
+import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.CrashHandler;
 import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
@@ -50,8 +51,8 @@ public class App extends Application {
     private void initUtils() {
         CrashHandler.getInstance().init(this);
         RetrofitUtils.getInstance().initOkHttp(this);
+        GlobalDialogManager.getInstance().init();
     }
-
 
     /**
      * 初始化注射器
