@@ -1,8 +1,7 @@
-package com.yadong.huawei.ui.widget.loadsir.pager;
+package com.yadong.huawei.ui.widget.loadsir.callback;
 
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.ui.widget.loadsir.callback.Callback;
 
 /**
  */

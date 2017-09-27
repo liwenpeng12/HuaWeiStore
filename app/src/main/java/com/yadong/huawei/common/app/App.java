@@ -10,9 +10,9 @@ import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
 import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
-import com.yadong.huawei.ui.widget.loadsir.pager.EmptyCallback;
-import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
-import com.yadong.huawei.ui.widget.loadsir.pager.LoadingCallback;
+import com.yadong.huawei.ui.widget.loadsir.callback.EmptyCallback;
+import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
+import com.yadong.huawei.ui.widget.loadsir.callback.LoadingCallback;
 
 
 /**

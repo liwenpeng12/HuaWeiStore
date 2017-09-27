@@ -26,13 +26,14 @@ import butterknife.ButterKnife;
 public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragment implements IBaseView, Callback.OnReloadListener {
 
 
+    protected LoadService mBaseLoadService;
     protected BaseActivity mContext;
+    protected View mRootView;
+
     protected boolean mIsLoad = false;//是否加载数据
 
     @Inject
     protected T mPresenter;
-    protected LoadService mBaseLoadService;
-    private View mRootView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +43,8 @@ public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragme
 
     @Nullable
     @Override
-    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         if (mRootView == null && mBaseLoadService == null) {
             mRootView = inflater.inflate(attachLayoutRes(), null);
             mBaseLoadService = LoadSir.getDefault().register(mRootView, this);
@@ -65,7 +67,9 @@ public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragme
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        System.out.println("onActivityCreated  1ci  "  +!mIsLoad);
         if (getUserVisibleHint() && mRootView != null && !mIsLoad) {
+            System.out.println("onActivityCreated  1ci");
             mIsLoad = true;
             updateViews();
         }
@@ -77,6 +81,7 @@ public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragme
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
+        System.out.println("setUserVisibleHint  1ci  "  +!mIsLoad);
         if (isVisibleToUser && isVisible() && mRootView != null && !mIsLoad) {
             mIsLoad = true;
             System.out.println("setUserVisibleHint  1次");
@@ -120,7 +125,6 @@ public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragme
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.<T>bindToLifecycle();
     }
-
 
     /**
      * 设置当前的状态(用于加载完页面的数据,是成功还是失败)

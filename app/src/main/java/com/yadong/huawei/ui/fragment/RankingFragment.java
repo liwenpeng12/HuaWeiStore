@@ -18,7 +18,7 @@ import com.yadong.huawei.ui.adapter.section.RankingSection;
 import com.yadong.huawei.ui.adapter.wrapper.RankingTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragmentPro;
 import com.yadong.huawei.ui.widget.ViewUpSearch;
-import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
+import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import java.util.List;

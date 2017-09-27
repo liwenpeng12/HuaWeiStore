@@ -14,7 +14,7 @@ import com.yadong.huawei.ui.adapter.section.CategorySection;
 import com.yadong.huawei.ui.adapter.wrapper.CategoryTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragmentPro;
 import com.yadong.huawei.ui.widget.ViewUpSearch;
-import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
+import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import butterknife.BindView;
