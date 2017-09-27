@@ -5,7 +5,7 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.model.net.bean.RecommendBean;
 import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.RecommendContract;
-import com.yadong.huawei.ui.widget.LoadingPager;
+import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -45,12 +45,12 @@ public class RecommendPresenter implements RecommendContract.Presenter {
                         RecommendBean recommendBean = JsonParseUtils.parseRecommendBean(string);
                         mView.getDataSuccess(recommendBean);
 
-                        mView.setCurrentState(LoadingPager.LoadResult.success);
+//                        mView.setCurrentState(LoadingPager.LoadResult.success);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-                        mView.setCurrentState(LoadingPager.LoadResult.error);
+                        mView.setCurrentState(ErrorCallback.class);
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

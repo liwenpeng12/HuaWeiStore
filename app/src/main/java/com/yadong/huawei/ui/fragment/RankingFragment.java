@@ -16,8 +16,9 @@ import com.yadong.huawei.presenter.fragment.RankingPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.section.RankingSection;
 import com.yadong.huawei.ui.adapter.wrapper.RankingTopWrapper;
-import com.yadong.huawei.ui.base.BaseFragment;
+import com.yadong.huawei.ui.base.BaseFragmentPro;
 import com.yadong.huawei.ui.widget.ViewUpSearch;
+import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import java.util.List;
@@ -29,7 +30,7 @@ import butterknife.BindView;
 /**
  * 排行
  */
-public class RankingFragment extends BaseFragment<RankingPresenter>
+public class RankingFragment extends BaseFragmentPro<RankingPresenter>
         implements RankingContract.View, RankingSection.OnItemClickListener {
 
     @BindView(R.id.recycler_view)
@@ -68,6 +69,7 @@ public class RankingFragment extends BaseFragment<RankingPresenter>
 
     @Override
     public void getDataSuccess(TopBean bean) {
+        mBaseLoadService.showSuccess();
         showRevData(bean);
         setSearchListener();
     }
@@ -131,6 +133,7 @@ public class RankingFragment extends BaseFragment<RankingPresenter>
 
     @Override
     public void getDataFail(String message) {
+        mBaseLoadService.showCallback(ErrorCallback.class);
         MyToast.show(getContext(), message);
     }
 

@@ -5,7 +5,6 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.model.net.bean.CategoryBean;
 import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.CategoryContract;
-import com.yadong.huawei.ui.widget.LoadingPager;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -41,12 +40,12 @@ public class CategoryPresenter implements CategoryContract.Presenter {
                         String string = responseBody.string();
                         CategoryBean bean = JsonParseUtils.parseCategoryBean(string);
                         mView.getDataSuccess(bean);
-                        mView.setCurrentState(LoadingPager.LoadResult.success);
+//                        mView.setCurrentState(LoadingPager.LoadResult.success);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-                        mView.setCurrentState(LoadingPager.LoadResult.error);
+//                        mView.setCurrentState(LoadingPager.LoadResult.error);
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

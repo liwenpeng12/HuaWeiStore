@@ -3,7 +3,7 @@ package com.yadong.huawei.presenter.contract;
 import com.yadong.huawei.model.net.bean.CategoryBean;
 import com.yadong.huawei.presenter.base.IBasePresenter;
 import com.yadong.huawei.presenter.base.IBaseView;
-import com.yadong.huawei.ui.widget.LoadingPager;
+import com.yadong.huawei.ui.widget.loadsir.callback.Callback;
 
 /**
  * 分类
@@ -16,9 +16,8 @@ public interface CategoryContract {
 
         /**
          * 设置当前的页面状态
-         * @param result 加载中,成功,失败,空
          */
-        void setCurrentState(LoadingPager.LoadResult result);
+        void setCurrentState(Class<? extends Callback> clazz);
 
         void getDataSuccess(CategoryBean bean);
 

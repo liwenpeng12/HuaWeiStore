@@ -5,7 +5,6 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.model.net.bean.TopBean;
 import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.presenter.contract.RankingContract;
-import com.yadong.huawei.ui.widget.LoadingPager;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -40,12 +39,12 @@ public class RankingPresenter implements RankingContract.Presenter {
                         String string = responseBody.string();
                         TopBean topBean = JsonParseUtils.parseTopBean(string);
                         mView.getDataSuccess(topBean);
-                        mView.setCurrentState(LoadingPager.LoadResult.success);
+//                        mView.setCurrentState(LoadingPager.LoadResult.success);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-                        mView.setCurrentState(LoadingPager.LoadResult.error);
+//                        mView.setCurrentState(LoadingPager.LoadResult.error);
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

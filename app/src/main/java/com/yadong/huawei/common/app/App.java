@@ -9,6 +9,10 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
+import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
+import com.yadong.huawei.ui.widget.loadsir.pager.EmptyCallback;
+import com.yadong.huawei.ui.widget.loadsir.pager.ErrorCallback;
+import com.yadong.huawei.ui.widget.loadsir.pager.LoadingCallback;
 
 
 /**
@@ -30,7 +34,10 @@ public class App extends Application {
         initSdk();
         initUtils();
         initInjector();
+        initLoadSir();
     }
+
+
 
     /**
      * 初始化配置
@@ -63,6 +70,15 @@ public class App extends Application {
                 .builder()
                 .appModule(new AppModule(this))
                 .build();
+    }
+
+    private void initLoadSir() {
+        LoadSir.beginBuilder()
+                .addCallback(new ErrorCallback())//'添加各种状态页
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .setDefaultCallback(LoadingCallback.class)//设置默认状态页
+                .commit();
     }
 
 

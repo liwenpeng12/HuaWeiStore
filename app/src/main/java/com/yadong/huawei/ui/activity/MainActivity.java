@@ -9,7 +9,6 @@ import com.yadong.huawei.R;
 import com.yadong.huawei.common.factory.FragmentFactory;
 import com.yadong.huawei.ui.adapter.FixPagerAdapter;
 import com.yadong.huawei.ui.base.BaseActivity;
-import com.yadong.huawei.ui.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,8 +80,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 System.out.println("页面切换" + position);
-                BaseFragment fragment = FragmentFactory.createFragment(position);
-                fragment.show();
+//                BaseFragmentPro fragment = FragmentFactory.createFragment(position);
+//                fragment.show();
             }
         });
     }
@@ -93,9 +92,9 @@ public class MainActivity extends BaseActivity {
      * @param view
      */
     public void add(View view) {
-        BaseFragment fragment = FragmentFactory.createFragment(5);
-        fragments.add(fragment);
-        mFixPagerAdapter.addData("大爷", fragments);
+//        BaseFragment fragment = FragmentFactory.createFragment(5);
+//        fragments.add(fragment);
+//        mFixPagerAdapter.addData("大爷", fragments);
     }
 
     /**
@@ -103,9 +102,9 @@ public class MainActivity extends BaseActivity {
      * @param view
      */
     public void remove(View view) {
-        BaseFragment fragment = FragmentFactory.createFragment(5);
-        fragments.remove(fragment);
-        mFixPagerAdapter.removeData("大爷", fragments);
+//        BaseFragment fragment = FragmentFactory.createFragment(5);
+//        fragments.remove(fragment);
+//        mFixPagerAdapter.removeData("大爷", fragments);
     }
 
 

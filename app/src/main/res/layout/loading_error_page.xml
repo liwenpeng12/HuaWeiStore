@@ -6,7 +6,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/no_wifi_top">
+        android:layout_centerInParent="true"
+       >
 
         <ImageView
             android:id="@+id/no_wifi"
@@ -40,6 +41,7 @@
         android:layout_marginBottom="@dimen/wifi_setting_bottom"
         android:layout_marginLeft="@dimen/wifi_setting_lef"
         android:layout_marginRight="@dimen/wifi_setting_right"
+        android:visibility="gone"
         android:text="@string/setting_network"
         android:textAllCaps="true"/>
 

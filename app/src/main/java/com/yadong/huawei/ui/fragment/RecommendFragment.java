@@ -15,7 +15,7 @@ import com.yadong.huawei.presenter.fragment.RecommendPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.RecommendAdapter;
 import com.yadong.huawei.ui.adapter.wrapper.RecommendTopWrapper;
-import com.yadong.huawei.ui.base.BaseFragment;
+import com.yadong.huawei.ui.base.BaseFragmentPro;
 import com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView;
 
 import butterknife.BindView;
@@ -25,7 +25,7 @@ import butterknife.BindView;
  *
  * V层
  */
-public class RecommendFragment extends BaseFragment<RecommendPresenter>
+public class RecommendFragment extends BaseFragmentPro<RecommendPresenter>
         implements RecommendContract.View {
 
     @BindView(R.id.recycler_view)
@@ -54,7 +54,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
 
     @Override
     protected void initViews() {
-        show();//在这调用show,是因为,页面刚进来的时候,外界的Tab并不会默认调用第一个fragment的show方法,所有需要在这手动调用下
+//        show();//在这调用show,是因为,页面刚进来的时候,外界的Tab并不会默认调用第一个fragment的show方法,所有需要在这手动调用下
     }
 
     @Override
@@ -74,6 +74,8 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
      */
     @Override
     public void getDataSuccess(RecommendBean recommendBean) {
+        mBaseLoadService.showSuccess();
+
         showRevData(recommendBean);
         setLoadMoreListener();
         setItemClickListener();
