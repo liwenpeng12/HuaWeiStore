@@ -23,7 +23,8 @@ import butterknife.ButterKnife;
 /**
  * 基类Fragment
  */
-public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragment implements IBaseView, Callback.OnReloadListener {
+public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragment
+        implements IBaseView, Callback.OnReloadListener {
 
 
     protected LoadService mBaseLoadService;
