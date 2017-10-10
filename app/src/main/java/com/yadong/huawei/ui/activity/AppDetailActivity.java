@@ -1,7 +1,6 @@
 package com.yadong.huawei.ui.activity;
 
 import com.gyf.barlibrary.ImmersionBar;
-import com.orhanobut.logger.Logger;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.Constants;
@@ -22,11 +21,14 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     @Inject
     AppDetailPresenter mPresenter;
-    private String mPackageName;
+
+    private String mPackageName;//传递过来的包名参数
 
     @Override
     public int setLayout() {
         return R.layout.activity_app_detail;
+
+
     }
 
     @Override
@@ -58,7 +60,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     private void getIntentData() {
         mPackageName = getIntent().getStringExtra(Constants.PACKAGE_NAME);
-        Logger.i(mPackageName);
 
     }
 
@@ -84,6 +85,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     @Override
     public void getDataFail(String message) {
-        MyToast.show(this,message);
+        MyToast.show(this, message);
     }
 }

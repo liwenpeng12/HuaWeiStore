@@ -7,12 +7,9 @@
               android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/detail_download_button_layout_relativelayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/detail_toolbar_height"
-        android:orientation="horizontal"
-        android:visibility="visible">
-
+        >
 
         <FrameLayout
             android:id="@+id/download_framelayout"
@@ -30,7 +27,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/detail_download_share_layout_linearlayout"
+            android:id="@+id/detail_download_share_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -42,7 +39,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/detail_download_share_sub_layout_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -50,7 +46,6 @@
                 android:orientation="vertical">
 
                 <com.yadong.huawei.ui.widget.DetailShareButton
-                    android:id="@+id/detail_download_share_button"
                     android:layout_width="24.0dp"
                     android:layout_height="24.0dp"
                     android:background="@drawable/appdetail_share_btn_bg"
@@ -58,7 +53,6 @@
                     android:scaleType="center"/>
 
                 <TextView
-                    android:id="@+id/detail_download_share_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
@@ -69,42 +63,10 @@
                     android:textSize="9.0dp"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/detail_download_cancel_button_linearlayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/detail_download_cancel_imageview"
-                    android:layout_width="24.0dp"
-                    android:layout_height="24.0dp"
-                    android:background="@drawable/appdetail_cancel_download_btn_bg"
-                    android:gravity="center"
-                    android:scaleType="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:text="@string/detail_cancel_text"
-                    android:textColor="@color/half_black"
-                    android:textSize="9.0dp"/>
-            </LinearLayout>
-
-            <View
-                android:id="@+id/detail_download_share_placeholder_view"
-                android:layout_width="32.0dp"
-                android:layout_height="32.0dp"
-                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/detail_download_comment_layout_linearlayout"
+            android:id="@+id/detail_download_comment_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -116,7 +78,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/detail_download_comment_button_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -124,7 +85,6 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/detail_comment_imageview"
                     android:layout_width="24.0dp"
                     android:layout_height="24.0dp"
                     android:background="@drawable/appdetail_publish_comment_btn_bg"
@@ -142,11 +102,6 @@
                     android:textSize="9.0dp"/>
             </LinearLayout>
 
-            <View
-                android:id="@+id/detail_download_comment_placeholder_view"
-                android:layout_width="24.0dp"
-                android:layout_height="24.0dp"
-                android:visibility="gone"/>
         </LinearLayout>
 
     </RelativeLayout>

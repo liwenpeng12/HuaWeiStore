@@ -4,7 +4,6 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/bar_layout"
         android:layout_width="match_parent"
         android:background="@color/tab_background"
         android:layout_height="@dimen/tab_column_height">
@@ -20,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="@string/client_app_name"
+                android:text="@string/title_activity_app_detail"
                 android:textColor="@color/white"
                 android:textSize="@dimen/res_textsize_16sp" />
 

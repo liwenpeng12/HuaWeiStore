@@ -11,30 +11,30 @@
 
     <!--图片轮播下面指示器自定义属性-->
     <declare-styleable name="FlowIndicator">
-        <attr name="point_normal_copoint_normal_colorlor" format="color" /> <!--指示器小圆点正常颜色-->
-        <attr name="point_seleted_color" format="color" /> <!--指示器小圆点选中颜色-->
-        <attr name="radius" format="dimension" />       <!--指示器原点的半径-->
-        <attr name="count" format="integer" />          <!--指示器原点的数量-->
-        <attr name="space" format="dimension" />      <!--每个指示器原点的间隔-->
+        <attr name="point_normal_copoint_normal_colorlor" format="color"/> <!--指示器小圆点正常颜色-->
+        <attr name="point_seleted_color" format="color"/> <!--指示器小圆点选中颜色-->
+        <attr name="radius" format="dimension"/>       <!--指示器原点的半径-->
+        <attr name="count" format="integer"/>          <!--指示器原点的数量-->
+        <attr name="space" format="dimension"/>      <!--每个指示器原点的间隔-->
     </declare-styleable>
 
 
     <!-- RippleView -->
     <declare-styleable name="RippleView">
-        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_alpha" format="integer"/>
         <attr name="rv_framerate" format="integer"/>
         <attr name="rv_rippleDuration" format="integer"/>
-        <attr name="rv_zoomDuration" format="integer" />
-        <attr name="rv_color" format="color" />
-        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_zoomDuration" format="integer"/>
+        <attr name="rv_color" format="color"/>
+        <attr name="rv_centered" format="boolean"/>
         <attr name="rv_type" format="enum">
             <enum name="simpleRipple" value="0"/>
             <enum name="doubleRipple" value="1"/>
-            <enum name="rectangle" value="2" />
+            <enum name="rectangle" value="2"/>
         </attr>
-        <attr name="rv_ripplePadding" format="dimension" />
-        <attr name="rv_zoom" format="boolean" />
-        <attr name="rv_zoomScale" format="float" />
+        <attr name="rv_ripplePadding" format="dimension"/>
+        <attr name="rv_zoom" format="boolean"/>
+        <attr name="rv_zoomScale" format="float"/>
         <attr name="rv_listMode" format="boolean"/>
     </declare-styleable>
 
@@ -50,40 +50,34 @@
     </declare-styleable>
 
 
-
     <declare-styleable name="sub_tab">
-
-        <attr name="textSize" format="dimension" />
-        <attr name="textSelectColor" format="color" />
-        <attr name="textUnSelectColor" format="color" />
+        <attr name="textSize" format="dimension"/>
+        <attr name="textSelectColor" format="color"/>
+        <attr name="textUnSelectColor" format="color"/>
         <attr name="round_left_text" format="string"/>
         <attr name="round_none_text" format="string"/>
         <attr name="round_right_text" format="string"/>
-        <attr name="round_all_unselected" format="reference|color" />
-        <attr name="round_left_unselected" format="reference|color" />
-        <attr name="round_right_unselected" format="reference|color" />
-        <attr name="round_none_unselected" format="reference|color" />
-        <attr name="round_all_selected" format="reference|color" />
-        <attr name="round_left_selected" format="reference|color" />
-        <attr name="round_right_selected" format="reference|color" />
-        <attr name="round_none_selected" format="reference|color" />
-        <attr name="dividerDrawable" format="reference|color" />
+        <attr name="round_all_unselected" format="reference|color"/>
+        <attr name="round_left_unselected" format="reference|color"/>
+        <attr name="round_right_unselected" format="reference|color"/>
+        <attr name="round_none_unselected" format="reference|color"/>
+        <attr name="round_all_selected" format="reference|color"/>
+        <attr name="round_left_selected" format="reference|color"/>
+        <attr name="round_right_selected" format="reference|color"/>
+        <attr name="round_none_selected" format="reference|color"/>
+        <attr name="dividerDrawable" format="reference|color"/>
         <attr name="dividerWidth" format="integer|dimension">
-            <enum name="fill_parent" value="-1" />
-            <enum name="match_parent" value="-1" />
-            <enum name="wrap_content" value="-2" />
+            <enum name="match_parent" value="-1"/>
+            <enum name="match_parent" value="-1"/>
+            <enum name="wrap_content" value="-2"/>
         </attr>
         <attr name="dividerHeight" format="integer|dimension">
-            <enum name="fill_parent" value="-1" />
-            <enum name="match_parent" value="-1" />
-            <enum name="wrap_content" value="-2" />
+            <enum name="match_parent" value="-1"/>
+            <enum name="match_parent" value="-1"/>
+            <enum name="wrap_content" value="-2"/>
         </attr>
-        <attr name="paddingLeft" format="dimension" />
-        <attr name="paddingRight" format="dimension" />
-
-
-
-
+        <attr name="paddingLeft" format="dimension"/>
+        <attr name="paddingRight" format="dimension"/>
     </declare-styleable>
 
 </resources>
