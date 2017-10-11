@@ -124,7 +124,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     private void getIntentData() {
         mPackageName = getIntent().getStringExtra(Constants.PACKAGE_NAME);
-
     }
 
     @Override
