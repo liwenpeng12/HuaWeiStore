@@ -10,7 +10,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.utils.Constants;
-import com.yadong.huawei.common.utils.MyToast;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.common.utils.PreferenceUtils;
 import com.yadong.huawei.ui.base.BaseActivity;
 
@@ -74,14 +74,14 @@ public class SplashActivity extends BaseActivity {
                         public void accept(Boolean aBoolean) throws Exception {
                             if (aBoolean) {
                                 PreferenceUtils.putBoolean(Constants.IS_ENTER, true);
-                                MyToast.show(App.getInstance(), "授权SD卡成功");
+                                ToastUtil.show(App.getInstance(), "授权SD卡成功");
 
                                 startActivity(new Intent(App.getInstance(), MainActivity.class), true);
                                 finish(false);
 
                             } else {
                                 PreferenceUtils.putBoolean(Constants.IS_ENTER, false);
-                                MyToast.show(App.getInstance(), "没有授权SD卡，可能会影响应用的使用");
+                                ToastUtil.show(App.getInstance(), "没有授权SD卡，可能会影响应用的使用");
                             }
                         }
                     }, new Consumer<Throwable>() {

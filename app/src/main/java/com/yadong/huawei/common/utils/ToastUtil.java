@@ -6,7 +6,7 @@ import android.widget.Toast;
 /**
  * 自定义的toast工具类，只展示一个toast，不重复展示
  */
-public class MyToast {
+public class ToastUtil {
 
     private static Toast mToast;
 

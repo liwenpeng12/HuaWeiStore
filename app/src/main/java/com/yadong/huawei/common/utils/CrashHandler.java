@@ -98,7 +98,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override
             public void run() {
                 Looper.prepare();
-                MyToast.show(App.getInstance(),"很抱歉，程序出现异常，即将重启");
+                ToastUtil.show(App.getInstance(),"很抱歉，程序出现异常，即将重启");
                 Looper.loop();
             }
         }.start();

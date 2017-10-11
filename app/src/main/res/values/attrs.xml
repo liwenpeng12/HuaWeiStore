@@ -66,18 +66,6 @@
         <attr name="round_right_selected" format="reference|color"/>
         <attr name="round_none_selected" format="reference|color"/>
         <attr name="dividerDrawable" format="reference|color"/>
-        <attr name="dividerWidth" format="integer|dimension">
-            <enum name="match_parent" value="-1"/>
-            <enum name="match_parent" value="-1"/>
-            <enum name="wrap_content" value="-2"/>
-        </attr>
-        <attr name="dividerHeight" format="integer|dimension">
-            <enum name="match_parent" value="-1"/>
-            <enum name="match_parent" value="-1"/>
-            <enum name="wrap_content" value="-2"/>
-        </attr>
-        <attr name="paddingLeft" format="dimension"/>
-        <attr name="paddingRight" format="dimension"/>
     </declare-styleable>
 
 </resources>

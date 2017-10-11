@@ -12,7 +12,7 @@
         >
 
         <FrameLayout
-            android:id="@+id/download_framelayout"
+            android:id="@+id/detail_download_button_container"
             android:layout_width="200.0dp"
             android:layout_height="30.0dp"
             android:layout_centerInParent="true">
@@ -34,7 +34,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8.0dp"
             android:layout_marginRight="16.0dp"
-            android:layout_toLeftOf="@id/download_framelayout"
+            android:layout_toLeftOf="@id/detail_download_button_container"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -73,7 +73,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16.0dp"
             android:layout_marginRight="8.0dp"
-            android:layout_toRightOf="@id/download_framelayout"
+            android:layout_toRightOf="@id/detail_download_button_container"
             android:gravity="center"
             android:orientation="vertical">
 

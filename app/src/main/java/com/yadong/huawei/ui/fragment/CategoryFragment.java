@@ -4,7 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.common.utils.MyToast;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.dagger.component.DaggerCategoryComponent;
 import com.yadong.huawei.dagger.module.CategoryModule;
 import com.yadong.huawei.model.net.bean.CategoryBean;
@@ -123,7 +123,7 @@ public class CategoryFragment extends BaseFragmentPro<CategoryPresenter>
     public void getDataFail(String message) {
         System.out.println("getDataFail   1ci" +message);
         mBaseLoadService.showCallback(ErrorCallback.class);
-        MyToast.show(getContext(), message);
+        ToastUtil.show(getContext(), message);
     }
 
 }

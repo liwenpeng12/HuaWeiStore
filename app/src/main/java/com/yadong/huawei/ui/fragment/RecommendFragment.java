@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.Constants;
-import com.yadong.huawei.common.utils.MyToast;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.dagger.component.DaggerRecommendComponent;
 import com.yadong.huawei.dagger.module.RecommendModule;
 import com.yadong.huawei.model.net.bean.RecommendBean;
@@ -137,7 +137,7 @@ public class RecommendFragment extends BaseFragmentPro<RecommendPresenter>
      */
     @Override
     public void getDataFail(String message) {
-        MyToast.show(getContext(), message);
+        ToastUtil.show(getContext(), message);
     }
 
     /**

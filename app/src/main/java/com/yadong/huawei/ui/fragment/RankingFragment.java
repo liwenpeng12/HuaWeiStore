@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.Constants;
-import com.yadong.huawei.common.utils.MyToast;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.dagger.component.DaggerRankingComponent;
 import com.yadong.huawei.dagger.module.RankingModule;
 import com.yadong.huawei.model.net.bean.AppBean;
@@ -134,7 +134,7 @@ public class RankingFragment extends BaseFragmentPro<RankingPresenter>
     @Override
     public void getDataFail(String message) {
         mBaseLoadService.showCallback(ErrorCallback.class);
-        MyToast.show(getContext(), message);
+        ToastUtil.show(getContext(), message);
     }
 
     @Override
