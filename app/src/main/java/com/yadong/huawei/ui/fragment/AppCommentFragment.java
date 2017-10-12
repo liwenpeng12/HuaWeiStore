@@ -10,12 +10,10 @@ import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.base.BaseFragmentPro;
 
 /**
- *
+ * App详情页面_评论fragment
  */
-
 public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
         implements AppCommentContract.View {
-
 
     @Override
     protected int attachLayoutRes() {
@@ -39,7 +37,6 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
 
     @Override
     protected void updateViews() {
-        System.out.println("获取数据   AppCommentFragment");
         mPresenter.getData(((AppDetailActivity)getActivity()).getAppPackageName());
     }
 
