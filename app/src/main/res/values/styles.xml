@@ -74,4 +74,24 @@
         <item name="android:alpha">0.5</item>
     </style>
 
+
+    <style name="detail_appinfo_alpha_30_13sp">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="detail_appinfo_alpha_50_13sp">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:alpha">0.5</item>
+    </style>
+
+
+    <style name="detail_label_item">
+        <item name="android:textSize">13.0dip</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 </resources>

@@ -18,6 +18,9 @@ import android.widget.ProgressBar;
 import com.yadong.huawei.R;
 
 
+/**
+ * 下载按钮
+ */
 public class DownloadProgressButton extends ProgressBar implements View.OnClickListener {
     public static final int STATUS_PROGRESS_BAR_BEGIN = 0;//开始下载
     public static final int STATUS_PROGRESS_BAR_DOWNLOADING = 1;//下载之中
