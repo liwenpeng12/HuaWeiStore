@@ -1,11 +1,11 @@
 package com.yadong.huawei.ui.fragment;
 
 import com.yadong.huawei.R;
-import com.yadong.huawei.dagger.component.DaggerAppCommentComponent;
-import com.yadong.huawei.dagger.module.AppCommentModule;
-import com.yadong.huawei.model.net.bean.AppCommentBean;
-import com.yadong.huawei.presenter.contract.AppCommentContract;
-import com.yadong.huawei.presenter.fragment.AppCommentPresenter;
+import com.yadong.huawei.dagger.component.DaggerAppRecommendComponent;
+import com.yadong.huawei.dagger.module.AppRecommendModule;
+import com.yadong.huawei.model.net.bean.AppRecommendBean;
+import com.yadong.huawei.presenter.contract.AppRecommendContract;
+import com.yadong.huawei.presenter.fragment.AppRecommendPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.base.BaseFragmentPro;
 
@@ -13,8 +13,8 @@ import com.yadong.huawei.ui.base.BaseFragmentPro;
  *
  */
 
-public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
-        implements AppCommentContract.View {
+public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
+        implements AppRecommendContract.View {
 
 
     @Override
@@ -24,10 +24,10 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
 
     @Override
     protected void initInjector() {
-        DaggerAppCommentComponent
+        DaggerAppRecommendComponent
                 .builder()
                 .appComponent(getAppComponent())
-                .appCommentModule(new AppCommentModule(this))
+                .appRecommendModule(new AppRecommendModule(this))
                 .build()
                 .inject(this);
     }
@@ -44,7 +44,7 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
 
 
     @Override
-    public void getDataSuccess(AppCommentBean bean) {
+    public void getDataSuccess(AppRecommendBean bean) {
 
     }
 

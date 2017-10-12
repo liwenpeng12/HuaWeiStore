@@ -1,5 +1,6 @@
 package com.yadong.huawei.ui.activity;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.factory.FragmentFactory;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.ImageLoader;
@@ -20,9 +22,13 @@ import com.yadong.huawei.dagger.module.AppDetailModule;
 import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.presenter.activity.AppDetailPresenter;
 import com.yadong.huawei.presenter.contract.AppDetailContract;
+import com.yadong.huawei.ui.adapter.AppDetailPagerAdapter;
 import com.yadong.huawei.ui.base.BaseActivity;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
 import com.yadong.huawei.ui.widget.SubTabNavigator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -208,12 +214,26 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
             mSafeIconContainer.addView(safeLabelView);
         }
     }
+    private List<Fragment> fragments = null;
 
     /**
      * 设置子选项
      */
     private void setSubTab() {
+        fragments = new ArrayList<>();
 
+        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_INTRODUCTION));
+        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_COMMENT));
+        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_RECOMMEND));
+
+
+        AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
+        appDetailPagerAdapter.setFragments(fragments);
+
+        mViewPager.setAdapter(appDetailPagerAdapter);
+        mViewPager.addOnPageChangeListener(mSubTab);
+
+        mSubTab.setViewPager(mViewPager);
     }
 
     /**

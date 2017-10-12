@@ -2,6 +2,9 @@ package com.yadong.huawei.common.factory;
 
 
 import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.fragment.AppCommentFragment;
+import com.yadong.huawei.ui.fragment.AppIntroductionFragment;
+import com.yadong.huawei.ui.fragment.AppRecommendFragment;
 import com.yadong.huawei.ui.fragment.CategoryFragment;
 import com.yadong.huawei.ui.fragment.ManageFragment;
 import com.yadong.huawei.ui.fragment.MineFragment;
@@ -42,6 +45,21 @@ public class FragmentFactory {
      */
     public static final int TAB_MINE = 4;
 
+    /**
+     * App详情_介绍
+     */
+    public static final int TAB_APP_INTRODUCTION = 5;
+
+    /**
+     * App详情_评论
+     */
+    public static final int TAB_APP_COMMENT = 6;
+
+    /**
+     * App详情_推荐
+     */
+    public static final int TAB_APP_RECOMMEND = 7;
+
 
     private static Map<Integer, BaseFragmentPro> mFragments = new HashMap<>();
 
@@ -71,9 +89,17 @@ public class FragmentFactory {
                     fragment = new MineFragment();
                     break;
 
-                case 5:
-                    fragment = new MineFragment();
+
+                case TAB_APP_INTRODUCTION:
+                    fragment = new AppIntroductionFragment();
                     break;
+                case TAB_APP_COMMENT:
+                    fragment = new AppCommentFragment();
+                    break;
+                case TAB_APP_RECOMMEND:
+                    fragment = new AppRecommendFragment();
+                    break;
+
             }
             // 把创建的Fragment 存起来
             mFragments.put(index, fragment);
