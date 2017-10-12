@@ -6,6 +6,7 @@ import com.yadong.huawei.dagger.module.AppIntroductionModule;
 import com.yadong.huawei.model.net.bean.AppIntroductionBean;
 import com.yadong.huawei.presenter.contract.AppIntroductionContract;
 import com.yadong.huawei.presenter.fragment.AppIntroductionPresenter;
+import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.base.BaseFragmentPro;
 
 /**
@@ -38,7 +39,7 @@ public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPres
 
     @Override
     protected void updateViews() {
-
+        mPresenter.getData(((AppDetailActivity)getActivity()).getAppPackageName());
     }
 
 

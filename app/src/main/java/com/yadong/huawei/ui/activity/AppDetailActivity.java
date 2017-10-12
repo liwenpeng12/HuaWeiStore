@@ -265,4 +265,9 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
             mLabelFolding.setBackgroundResource(R.drawable.ic_public_arrow_up);
         }
     }
+
+
+    public String getAppPackageName() {
+        return mPackageName;
+    }
 }
