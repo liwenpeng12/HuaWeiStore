@@ -19,7 +19,7 @@ public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPres
 
     @Override
     protected int attachLayoutRes() {
-        return R.layout.fragment_introduction;
+        return R.layout.fragment_app_introduction;
     }
 
     @Override
@@ -39,13 +39,14 @@ public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPres
 
     @Override
     protected void updateViews() {
+        System.out.println("获取数据   AppIntroductionFragment");
         mPresenter.getData(((AppDetailActivity)getActivity()).getAppPackageName());
     }
 
 
     @Override
     public void getDataSuccess(AppIntroductionBean bean) {
-
+        mBaseLoadService.showSuccess();
     }
 
     @Override

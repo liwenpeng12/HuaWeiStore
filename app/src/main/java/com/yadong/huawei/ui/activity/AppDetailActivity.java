@@ -96,6 +96,8 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     private String mPackageName;//传递过来的包名参数
     private AppDetailBean mDetailBean;
 
+    private List<Fragment> mFragments = null;
+
     @Override
     public int setLayout() {
         return R.layout.activity_app_detail;
@@ -214,21 +216,20 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
             mSafeIconContainer.addView(safeLabelView);
         }
     }
-    private List<Fragment> fragments = null;
 
     /**
      * 设置子选项
      */
     private void setSubTab() {
-        fragments = new ArrayList<>();
+        mFragments = new ArrayList<>();
 
-        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_INTRODUCTION));
-        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_COMMENT));
-        fragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_RECOMMEND));
+        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_INTRODUCTION));
+        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_COMMENT));
+        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_RECOMMEND));
 
 
         AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
-        appDetailPagerAdapter.setFragments(fragments);
+        appDetailPagerAdapter.setFragments(mFragments);
 
         mViewPager.setAdapter(appDetailPagerAdapter);
         mViewPager.addOnPageChangeListener(mSubTab);
@@ -289,5 +290,15 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     public String getAppPackageName() {
         return mPackageName;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_INTRODUCTION);
+        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_COMMENT);
+        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_RECOMMEND);
     }
 }

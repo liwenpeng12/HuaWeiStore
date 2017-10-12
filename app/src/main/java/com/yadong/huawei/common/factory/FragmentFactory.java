@@ -107,4 +107,24 @@ public class FragmentFactory {
         return fragment;
     }
 
+    /**
+     * 删除fragment
+     *
+     * @param index 索引
+     */
+    public static void removeFragment(int index) {
+        if (mFragments.containsKey(index)) {
+            mFragments.remove(index);
+        }
+    }
+
+    /**
+     * 删除所有的fragment
+     */
+    public static void removeAll() {
+        if (mFragments != null) {
+            mFragments.clear();
+        }
+    }
+
 }

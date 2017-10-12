@@ -19,7 +19,7 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
 
     @Override
     protected int attachLayoutRes() {
-        return R.layout.fragment_comment;
+        return R.layout.fragment_app_comment;
     }
 
     @Override
@@ -39,13 +39,14 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
 
     @Override
     protected void updateViews() {
+        System.out.println("获取数据   AppCommentFragment");
         mPresenter.getData(((AppDetailActivity)getActivity()).getAppPackageName());
     }
 
 
     @Override
     public void getDataSuccess(AppCommentBean bean) {
-
+        mBaseLoadService.showSuccess();
     }
 
     @Override

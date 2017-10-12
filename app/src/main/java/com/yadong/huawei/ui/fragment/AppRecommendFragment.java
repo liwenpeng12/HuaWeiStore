@@ -19,7 +19,7 @@ public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
 
     @Override
     protected int attachLayoutRes() {
-        return R.layout.fragment_comment;
+        return R.layout.fragment_app_recommend;
     }
 
     @Override
@@ -39,13 +39,14 @@ public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
 
     @Override
     protected void updateViews() {
+        System.out.println("获取数据   AppRecommendFragment");
         mPresenter.getData(((AppDetailActivity)getActivity()).getAppPackageName());
     }
 
 
     @Override
     public void getDataSuccess(AppRecommendBean bean) {
-
+        mBaseLoadService.showSuccess();
     }
 
     @Override
