@@ -15,9 +15,8 @@ import java.util.List;
 
 
 /**
-
+ * App详情_评论的session
  */
-
 public class AppCommentContactsSection extends StatelessSection {
 
     private List<AppCommentBean.CommentsBean> commentsBeanList ;

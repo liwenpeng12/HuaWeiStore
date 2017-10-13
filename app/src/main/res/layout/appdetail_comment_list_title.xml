@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/title_layout"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/backgound_gray"
-        android:paddingBottom="4.0dip"
-        android:paddingLeft="16.0dip"
-        android:paddingRight="16.0dip"
-        android:paddingTop="10.0dip">
+        android:paddingBottom="4.0dp"
+        android:paddingLeft="16.0dp"
+        android:paddingRight="16.0dp"
+        android:paddingTop="10.0dp">
 
         <TextView
             android:id="@+id/titleText"
@@ -22,8 +22,7 @@
             android:text="全部评论"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="@dimen/res_textsize_13sp" />
-
-
+            android:textSize="@dimen/res_textsize_13sp"/>
     </RelativeLayout>
+
 </LinearLayout>

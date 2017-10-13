@@ -33,9 +33,8 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
     RecyclerView mRecyclerView;
 
     private AppCommentBean mAppCommentBean;
-
-    private List<AppCommentBean.CommentsBean> hotList = new ArrayList<>();
-    private List<AppCommentBean.CommentsBean> list = new ArrayList<>();
+    private List<AppCommentBean.CommentsBean> mHotCommentList = new ArrayList<>();//精彩评论的list
+    private List<AppCommentBean.CommentsBean> mAllCommentList = new ArrayList<>();//全部评论的list
 
     @Override
     protected int attachLayoutRes() {
@@ -73,25 +72,32 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
      * 展示列表数据
      */
     private void showRevData() {
+        mHotCommentList.clear();
+        mAllCommentList.clear();
+
         for (AppCommentBean.CommentsBean commentsBean : mAppCommentBean.getComments()) {
             //type为1是精彩评论
             if (commentsBean.getCommentType().equals("1")) {
-                hotList.add(commentsBean);
+                mHotCommentList.add(commentsBean);
             } else {
-                list.add(commentsBean);
+                mAllCommentList.add(commentsBean);
             }
         }
 
+        //session多条目部分
         SectionRVAdapter sectionAdapter = new SectionRVAdapter(getContext());
-        if (hotList.size() > 0) {
-            sectionAdapter.addSection(new AppCommentContactsSection(getContext(), "精彩评论", hotList));
+        if (mHotCommentList.size() > 0) {
+            sectionAdapter.addSection(new AppCommentContactsSection(getContext(), "精彩评论", mHotCommentList));
         }
-        if (list.size() > 0) {
-            sectionAdapter.addSection(new AppCommentContactsSection(getContext(), "全部评论", list));
+        if (mAllCommentList.size() > 0) {
+            sectionAdapter.addSection(new AppCommentContactsSection(getContext(), "全部评论", mAllCommentList));
         }
 
+        //头部分
         AppCommentTopWrapper appCommentTopWrapper = new AppCommentTopWrapper(getContext(), sectionAdapter);
         appCommentTopWrapper.addDataAll(mAppCommentBean);
+
+        //设置给recyclerView
         mRecyclerView.setAdapter(appCommentTopWrapper);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }

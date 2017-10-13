@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * App详情_评论的头信息的具体内容
  */
 
 public class AppCommentController {
@@ -29,7 +30,6 @@ public class AppCommentController {
     private ProgressBar threeStarsProgressBar;
     private ProgressBar twoStarsProgressBar;
     private ProgressBar oneStarsProgressBar;
-
 
 
     public AppCommentController(Context context) {
