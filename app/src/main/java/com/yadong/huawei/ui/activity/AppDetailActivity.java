@@ -235,7 +235,10 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         mViewPager.addOnPageChangeListener(mSubTab);
 
         mSubTab.setViewPager(mViewPager);
+
+
     }
+
 
     /**
      * 设置下载按钮的详情
