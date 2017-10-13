@@ -19,4 +19,7 @@ public class GlobalParamManager {
     private static class SingletonHolder {
         private static GlobalParamManager INSTANCE = new GlobalParamManager();
     }
+
+
+
 }

@@ -235,8 +235,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         mViewPager.addOnPageChangeListener(mSubTab);
 
         mSubTab.setViewPager(mViewPager);
-
-
     }
 
 

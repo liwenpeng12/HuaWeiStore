@@ -44,7 +44,7 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     private TextView mRightTextView;
     private ViewPager mViewPager;
 
-    private int currentPositon = 0;
+    private int mCurrentPosition = 0;//当前的position 值
 
     public SubTabNavigator(Context context) {
         this(context, null);
@@ -98,8 +98,9 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
         tv.setLayoutParams(layoutParams);
         tv.setOnClickListener(this);
         tv.setGravity(Gravity.CENTER);
-        if (mTextSize > 0f)
+        if (mTextSize > 0f){
             tv.setTextSize(0, mTextSize);
+        }
 
         tv.setOnClickListener(this);
         tv.setTag(viewTag);
@@ -140,8 +141,7 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawBackground();
-        setCurrentItemSelect(getChildAt(currentPositon));
-
+        setCurrentItemSelect(getChildAt(mCurrentPosition));
     }
 
     public void setCurrentItemSelect(View view) {
@@ -183,8 +183,10 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     }
 
     private void switchViewPager(int tag) {
-        if (mViewPager != null)
+        if (mViewPager != null) {
             mViewPager.setCurrentItem(tag);
+            mCurrentPosition = tag;
+        }
     }
 
 
@@ -233,11 +235,11 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     }
 
     public int getCurrentPosition() {
-        return currentPositon;
+        return mCurrentPosition;
     }
 
     public void setCurrentPosition(int currentPosition) {
-        this.currentPositon = currentPosition;
+        this.mCurrentPosition = currentPosition;
         invalidate();
 
     }
