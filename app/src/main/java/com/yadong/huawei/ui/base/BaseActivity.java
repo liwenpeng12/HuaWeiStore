@@ -108,7 +108,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     public void startActivity(Intent intent, boolean isHaveAnim) {
         startActivity(intent);
         if (isHaveAnim) {
-            overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+            enterAnim();
         }
     }
 
@@ -120,7 +120,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
     public void finish(boolean isHaveAnim) {
         finish();
         if (isHaveAnim) {
-            overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+            exitAnim();
         }
     }
 
@@ -132,6 +132,14 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
         if (mImmersionBar != null) {
             mImmersionBar.destroy();
         }
+    }
+
+    public void enterAnim(){
+        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+    }
+
+    public void exitAnim(){
+        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
 }

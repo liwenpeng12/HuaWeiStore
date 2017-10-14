@@ -77,7 +77,7 @@ public class SplashActivity extends BaseActivity {
                                 ToastUtil.show(App.getInstance(), "授权SD卡成功");
 
                                 startActivity(new Intent(App.getInstance(), MainActivity.class), true);
-                                finish(false);
+                                finish();
 
                             } else {
                                 PreferenceUtils.putBoolean(Constants.IS_ENTER, false);
@@ -93,10 +93,8 @@ public class SplashActivity extends BaseActivity {
         } else {
             PreferenceUtils.putBoolean(Constants.IS_ENTER, true);
             startActivity(new Intent(this, MainActivity.class),true);
-            finish(false);
+            finish();
         }
     }
-
-
 
 }

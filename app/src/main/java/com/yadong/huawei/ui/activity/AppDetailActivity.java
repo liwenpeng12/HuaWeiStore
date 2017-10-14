@@ -295,6 +295,12 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
 
     @Override
+    public void finish() {
+        super.finish();
+        exitAnim();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 

@@ -54,7 +54,7 @@ public class AppRecommendHotSection extends StatelessSection {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, AppDetailActivity.class);
                 intent.putExtra("packageName",hotAppBean.getPackageName());
-                ((AppDetailActivity)mContext).startActivity(intent);
+                ((AppDetailActivity)mContext).startActivity(intent,true);
             }
         });
     }
