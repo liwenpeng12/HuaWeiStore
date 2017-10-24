@@ -49,13 +49,16 @@ public class EnterLayout extends LinearLayout {
     }
 
     public void setMemo(String memo) {
-        if (!TextUtils.isEmpty(memo)) ;
+        if (!TextUtils.isEmpty(memo)) {
             setItemContent.setText(memo);
+        }
+
 
     }
 
     public void setTitle(String title) {
-        if(!TextUtils.isEmpty(title))
+        if(!TextUtils.isEmpty(title)) {
             setItemTitle.setText(title);
+        }
     }
 }

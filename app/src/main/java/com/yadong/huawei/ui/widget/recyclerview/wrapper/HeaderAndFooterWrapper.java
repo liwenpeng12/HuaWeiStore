@@ -86,8 +86,9 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
                 } else if (mFootViews.get(viewType) != null) {
                     return layoutManager.getSpanCount();
                 }
-                if (oldLookup != null)
+                if (oldLookup != null) {
                     return oldLookup.getSpanSize(position);
+                }
                 return 1;
             }
         });
@@ -114,8 +115,9 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
         int key = findHeaderKeyByView(view);
         if (key == -1) {
             mHeaderViews.put(mHeaderViews.size() + BASE_ITEM_TYPE_HEADER, view);
-            if (mNotifyAdapter != null)
+            if (mNotifyAdapter != null) {
                 mNotifyAdapter.notifyDataSetChanged();
+            }
 
             if (mInnerAdapter instanceof MultiItemTypeAdapter) {
                 ((MultiItemTypeAdapter) mInnerAdapter).offset += 1;
@@ -167,8 +169,9 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
             if (mInnerAdapter instanceof MultiItemTypeAdapter) {
                 ((MultiItemTypeAdapter) mInnerAdapter).offset -= 1;
             }
-            if (mNotifyAdapter != null)
+            if (mNotifyAdapter != null) {
                 mNotifyAdapter.notifyDataSetChanged();
+            }
         }
     }
 

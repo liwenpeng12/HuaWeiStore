@@ -58,6 +58,7 @@ public class DetailShareButton extends ImageView implements View.OnClickListener
         return this.isH5App;
     }
 
+    @Override
     public void onClick(View paramView) {
         share();
     }

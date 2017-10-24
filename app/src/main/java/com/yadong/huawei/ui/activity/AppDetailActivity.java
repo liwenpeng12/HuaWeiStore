@@ -116,6 +116,7 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     /**
      * 重写初始化沉浸式状态栏
      */
+    @Override
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar

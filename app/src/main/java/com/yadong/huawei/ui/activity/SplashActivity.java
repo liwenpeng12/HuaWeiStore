@@ -49,6 +49,7 @@ public class SplashActivity extends BaseActivity {
     /**
      * 重写初始化沉浸式状态栏
      */
+    @Override
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar

@@ -97,19 +97,45 @@ public class JsonParseUtils {
 
         try {
             JSONObject jsonObject = new JSONObject(json);
-            if(jsonObject.has("appid"))appId = jsonObject.getString("appid");
-            if(jsonObject.has("appVersionName"))appVersionName = jsonObject.getString("appVersionName");
-            if(jsonObject.has("downCountDesc"))downCountDesc = jsonObject.getString("downCountDesc") ;
-            if(jsonObject.has("downurl"))downurl = jsonObject.getString("downurl");
-            if(jsonObject.has("icon"))icon = jsonObject.getString("icon");
-            if(jsonObject.has("intro"))intro = jsonObject.getString("intro") ;
-            if(jsonObject.has("memo"))memo = jsonObject.getString("memo");
-            if(jsonObject.has("name")) name = jsonObject.getString("name") ;
-            if(jsonObject.has("package"))packageName = jsonObject.getString("package");
-            if(jsonObject.has("sizeDesc"))sizeDesc = jsonObject.getString("sizeDesc") ;
-            if(jsonObject.has("stars"))stars = jsonObject.getString("stars") ;
-            if(jsonObject.has("aliasName"))aliasName = jsonObject.getString("aliasName").substring(0,1);
-            if(jsonObject.has("detailId"))detailId = jsonObject.getString("detailId").substring(5);
+            if(jsonObject.has("appid")) {
+                appId = jsonObject.getString("appid");
+            }
+            if(jsonObject.has("appVersionName")) {
+                appVersionName = jsonObject.getString("appVersionName");
+            }
+            if(jsonObject.has("downCountDesc")) {
+                downCountDesc = jsonObject.getString("downCountDesc");
+            }
+            if(jsonObject.has("downurl")) {
+                downurl = jsonObject.getString("downurl");
+            }
+            if(jsonObject.has("icon")) {
+                icon = jsonObject.getString("icon");
+            }
+            if(jsonObject.has("intro")) {
+                intro = jsonObject.getString("intro");
+            }
+            if(jsonObject.has("memo")) {
+                memo = jsonObject.getString("memo");
+            }
+            if(jsonObject.has("name")) {
+                name = jsonObject.getString("name");
+            }
+            if(jsonObject.has("package")) {
+                packageName = jsonObject.getString("package");
+            }
+            if(jsonObject.has("sizeDesc")) {
+                sizeDesc = jsonObject.getString("sizeDesc");
+            }
+            if(jsonObject.has("stars")) {
+                stars = jsonObject.getString("stars");
+            }
+            if(jsonObject.has("aliasName")) {
+                aliasName = jsonObject.getString("aliasName").substring(0, 1);
+            }
+            if(jsonObject.has("detailId")) {
+                detailId = jsonObject.getString("detailId").substring(5);
+            }
 
             appBean = new AppBean(appId,appVersionName,downCountDesc,downurl,icon,intro,memo,name,packageName,sizeDesc,stars,aliasName,detailId);
 

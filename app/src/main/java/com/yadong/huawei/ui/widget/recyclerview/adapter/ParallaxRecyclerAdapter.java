@@ -194,21 +194,24 @@ public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<Re
 
     public void removeItem(T item) {
         int position = mData.indexOf(item);
-        if (position < 0)
+        if (position < 0) {
             return;
+        }
         mData.remove(item);
         notifyItemRemoved(position + (mHeader == null ? 0 : 1));
     }
 
 
+    @Override
     public int getItemCount() {
         return getItemCountImpl(this) + (mHeader == null ? 0 : 1);
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 1)
+        if (position == 1) {
             return VIEW_TYPES.FIRST_VIEW;
+        }
         return position == 0 && mHeader != null ? VIEW_TYPES.HEADER : VIEW_TYPES.NORMAL;
     }
 

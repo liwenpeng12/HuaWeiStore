@@ -58,19 +58,21 @@ public class FlowIndicator extends View {
 
     //设置指示器 下一个圆点
     public void next() {
-        if (seleted < count - 1)
+        if (seleted < count - 1) {
             seleted++;
-        else
+        } else {
             seleted = 0;
+        }
         invalidate();
     }
 
     //设置指示器 前一个圆点
     public void previous() {
-        if (seleted > 0)
+        if (seleted > 0) {
             seleted--;
-        else
+        } else {
             seleted = count - 1;
+        }
         invalidate();
     }
 

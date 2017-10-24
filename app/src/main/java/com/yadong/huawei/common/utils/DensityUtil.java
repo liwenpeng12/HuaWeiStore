@@ -15,8 +15,9 @@ public final class DensityUtil {
     public static int getDensity(Context context, int density) {
         if (displayMetrics == null) {
             displayMetrics = new DisplayMetrics();
-            if (context != null)
+            if (context != null) {
                 ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(displayMetrics);
+            }
         }
         return (int) (density * displayMetrics.density);
     }

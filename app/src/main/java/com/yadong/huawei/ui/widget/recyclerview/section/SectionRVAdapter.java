@@ -57,8 +57,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case VIEW_TYPE_HEADER: {
                         Integer resId = section.getHeaderResourceId();
 
-                        if (resId == null)
+                        if (resId == null) {
                             throw new NullPointerException("Missing 'header' resource id");
+                        }
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the header viewholder from the section
@@ -68,8 +69,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case VIEW_TYPE_FOOTER: {
                         Integer resId = section.getFooterResourceId();
 
-                        if (resId == null)
+                        if (resId == null) {
                             throw new NullPointerException("Missing 'footer' resource id");
+                        }
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the footer viewholder from the section
@@ -85,8 +87,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case VIEW_TYPE_LOADING: {
                         Integer resId = section.getLoadingResourceId();
 
-                        if (resId == null)
+                        if (resId == null) {
                             throw new NullPointerException("Missing 'loading mCurrentState' resource id");
+                        }
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the loading viewholder from the section
@@ -96,8 +99,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case VIEW_TYPE_FAILED: {
                         Integer resId = section.getFailedResourceId();
 
-                        if (resId == null)
+                        if (resId == null) {
                             throw new NullPointerException("Missing 'failed mCurrentState' resource id");
+                        }
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the failed loadData viewholder from the section
@@ -181,7 +185,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
             Section section = entry.getValue();
 
             // ignore invisible sections
-            if (!section.isVisible()) continue;
+            if (!section.isVisible()) {
+                continue;
+            }
 
             int sectionTotal = section.getSectionItemsTotal();
 
@@ -224,7 +230,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
             Section section = entry.getValue();
 
             // ignore invisible sections
-            if (!section.isVisible()) continue;
+            if (!section.isVisible()) {
+                continue;
+            }
 
             count += section.getSectionItemsTotal();
         }
@@ -249,7 +257,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
             Section section = entry.getValue();
 
             // ignore invisible sections
-            if (!section.isVisible()) continue;
+            if (!section.isVisible()) {
+                continue;
+            }
 
             int sectionTotal = section.getSectionItemsTotal();
 
@@ -322,7 +332,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
             Section section = entry.getValue();
 
             // ignore invisible sections
-            if (!section.isVisible()) continue;
+            if (!section.isVisible()) {
+                continue;
+            }
 
             int sectionTotal = section.getSectionItemsTotal();
 
@@ -350,7 +362,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
             Section section = entry.getValue();
 
             // ignore invisible sections
-            if (!section.isVisible()) continue;
+            if (!section.isVisible()) {
+                continue;
+            }
 
             int sectionTotal = section.getSectionItemsTotal();
 

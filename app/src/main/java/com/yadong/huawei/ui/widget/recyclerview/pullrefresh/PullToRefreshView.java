@@ -385,8 +385,9 @@ public class PullToRefreshView extends ViewGroup {
             invalidate();
             if (!isLoading) {
                 isLoading = true;
-                if(mListener != null)
+                if(mListener != null) {
                     mListener.onRefresh();
+                }
             }
         }
 
@@ -395,8 +396,9 @@ public class PullToRefreshView extends ViewGroup {
             invalidate();
             if (!isLoading) {
                 isLoading = true;
-                if(mListener != null)
+                if(mListener != null) {
                     mListener.onLoadMore();
+                }
             }
         }
 
@@ -494,8 +496,9 @@ public class PullToRefreshView extends ViewGroup {
         invalidate();
         if (!isLoading) {
             isLoading = true;
-            if(mListener != null)
+            if(mListener != null) {
                 mListener.onRefresh();
+            }
         }
         loadingIndicator();
     }
