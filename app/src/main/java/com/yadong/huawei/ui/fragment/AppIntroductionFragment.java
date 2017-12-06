@@ -16,10 +16,10 @@ import com.yadong.huawei.model.net.bean.AppIntroductionBean;
 import com.yadong.huawei.presenter.contract.AppIntroductionContract;
 import com.yadong.huawei.presenter.fragment.AppIntroductionPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.FlowLayout;
 import com.yadong.huawei.ui.widget.FoldingTextView;
-import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
+import com.yadong.huawei.ui.widget.LoadingPager;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import butterknife.BindView;
  * App详情页面_介绍fragment
  */
 
-public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPresenter>
+public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresenter>
         implements AppIntroductionContract.View {
 
 
@@ -91,7 +91,7 @@ public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPres
     public void getDataSuccess(AppIntroductionBean bean) {
         mIntroductionBean = bean;
         setDetail();
-        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
     }
 
     /**
@@ -173,7 +173,8 @@ public class AppIntroductionFragment extends BaseFragmentPro<AppIntroductionPres
     @Override
     public void getDataFail(String message) {
         ToastUtil.show(getContext(),message);
-        setCurrentState(ErrorCallback.class);
+//        setCurrentState(ErrorCallback.class);
+        setCurrentState(LoadingPager.LoadResult.error);
     }
 
 }

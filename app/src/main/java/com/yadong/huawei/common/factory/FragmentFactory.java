@@ -1,7 +1,7 @@
 package com.yadong.huawei.common.factory;
 
 
-import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.fragment.AppCommentFragment;
 import com.yadong.huawei.ui.fragment.AppIntroductionFragment;
 import com.yadong.huawei.ui.fragment.AppRecommendFragment;
@@ -61,15 +61,15 @@ public class FragmentFactory {
     public static final int TAB_APP_RECOMMEND = 7;
 
 
-    private static Map<Integer, BaseFragmentPro> mFragments = new HashMap<>();
+    private static Map<Integer, BaseFragment> mFragments = new HashMap<>();
 
     /**
      * 创建fragment
      *
      * @param index 索引
      */
-    public static BaseFragmentPro createFragment(int index) {
-        BaseFragmentPro fragment = mFragments.get(index);
+    public static BaseFragment createFragment(int index) {
+        BaseFragment fragment = mFragments.get(index);
         // 如果之前没有创建, 创建新的Fragment
         if (fragment == null) {
             switch (index) {

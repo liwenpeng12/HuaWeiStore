@@ -11,8 +11,9 @@ import com.yadong.huawei.model.net.bean.MyGvBean;
 import com.yadong.huawei.presenter.contract.MineContract;
 import com.yadong.huawei.presenter.fragment.MinePresenter;
 import com.yadong.huawei.ui.adapter.MySubAdapter;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.EnterLayout;
+import com.yadong.huawei.ui.widget.LoadingPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import butterknife.OnClick;
  * 我的
  */
 
-public class MineFragment extends BaseFragmentPro<MinePresenter>
+public class MineFragment extends BaseFragment<MinePresenter>
         implements MineContract.View {
 
 
@@ -93,8 +94,8 @@ public class MineFragment extends BaseFragmentPro<MinePresenter>
 
     @Override
     protected void updateViews() {
-//        setCurrentState(LoadingPager.LoadResult.success);
-        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
+
     }
 
 

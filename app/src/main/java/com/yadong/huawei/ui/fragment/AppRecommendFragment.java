@@ -14,8 +14,8 @@ import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.section.AppRecommendHotSection;
 import com.yadong.huawei.ui.adapter.section.AppRecommendPopularSection;
 import com.yadong.huawei.ui.adapter.section.AppRecommendTasteSection;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
-import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
+import com.yadong.huawei.ui.base.BaseFragment;
+import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import butterknife.BindView;
@@ -23,7 +23,7 @@ import butterknife.BindView;
 /**
  * App详情页面_推荐fragment
  */
-public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
+public class AppRecommendFragment extends BaseFragment<AppRecommendPresenter>
         implements AppRecommendContract.View {
 
     @BindView(R.id.recycler_view)
@@ -63,7 +63,7 @@ public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
     public void getDataSuccess(AppRecommendBean bean) {
         this.mRecommendBean=bean;
         showRevData();
-        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
     }
 
     /**
@@ -89,7 +89,7 @@ public class AppRecommendFragment extends BaseFragmentPro<AppRecommendPresenter>
     @Override
     public void getDataFail(String message) {
         ToastUtil.show(getContext(),message);
-        setCurrentState(ErrorCallback.class);
+        setCurrentState(LoadingPager.LoadResult.error);
     }
 
 

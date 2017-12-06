@@ -21,12 +21,11 @@ import butterknife.ButterKnife;
 /**
  * 基类Fragment
  */
-public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment implements IBaseView {
-
+public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment
+        implements IBaseView {
 
     protected BaseActivity mContext;
     protected LoadingPager mLoadingPager; //缓存Fragment view
-    protected boolean mIsLoad = false;//是否加载数据
 
     @Inject
     protected T mPresenter;
@@ -56,39 +55,8 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
             initInjector();
             initViews();
         }
-        ViewGroup parent = (ViewGroup) mLoadingPager.getParent();
-        if (parent != null) {
-            parent.removeView(mLoadingPager);
-        }
         return mLoadingPager;
     }
-
-    /**
-     * 不用这个方式,也可以实现懒加载,调用的方式统一放到了Tab切换的时候,去获取数据,如果已经是成功状态就不获取了,只有是失败或者空的状态才去获取
-     */
-    //    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        if (getUserVisibleHint() && mLoadingPager != null && !mIsLoad) {
-//            mIsLoad = true;
-//            show();
-//        }
-//    }
-//
-//    /**
-//     * 为什么要在setUserVisibleHint方法和onActivityCreated两处都调用获取数据进行界面更新的方法updateViews呢？
-//     * 原因:第一次进入界面，第一个Fragment获取数据是在onActivityCreated里面，剩余的Fragment获取数据是在setUserVisibleHint里面。
-//     */
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        if (isVisibleToUser && isVisible() && mLoadingPager != null && !mIsLoad) {
-//            mIsLoad = true;
-//            System.out.println("setUserVisibleHint  1次");
-//            show();
-//        } else {
-//            super.setUserVisibleHint(isVisibleToUser);
-//        }
-//    }
 
     /**
      * 绑定布局文件
@@ -136,9 +104,14 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
         }
     }
 
-
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.<T>bindToLifecycle();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
     }
 }

@@ -3,7 +3,6 @@ package com.yadong.huawei.common.app;
 import android.app.Application;
 import android.os.Handler;
 
-import com.blankj.utilcode.util.CacheUtils;
 import com.blankj.utilcode.util.Utils;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.CrashHandler;
@@ -11,10 +10,10 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
-import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
 import com.yadong.huawei.ui.widget.loadsir.callback.EmptyCallback;
 import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
 import com.yadong.huawei.ui.widget.loadsir.callback.LoadingCallback;
+import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
 
 
 /**

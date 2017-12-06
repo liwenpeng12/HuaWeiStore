@@ -10,8 +10,8 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.utils.Constants;
-import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.common.utils.PreferenceUtils;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.ui.base.BaseActivity;
 
 import butterknife.OnClick;

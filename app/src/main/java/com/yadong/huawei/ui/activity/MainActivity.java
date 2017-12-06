@@ -9,6 +9,7 @@ import com.yadong.huawei.R;
 import com.yadong.huawei.common.factory.FragmentFactory;
 import com.yadong.huawei.ui.adapter.FixPagerAdapter;
 import com.yadong.huawei.ui.base.BaseActivity;
+import com.yadong.huawei.ui.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,8 +81,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 System.out.println("页面切换" + position);
-//                BaseFragmentPro fragment = FragmentFactory.createFragment(position);
-//                fragment.show();
+                BaseFragment fragment = FragmentFactory.createFragment(position);
+                fragment.show();
             }
         });
     }

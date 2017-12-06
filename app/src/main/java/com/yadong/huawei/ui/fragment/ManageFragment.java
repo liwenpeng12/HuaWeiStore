@@ -9,8 +9,9 @@ import com.yadong.huawei.dagger.component.DaggerManageComponent;
 import com.yadong.huawei.dagger.module.ManageModule;
 import com.yadong.huawei.presenter.contract.ManageContract;
 import com.yadong.huawei.presenter.fragment.ManagePresenter;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.EnterLayout;
+import com.yadong.huawei.ui.widget.LoadingPager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -18,7 +19,7 @@ import butterknife.OnClick;
 /**
  * 管理
  */
-public class ManageFragment extends BaseFragmentPro<ManagePresenter>
+public class ManageFragment extends BaseFragment<ManagePresenter>
         implements ManageContract.View {
 
     @BindView(R.id.update_label_textview)
@@ -71,8 +72,7 @@ public class ManageFragment extends BaseFragmentPro<ManagePresenter>
 
     @Override
     protected void updateViews() {
-//        setCurrentState(LoadingPager.LoadResult.success);
-        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
     }
 
 

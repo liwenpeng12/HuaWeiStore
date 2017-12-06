@@ -12,9 +12,9 @@ import com.yadong.huawei.presenter.contract.CategoryContract;
 import com.yadong.huawei.presenter.fragment.CategoryPresenter;
 import com.yadong.huawei.ui.adapter.section.CategorySection;
 import com.yadong.huawei.ui.adapter.wrapper.CategoryTopWrapper;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
+import com.yadong.huawei.ui.base.BaseFragment;
+import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.ViewUpSearch;
-import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import butterknife.BindView;
@@ -22,7 +22,7 @@ import butterknife.BindView;
 /**
  * 分类
  */
-public class CategoryFragment extends BaseFragmentPro<CategoryPresenter>
+public class CategoryFragment extends BaseFragment<CategoryPresenter>
         implements CategoryContract.View {
 
     @BindView(R.id.recycler_view)
@@ -61,7 +61,7 @@ public class CategoryFragment extends BaseFragmentPro<CategoryPresenter>
 
     @Override
     public void getDataSuccess(CategoryBean bean) {
-        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
         showRevData(bean);
         setSearchListener();
     }
@@ -122,7 +122,7 @@ public class CategoryFragment extends BaseFragmentPro<CategoryPresenter>
     @Override
     public void getDataFail(String message) {
         System.out.println("getDataFail   1ci" +message);
-        mBaseLoadService.showCallback(ErrorCallback.class);
+        setCurrentState(LoadingPager.LoadResult.error);
         ToastUtil.show(getContext(), message);
     }
 

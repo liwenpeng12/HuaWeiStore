@@ -13,8 +13,8 @@ import com.yadong.huawei.presenter.fragment.AppCommentPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.adapter.section.AppCommentContactsSection;
 import com.yadong.huawei.ui.adapter.wrapper.AppCommentTopWrapper;
-import com.yadong.huawei.ui.base.BaseFragmentPro;
-import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
+import com.yadong.huawei.ui.base.BaseFragment;
+import com.yadong.huawei.ui.widget.LoadingPager;
 import com.yadong.huawei.ui.widget.recyclerview.section.SectionRVAdapter;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import butterknife.BindView;
 /**
  * App详情页面_评论fragment
  */
-public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
+public class AppCommentFragment extends BaseFragment<AppCommentPresenter>
         implements AppCommentContract.View {
 
 
@@ -61,11 +61,13 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
         mPresenter.getData(((AppDetailActivity) getActivity()).getAppPackageName());
     }
 
+
     @Override
     public void getDataSuccess(AppCommentBean bean) {
         this.mAppCommentBean = bean;
         showRevData();
-        mBaseLoadService.showSuccess();
+//        mBaseLoadService.showSuccess();
+        setCurrentState(LoadingPager.LoadResult.success);
     }
 
     /**
@@ -105,7 +107,8 @@ public class AppCommentFragment extends BaseFragmentPro<AppCommentPresenter>
     @Override
     public void getDataFail(String message) {
         ToastUtil.show(getContext(), message);
-        setCurrentState(ErrorCallback.class);
+//        setCurrentState(ErrorCallback.class);
+        setCurrentState(LoadingPager.LoadResult.error);
     }
 
 
