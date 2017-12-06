@@ -9,8 +9,10 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.EmptyUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.factory.AppDetailFragmentFactory;
 import com.yadong.huawei.common.factory.FragmentFactory;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.Constants;
@@ -24,6 +26,7 @@ import com.yadong.huawei.presenter.activity.AppDetailPresenter;
 import com.yadong.huawei.presenter.contract.AppDetailContract;
 import com.yadong.huawei.ui.adapter.AppDetailPagerAdapter;
 import com.yadong.huawei.ui.base.BaseActivity;
+import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
 import com.yadong.huawei.ui.widget.SubTabNavigator;
 
@@ -171,14 +174,16 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
      * 设置横向标签内容
      */
     private void setLabel() {
-        for (AppDetailBean.LabelName labelNamesBean : mDetailBean.getLabelNameList()) {
-            View labelView = UIUtils.inflate(R.layout.appdetail_item_head_label_item);
-            TextView label = (TextView) labelView.findViewById(R.id.appdetail_head_label_textview);
-            label.setText(labelNamesBean.getName());
-            if (labelNamesBean.getType() == 1) {
-                label.setTextColor(getResources().getColor(R.color.app_not_safe_textcolor));
+        if (EmptyUtils.isNotEmpty(mDetailBean.getLabelNameList())) {
+            for (AppDetailBean.LabelName labelNamesBean : mDetailBean.getLabelNameList()) {
+                View labelView = UIUtils.inflate(R.layout.appdetail_item_head_label_item);
+                TextView label = (TextView) labelView.findViewById(R.id.appdetail_head_label_textview);
+                label.setText(labelNamesBean.getName());
+                if (labelNamesBean.getType() == 1) {
+                    label.setTextColor(getResources().getColor(R.color.app_not_safe_textcolor));
+                }
+                mLabelIconContainer.addView(labelView);
             }
-            mLabelIconContainer.addView(labelView);
         }
     }
 
@@ -186,20 +191,22 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
      * 设置安全检测的标签内容
      */
     private void setSafeLabel() {
-        for (AppDetailBean.SafeLabel safeLabelsBean : mDetailBean.getSafeLabelList()) {
-            View safeLabelView = UIUtils.inflate(R.layout.appdetail_item_head_safe_item);
+        if (EmptyUtils.isNotEmpty(mDetailBean.getSafeLabelList())) {
+            for (AppDetailBean.SafeLabel safeLabelsBean : mDetailBean.getSafeLabelList()) {
+                View safeLabelView = UIUtils.inflate(R.layout.appdetail_item_head_safe_item);
 
-            TextView safeChecker = (TextView) safeLabelView.findViewById(R.id.safe_checker_textview);
-            TextView safeCheckerLabel = (TextView) safeLabelView.findViewById(R.id.safe_checker_label);
-            TextView desc = (TextView) safeLabelView.findViewById(R.id.detail_safe_desc_textview);
-            ImageView appIcon = (ImageView) safeLabelView.findViewById(R.id.detail_head_app_icon_imageview);
+                TextView safeChecker = (TextView) safeLabelView.findViewById(R.id.safe_checker_textview);
+                TextView safeCheckerLabel = (TextView) safeLabelView.findViewById(R.id.safe_checker_label);
+                TextView desc = (TextView) safeLabelView.findViewById(R.id.detail_safe_desc_textview);
+                ImageView appIcon = (ImageView) safeLabelView.findViewById(R.id.detail_head_app_icon_imageview);
 
-            safeChecker.setText(safeLabelsBean.getDetectorName());
-            safeCheckerLabel.setText(safeLabelsBean.getDetectorDesc());
-            desc.setText(safeLabelsBean.getName());
-            ImageLoader.load(this, safeLabelsBean.getUrl(), appIcon, R.drawable.icon_default_bg);
+                safeChecker.setText(safeLabelsBean.getDetectorName());
+                safeCheckerLabel.setText(safeLabelsBean.getDetectorDesc());
+                desc.setText(safeLabelsBean.getName());
+                ImageLoader.load(this, safeLabelsBean.getUrl(), appIcon, R.drawable.icon_default_bg);
 
-            mSafeIconContainer.addView(safeLabelView);
+                mSafeIconContainer.addView(safeLabelView);
+            }
         }
     }
 
@@ -209,9 +216,9 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     private void setSubTab() {
         mFragments = new ArrayList<>();
 
-        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_INTRODUCTION));
-        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_COMMENT));
-        mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_RECOMMEND));
+        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_INTRODUCTION));
+        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_COMMENT));
+        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_RECOMMEND));
 
         AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
         appDetailPagerAdapter.setFragments(mFragments);
@@ -219,9 +226,16 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         mViewPager.setAdapter(appDetailPagerAdapter);
         mViewPager.addOnPageChangeListener(mSubTab);
 
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                BaseFragment fragment = AppDetailFragmentFactory.createFragment(position);
+                fragment.show();
+            }
+        });
+
         mSubTab.setViewPager(mViewPager);
     }
-
 
     /**
      * 设置下载按钮的详情

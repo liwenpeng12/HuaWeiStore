@@ -79,7 +79,7 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
 
     @Override
     protected void initViews() {
-
+        show();
     }
 
     @Override
