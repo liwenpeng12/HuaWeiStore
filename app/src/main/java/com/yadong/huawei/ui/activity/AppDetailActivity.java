@@ -42,7 +42,8 @@ import butterknife.OnClick;
 /**
  * App详情页面
  */
-public class AppDetailActivity extends BaseActivity implements AppDetailContract.View {
+public class AppDetailActivity extends BaseActivity
+        implements AppDetailContract.View {
 
     @BindView(R.id.title_text)
     TextView mTitleText;
@@ -98,8 +99,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     private boolean mExpand;//是否展开
     private String mPackageName;//传递过来的包名参数
     private AppDetailBean mDetailBean;
-
-    private List<Fragment> mFragments = null;
 
     @Override
     public int setLayout() {
@@ -214,14 +213,14 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
      * 设置子选项
      */
     private void setSubTab() {
-        mFragments = new ArrayList<>();
+        List<Fragment> fragments = new ArrayList<>();
 
-        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_INTRODUCTION));
-        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_COMMENT));
-        mFragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_RECOMMEND));
+        fragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_INTRODUCTION));
+        fragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_COMMENT));
+        fragments.add(AppDetailFragmentFactory.createFragment(AppDetailFragmentFactory.TAB_APP_RECOMMEND));
 
         AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
-        appDetailPagerAdapter.setFragments(mFragments);
+        appDetailPagerAdapter.setFragments(fragments);
 
         mViewPager.setAdapter(appDetailPagerAdapter);
         mViewPager.addOnPageChangeListener(mSubTab);
@@ -249,16 +248,13 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         ToastUtil.show(this, message);
     }
 
-    @OnClick({R.id.iv_search, R.id.detail_download_button,
-            R.id.detail_download_share_container, R.id.detail_download_comment_container,
+    @OnClick({R.id.iv_search, R.id.detail_download_share_container,
+            R.id.detail_download_comment_container,
             R.id.detail_head_label_container})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_search:
                 ToastUtil.show(this, "搜索");
-                break;
-
-            case R.id.detail_download_button:
                 break;
 
             case R.id.detail_download_share_container:
@@ -274,7 +270,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
                 break;
         }
     }
-
 
     /**
      * 展开标签下的详情
