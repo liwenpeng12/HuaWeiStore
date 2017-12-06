@@ -18,8 +18,4 @@ public class MinePresenter implements MineContract.Presenter {
         mApiService = RetrofitUtils.getApiService();
     }
 
-    @Override
-    public void getData() {
-
-    }
 }

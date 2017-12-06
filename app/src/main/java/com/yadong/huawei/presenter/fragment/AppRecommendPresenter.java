@@ -49,9 +49,4 @@ public class AppRecommendPresenter implements AppRecommendContract.Presenter {
                 });
     }
 
-
-    @Override
-    public void getData() {
-
-    }
 }

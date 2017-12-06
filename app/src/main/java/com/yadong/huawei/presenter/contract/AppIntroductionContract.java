@@ -6,23 +6,18 @@ import com.yadong.huawei.presenter.base.IBaseView;
 
 /**
  * 推荐
- *
+ * <p>
  * 契约借口
  */
 public interface AppIntroductionContract {
 
-    interface View extends IBaseView{
-
-
-
+    interface View extends IBaseView {
         void getDataSuccess(AppIntroductionBean bean);
 
         void getDataFail(String message);
-
-
     }
 
-    interface Presenter   extends IBasePresenter{
+    interface Presenter extends IBasePresenter {
         void getData(String packageName);
 
     }

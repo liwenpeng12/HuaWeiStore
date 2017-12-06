@@ -39,12 +39,11 @@ public class RankingPresenter implements RankingContract.Presenter {
                         String string = responseBody.string();
                         TopBean topBean = JsonParseUtils.parseTopBean(string);
                         mView.getDataSuccess(topBean);
-//                        mView.setCurrentState(LoadingPager.LoadResult.success);
+
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-//                        mView.setCurrentState(LoadingPager.LoadResult.error);
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

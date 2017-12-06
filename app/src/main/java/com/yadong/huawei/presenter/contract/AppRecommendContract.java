@@ -5,24 +5,17 @@ import com.yadong.huawei.presenter.base.IBasePresenter;
 import com.yadong.huawei.presenter.base.IBaseView;
 
 /**
- *
- *
  * 契约借口
  */
 public interface AppRecommendContract {
 
-    interface View extends IBaseView{
-
-
-
+    interface View extends IBaseView {
         void getDataSuccess(AppRecommendBean bean);
 
         void getDataFail(String message);
-
-
     }
 
-    interface Presenter   extends IBasePresenter{
+    interface Presenter extends IBasePresenter {
         void getData(String packageName);
 
     }

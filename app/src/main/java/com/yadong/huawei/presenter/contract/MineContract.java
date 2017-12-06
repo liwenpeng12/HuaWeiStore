@@ -12,10 +12,6 @@ public interface MineContract {
 
     interface View extends IBaseView{
 
-        /**
-         * 设置当前的页面状态
-         */
-//        void setCurrentState(Class<? extends Callback> clazz);
     }
 
     interface Presenter extends IBasePresenter {

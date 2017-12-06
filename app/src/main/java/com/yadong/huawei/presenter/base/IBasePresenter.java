@@ -6,9 +6,5 @@ package com.yadong.huawei.presenter.base;
  */
 public interface IBasePresenter {
 
-    /**
-     * 获取网络数据，更新界面
-     */
-    void getData();
 
 }

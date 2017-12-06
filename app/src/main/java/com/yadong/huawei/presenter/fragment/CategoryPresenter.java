@@ -18,7 +18,6 @@ import okhttp3.ResponseBody;
 
 public class CategoryPresenter implements CategoryContract.Presenter {
 
-
     private CategoryContract.View mView;
     private ApiService mApiService;
 
@@ -40,12 +39,10 @@ public class CategoryPresenter implements CategoryContract.Presenter {
                         String string = responseBody.string();
                         CategoryBean bean = JsonParseUtils.parseCategoryBean(string);
                         mView.getDataSuccess(bean);
-//                        mView.setCurrentState(LoadingPager.LoadResult.success);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-//                        mView.setCurrentState(LoadingPager.LoadResult.error);
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

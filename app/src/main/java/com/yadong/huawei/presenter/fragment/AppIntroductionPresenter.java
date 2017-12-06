@@ -49,9 +49,4 @@ public class AppIntroductionPresenter implements AppIntroductionContract.Present
                 });
     }
 
-
-    @Override
-    public void getData() {
-
-    }
 }

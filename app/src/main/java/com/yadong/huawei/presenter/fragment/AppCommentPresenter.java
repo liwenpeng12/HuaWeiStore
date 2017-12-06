@@ -39,7 +39,6 @@ public class AppCommentPresenter implements AppCommentContract.Presenter {
                         String string = responseBody.string();
                         AppCommentBean bean = JsonParseUtils.parseAppCommentBean(string);
                         mView.getDataSuccess(bean);
-
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -50,8 +49,4 @@ public class AppCommentPresenter implements AppCommentContract.Presenter {
     }
 
 
-    @Override
-    public void getData() {
-
-    }
 }

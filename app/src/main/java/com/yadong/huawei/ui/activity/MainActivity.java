@@ -18,13 +18,11 @@ import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
 
-
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
-
 
     private FixPagerAdapter mFixPagerAdapter;
     private List<Fragment> fragments ;

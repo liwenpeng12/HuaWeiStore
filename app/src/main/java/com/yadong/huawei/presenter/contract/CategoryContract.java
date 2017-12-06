@@ -22,6 +22,7 @@ public interface CategoryContract {
 
     interface Presenter extends IBasePresenter {
 
+        void getData();
 
     }
 

@@ -6,17 +6,12 @@ import com.yadong.huawei.presenter.base.IBaseView;
 
 /**
  * 推荐
- *
+ * <p>
  * 契约借口
  */
 public interface RecommendContract {
 
-    interface View extends IBaseView{
-
-        /**
-         * 设置当前的页面状态
-         */
-//        void setCurrentState(Class<? extends Callback> clazz);
+    interface View extends IBaseView {
 
         void getDataSuccess(RecommendBean recommendBean);
 
@@ -28,6 +23,8 @@ public interface RecommendContract {
     interface Presenter extends IBasePresenter {
 
         void getRecommendDataMore();
+
+        void getData();
     }
 
 }

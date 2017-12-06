@@ -6,27 +6,19 @@ import com.yadong.huawei.presenter.base.IBaseView;
 
 /**
  * 排行
- *
+ * <p>
  * 契约借口
  */
 public interface RankingContract {
 
-    interface View extends IBaseView{
-
-        /**
-         * 设置当前的页面状态
-         */
-//        void setCurrentState(Class<? extends Callback> clazz);
-
+    interface View extends IBaseView {
         void getDataSuccess(TopBean bean);
 
         void getDataFail(String message);
-
     }
 
     interface Presenter extends IBasePresenter {
-
-
+        void getData();
     }
 
 }

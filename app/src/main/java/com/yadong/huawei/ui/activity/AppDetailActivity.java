@@ -141,24 +141,9 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
     }
 
     @Override
-    public void showLoading() {
-        GlobalDialogManager.getInstance().show(getFragmentManager());
-    }
-
-    @Override
-    public void hideLoading() {
-        GlobalDialogManager.getInstance().dismiss();
-    }
-
-    @Override
     public void getDataSuccess(AppDetailBean bean) {
         this.mDetailBean = bean;
         setDetail();
-    }
-
-    @Override
-    public void getDataFail(String message) {
-        ToastUtil.show(this, message);
     }
 
     /**
@@ -228,7 +213,6 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_COMMENT));
         mFragments.add(FragmentFactory.createFragment(FragmentFactory.TAB_APP_RECOMMEND));
 
-
         AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
         appDetailPagerAdapter.setFragments(mFragments);
 
@@ -246,6 +230,10 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
 
     }
 
+    @Override
+    public void getDataFail(String message) {
+        ToastUtil.show(this, message);
+    }
 
     @OnClick({R.id.iv_search, R.id.detail_download_button,
             R.id.detail_download_share_container, R.id.detail_download_comment_container,
@@ -289,11 +277,9 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         }
     }
 
-
     public String getAppPackageName() {
         return mPackageName;
     }
-
 
     @Override
     public void finish() {
@@ -308,5 +294,15 @@ public class AppDetailActivity extends BaseActivity implements AppDetailContract
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_INTRODUCTION);
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_COMMENT);
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_RECOMMEND);
+    }
+
+    @Override
+    public void showLoading() {
+        GlobalDialogManager.getInstance().show(getFragmentManager());
+    }
+
+    @Override
+    public void hideLoading() {
+        GlobalDialogManager.getInstance().dismiss();
     }
 }

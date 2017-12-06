@@ -43,13 +43,10 @@ public class RecommendPresenter implements RecommendContract.Presenter {
                         String string = responseBody.string();
                         RecommendBean recommendBean = JsonParseUtils.parseRecommendBean(string);
                         mView.getDataSuccess(recommendBean);
-
-//                        mView.setCurrentState(LoadingPager.LoadResult.success);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-
                         mView.getDataFail(throwable.getMessage());
                     }
                 });

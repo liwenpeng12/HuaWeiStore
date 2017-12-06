@@ -18,8 +18,4 @@ public class ManagePresenter implements ManageContract.Presenter {
         mApiService = RetrofitUtils.getApiService();
     }
 
-    @Override
-    public void getData() {
-
-    }
 }
