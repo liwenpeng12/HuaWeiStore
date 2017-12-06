@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 import com.yadong.huawei.common.app.App;
@@ -104,12 +105,12 @@ public class UIUtils {
         return App.getHandler();
     }
 
+    /**
+     * 是否是主线程
+     * @return
+     */
     public static boolean isRunOnMainThread() {
-        return android.os.Process.myTid() == getMainThreadTid();
-    }
-
-    private static int getMainThreadTid() {
-        return App.getMainThreadId();
+        return Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
     public static String getString(int id) {

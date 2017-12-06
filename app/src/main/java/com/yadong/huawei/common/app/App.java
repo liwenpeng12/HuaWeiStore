@@ -23,21 +23,17 @@ public class App extends Application {
 
     private static App instance;
     private static AppComponent mAppComponent;
-    private static int mMainThreadId;
     private static Handler mHandler;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         initConfig();
         initSdk();
         initUtils();
         initInjector();
         initLoadSir();
     }
-
-
 
     /**
      * 初始化配置
@@ -52,9 +48,11 @@ public class App extends Application {
      */
     private void initSdk() {
 
-
     }
 
+    /**
+     * 初始化工具类
+     */
     private void initUtils() {
         CrashHandler.getInstance().init(this);
         RetrofitUtils.getInstance().initOkHttp(this);
@@ -72,6 +70,9 @@ public class App extends Application {
                 .build();
     }
 
+    /**
+     * 初始化LoadSir
+     */
     private void initLoadSir() {
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())//'添加各种状态页
@@ -81,20 +82,12 @@ public class App extends Application {
                 .commit();
     }
 
-
     public static App getInstance() {
         return instance;
     }
 
     public static AppComponent getAppComponent() {
         return mAppComponent;
-    }
-
-    /**
-     * 返回主线程的pid
-     */
-    public static int getMainThreadId() {
-        return mMainThreadId;
     }
 
     /**
