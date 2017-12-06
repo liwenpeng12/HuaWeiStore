@@ -10,10 +10,12 @@ import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;
 import com.yadong.huawei.dagger.module.AppModule;
+import com.yadong.huawei.model.net.request.ApiService;
 import com.yadong.huawei.ui.widget.loadsir.callback.EmptyCallback;
 import com.yadong.huawei.ui.widget.loadsir.callback.ErrorCallback;
 import com.yadong.huawei.ui.widget.loadsir.callback.LoadingCallback;
 import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
+import com.zhxu.library.RxRetrofitApp;
 
 
 /**
@@ -59,6 +61,7 @@ public class App extends Application {
         RetrofitUtils.getInstance().initOkHttp(this);
         GlobalDialogManager.getInstance().init();
         Utils.init(this);
+        RxRetrofitApp.init(this,true, ApiService.BASE_URL);
     }
 
     /**

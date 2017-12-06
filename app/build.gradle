@@ -31,6 +31,10 @@ android {
             schemaVersion 1
         }
     }
+    //解决依赖冲突问题
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:2.0.1'
+    }
 }
 
 dependencies {
@@ -56,7 +60,7 @@ dependencies {
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
-    compile 'zlc.season:rxdownload2:2.0.4'
+//    compile 'zlc.season:rxdownload2:2.0.4'
 
 
     //network
@@ -73,9 +77,6 @@ dependencies {
     //di
     compile 'com.google.dagger:dagger:2.12'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
-//    compile 'org.glassfish:javax.annotation:10.0-b28'
-//    compile 'com.jakewharton:butterknife:8.4.0'
-//    apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
@@ -87,6 +88,7 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.blankj:utilcode:1.9.10'
 
+    compile 'com.github.hydznsqk:DownLoadDemo:v1.0'
 
 
 }

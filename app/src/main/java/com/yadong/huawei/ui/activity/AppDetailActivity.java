@@ -1,7 +1,10 @@
 package com.yadong.huawei.ui.activity;
 
+import android.os.Environment;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +32,12 @@ import com.yadong.huawei.ui.base.BaseActivity;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
 import com.yadong.huawei.ui.widget.SubTabNavigator;
+import com.zhxu.library.download.DownInfo;
+import com.zhxu.library.download.DownState;
+import com.zhxu.library.download.HttpDownManager;
+import com.zhxu.library.utils.DbDownUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +51,7 @@ import butterknife.OnClick;
  * App详情页面
  */
 public class AppDetailActivity extends BaseActivity
-        implements AppDetailContract.View {
+        implements AppDetailContract.View, HttpDownManager.DownloadObserver {
 
     @BindView(R.id.title_text)
     TextView mTitleText;
@@ -128,9 +136,24 @@ public class AppDetailActivity extends BaseActivity
                 .init();
     }
 
+
+    private DbDownUtil dbUtil;
+    private HttpDownManager manager;
+    private DownInfo downInfo ;
+    private File outputFile ;
+
     @Override
     public void initViews() {
         getIntentData();
+
+        manager= HttpDownManager.getInstance();
+        manager.registerObserver(this);
+        dbUtil= DbDownUtil.getInstance();
+
+        downInfo = dbUtil.queryDownBy(mPackageName.hashCode());
+        if(downInfo == null) {
+            outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), mPackageName + ".apk");
+        }
     }
 
     private void getIntentData() {
@@ -240,7 +263,63 @@ public class AppDetailActivity extends BaseActivity
      * 设置下载按钮的详情
      */
     private void setDetailDown() {
+        if(downInfo == null) {
+            mDownloadButton.setStartText("安装 " + Formatter.formatFileSize(UIUtils.getContext(),
+                    Long.parseLong(mDetailBean.getSize())));
+        }else{
+            if(downInfo.getState() == DownState.DOWN){
+                mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_DOWNLOADING);
+                manager.startDown(downInfo);
+            }else if(downInfo.getState() == DownState.PAUSE){
+                mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_PAUSE);
+            }else if(downInfo.getState() == DownState.FINISH){
+                mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_BEGIN);
+            }
+            mDownloadButton.setProgress((int) (100 * downInfo.getReadLength()/downInfo.getCountLength()));
+        }
 
+        mDownloadButton.setStateChangeListener(new DownloadProgressButton.StateChangeListener() {
+            @Override
+            public void onPauseTask() {
+                manager.pause(downInfo);
+            }
+
+            @Override
+            public void onFinishTask() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        SystemClock.sleep(3000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //AppInfoUtils.install(downInfo.getSavePath());
+                                if(dbUtil != null && downInfo != null)
+                                    dbUtil.update(downInfo);
+                            }
+                        });
+                    }
+                }).start();
+
+            }
+
+            @Override
+            public void onLoadingTask() {
+                mDownloadButton.setMax(100);
+
+                if(downInfo == null){
+                    downInfo = new DownInfo(mDetailBean.getDownloadUrl());
+                    downInfo.setId((long) mPackageName.hashCode());
+                    downInfo.setState(DownState.START);
+                    downInfo.setSavePath(outputFile.getAbsolutePath());
+                    dbUtil.save(downInfo);
+
+                }
+                if(downInfo.getState()!= DownState.FINISH){
+                    manager.startDown(downInfo);
+                }
+            }
+        });
     }
 
     @Override
@@ -299,7 +378,12 @@ public class AppDetailActivity extends BaseActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        if(manager != null){
+            manager.unRegisterObserver(this);
+            if(downInfo != null){
+                dbUtil.update(downInfo);
+            }
+        }
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_INTRODUCTION);
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_COMMENT);
         FragmentFactory.removeFragment(FragmentFactory.TAB_APP_RECOMMEND);
@@ -313,5 +397,17 @@ public class AppDetailActivity extends BaseActivity
     @Override
     public void hideLoading() {
         GlobalDialogManager.getInstance().dismiss();
+    }
+
+    @Override
+    public void onDownloadStateChanged(DownInfo downInfo) {
+
+    }
+
+    @Override
+    public void onDownloadProgressed(DownInfo info) {
+        if(downInfo != null && info.getId() == downInfo.getId()) {
+            mDownloadButton.setProgress((int) (100 * info.getReadLength() / info.getCountLength()));
+        }
     }
 }
