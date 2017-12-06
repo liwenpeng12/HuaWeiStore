@@ -3,6 +3,8 @@ package com.yadong.huawei.common.app;
 import android.app.Application;
 import android.os.Handler;
 
+import com.blankj.utilcode.util.CacheUtils;
+import com.blankj.utilcode.util.Utils;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.CrashHandler;
 import com.yadong.huawei.common.utils.RetrofitUtils;
@@ -57,6 +59,7 @@ public class App extends Application {
         CrashHandler.getInstance().init(this);
         RetrofitUtils.getInstance().initOkHttp(this);
         GlobalDialogManager.getInstance().init();
+        Utils.init(this);
     }
 
     /**
