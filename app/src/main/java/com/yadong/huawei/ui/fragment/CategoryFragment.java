@@ -1,5 +1,6 @@
 package com.yadong.huawei.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -10,6 +11,10 @@ import com.yadong.huawei.dagger.module.CategoryModule;
 import com.yadong.huawei.model.net.bean.CategoryBean;
 import com.yadong.huawei.presenter.contract.CategoryContract;
 import com.yadong.huawei.presenter.fragment.CategoryPresenter;
+import com.yadong.huawei.ui.activity.CategoryNecessaryActivity;
+import com.yadong.huawei.ui.activity.CategoryNewActivity;
+import com.yadong.huawei.ui.activity.CategorySubjectActivity;
+import com.yadong.huawei.ui.activity.CategorySubscribeActivity;
 import com.yadong.huawei.ui.adapter.section.CategorySection;
 import com.yadong.huawei.ui.adapter.wrapper.CategoryTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
@@ -23,7 +28,7 @@ import butterknife.BindView;
  * 分类
  */
 public class CategoryFragment extends BaseFragment<CategoryPresenter>
-        implements CategoryContract.View {
+        implements CategoryContract.View, CategoryTopWrapper.OnItemClickListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -82,6 +87,8 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
 
         mRecyclerView.setAdapter(categoryTopWrapper);
 
+        categoryTopWrapper.setOnItemClickListener(this);
+
     }
 
     /**
@@ -121,9 +128,31 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
 
     @Override
     public void getDataFail(String message) {
-        System.out.println("getDataFail   1ci" +message);
+        System.out.println("getDataFail   1ci" + message);
         setCurrentState(LoadingPager.LoadResult.error);
         ToastUtil.show(getContext(), message);
     }
 
+    @Override
+    public void onItemClick(int position) {
+        switch (position) {
+            case 0:
+                //预约
+                startActivity(new Intent(getContext(), CategorySubscribeActivity.class));
+                break;
+            case 1:
+                //必备
+                startActivity(new Intent(getContext(), CategoryNecessaryActivity.class));
+                break;
+
+            case 2:
+                //首发
+                startActivity(new Intent(getContext(), CategoryNewActivity.class));
+                break;
+            default:
+                //专题
+                startActivity(new Intent(getContext(), CategorySubjectActivity.class));
+                break;
+        }
+    }
 }

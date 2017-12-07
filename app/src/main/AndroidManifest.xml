@@ -92,17 +92,16 @@
         </activity>
         <activity
             android:name=".ui.activity.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".ui.activity.AppDetailActivity">
-
-        </activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.AppDetailActivity" />
         <activity
             android:name=".ui.activity.GalleryActivity"
-            android:theme="@style/FullScreenTheme">
-
-        </activity>
+            android:theme="@style/FullScreenTheme" />
+        <activity android:name=".ui.activity.CategorySubscribeActivity" />
+        <activity android:name=".ui.activity.CategoryNecessaryActivity" />
+        <activity android:name=".ui.activity.CategoryNewActivity" />
+        <activity android:name=".ui.activity.CategorySubjectActivity" />
+        <activity android:name=".ui.activity.WebViewActivity"></activity>
     </application>
 
 </manifest>

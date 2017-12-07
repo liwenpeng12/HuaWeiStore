@@ -16,7 +16,6 @@ import com.blankj.utilcode.util.EmptyUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.factory.AppDetailFragmentFactory;
-import com.yadong.huawei.common.factory.FragmentFactory;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.ImageLoader;
