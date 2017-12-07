@@ -21,9 +21,9 @@ import com.yadong.huawei.R;
 
 public class SubTabNavigator extends LinearLayout implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
-    public final static int TAG_LEFT_VIEW = 0;
-    public final static int TAG_NONE_VIEW = 1;
-    public final static int TAG_RIGHT_VIEW = 2;
+    public final static int TAG_LEFT_VIEW = 0 ;
+    public final static int TAG_NONE_VIEW = 1 ;
+    public final static int TAG_RIGHT_VIEW = 2 ;
 
     private float mTextSize = -1.0F;
     private int tabUnSelectTextColor = 0;
@@ -35,32 +35,35 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     private Drawable mLeftSelectDrawable;
     private Drawable mRightSelectDrawable;
     private Drawable mSimpleSelectDrawable;
-    private String mLeftText;
-    private String mSimpleText;
-    private String mRightText;
+    private String mLeftText ;
+    private String mSimpleText ;
+    private String mRightText ;
 
-    private TextView mLeftTextView;
-    private TextView mSimpleTextView;
-    private TextView mRightTextView;
-    private ViewPager mViewPager;
+    private TextView mLeftTextView ;
+    private TextView mSimpleTextView ;
+    private TextView mRightTextView ;
+    private ViewPager mViewPager ;
 
-    private int mCurrentPosition = 0;//当前的position 值
+    private ViewPager.OnPageChangeListener mPageChangeListener ;
+
+
+    private int currentPositon=0;
 
     public SubTabNavigator(Context context) {
-        this(context, null);
+        this(context,null);
     }
 
     public SubTabNavigator(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs,0);
     }
 
     public SubTabNavigator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context,attrs);
         initView(context);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context,AttributeSet attrs) {
         TypedArray typedArray = null;
         if (attrs != null) {
             typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.sub_tab);
@@ -83,55 +86,59 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     }
 
 
-    private void initView(Context context) {
+
+    private void initView(Context context){
+
         setOrientation(LinearLayout.HORIZONTAL);
-        addTextView(context, TAG_LEFT_VIEW);
-        addTextView(context, TAG_NONE_VIEW);
-        addTextView(context, TAG_RIGHT_VIEW);
+        addTextView(context,TAG_LEFT_VIEW);
+        addTextView(context,TAG_NONE_VIEW);
+        addTextView(context,TAG_RIGHT_VIEW);
     }
 
-    private void addTextView(Context context, int viewTag) {
-        TextView tv = (TextView) View.inflate(context, R.layout.custom_textview, null);
+    private void addTextView(Context context,int viewTag){
+        TextView tv = (TextView) View.inflate(context,R.layout.custom_textview,null);
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         layoutParams.weight = 1.0F;
 
         tv.setLayoutParams(layoutParams);
         tv.setOnClickListener(this);
         tv.setGravity(Gravity.CENTER);
-        if (mTextSize > 0f){
+        if(mTextSize > 0f) {
             tv.setTextSize(0, mTextSize);
         }
 
         tv.setOnClickListener(this);
         tv.setTag(viewTag);
-        if (viewTag == TAG_LEFT_VIEW) {
+        if(viewTag == TAG_LEFT_VIEW) {
             tv.setText(mLeftText);
-            mLeftTextView = tv;
-        } else if (viewTag == TAG_NONE_VIEW) {
+            mLeftTextView = tv ;
+        }else if(viewTag == TAG_NONE_VIEW){
             tv.setText(mSimpleText);
-            mSimpleTextView = tv;
-        } else if (viewTag == TAG_RIGHT_VIEW) {
+            mSimpleTextView = tv ;
+        }else if(viewTag == TAG_RIGHT_VIEW){
             tv.setText(mRightText);
-            mRightTextView = tv;
+            mRightTextView = tv ;
         }
         addView(tv);
     }
 
-    private void drawBackground() {
+    private void drawBackground(){
+
         getChildAt(0).setBackgroundDrawable(mLeftUnSelectDrawable);
         getChildAt(1).setBackgroundDrawable(mSimpleUnSelectDrawable);
         getChildAt(2).setBackgroundDrawable(mRightUnSelectDrawable);
 
-        for (int i = 0; i < getChildCount(); i++) {
-            TextView childView = (TextView) getChildAt(i);
+        for(int i = 0 ; i < getChildCount() ; i ++ ){
+            TextView childView = (TextView)getChildAt(i);
             childView.setTextColor(tabUnSelectTextColor);
         }
     }
 
+
     @Override
     public void onClick(View view) {
         setCurrentItemSelect(view);
-        if (mListener != null) {
+        if(mListener!=null){
             mListener.onClick(view);
         }
     }
@@ -141,72 +148,76 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawBackground();
-        setCurrentItemSelect(getChildAt(mCurrentPosition));
+        setCurrentItemSelect(getChildAt(currentPositon)) ;
+
     }
 
-    public void setCurrentItemSelect(View view) {
+    public void setCurrentItemSelect(View view){
 
         drawBackground();
-        TextView tv = (TextView) view;
+        TextView tv = (TextView)view ;
         tv.setTextColor(tabSelectTextColor);
-        int tag = (int) tv.getTag();
-        switch (tag) {
-            case TAG_LEFT_VIEW:
+        int tag = (int)tv.getTag();
+        switch (tag){
+            case TAG_LEFT_VIEW :
                 tv.setBackgroundDrawable(mLeftSelectDrawable);
                 break;
-            case TAG_NONE_VIEW:
+            case TAG_NONE_VIEW :
                 tv.setBackgroundDrawable(mSimpleSelectDrawable);
                 break;
-            case TAG_RIGHT_VIEW:
+            case TAG_RIGHT_VIEW :
                 tv.setBackgroundDrawable(mRightSelectDrawable);
                 break;
+            default:
+                break;
         }
-        switchViewPager(tag);
+
+        switchViewPager(tag) ;
+
     }
 
-    private void setCurrentIntemSelect(int position) {
+    private void setCurrentIntemSelect(int position){
         drawBackground();
-        TextView tv = (TextView) getChildAt(position);
+        TextView tv = (TextView)getChildAt(position) ;
         tv.setTextColor(tabSelectTextColor);
-        int tag = (int) tv.getTag();
-        switch (tag) {
-            case TAG_LEFT_VIEW:
+        int tag = (int)tv.getTag();
+        switch (tag){
+            case TAG_LEFT_VIEW :
                 tv.setBackgroundDrawable(mLeftSelectDrawable);
                 break;
-            case TAG_NONE_VIEW:
+            case TAG_NONE_VIEW :
                 tv.setBackgroundDrawable(mSimpleSelectDrawable);
                 break;
-            case TAG_RIGHT_VIEW:
+            case TAG_RIGHT_VIEW :
                 tv.setBackgroundDrawable(mRightSelectDrawable);
+                break;
+            default:
                 break;
         }
     }
 
-    private void switchViewPager(int tag) {
-        if (mViewPager != null) {
+    private void switchViewPager(int tag){
+        if(mViewPager != null) {
             mViewPager.setCurrentItem(tag);
-            mCurrentPosition = tag;
         }
     }
 
 
-    public void setLeftText(String leftText) {
-        this.mLeftText = leftText;
+    public void setLeftText(String leftText){
+        this.mLeftText = leftText ;
         mLeftTextView.setText(leftText);
     }
-
-    public void setNoneText(String noneText) {
-        this.mSimpleText = noneText;
+    public void setNoneText(String noneText){
+        this.mSimpleText = noneText ;
         mSimpleTextView.setText(noneText);
     }
-
-    public void setRightText(String rightText) {
-        this.mRightText = rightText;
-        mRightTextView.setText(rightText);
+    public void setRightText(String rightText){
+        this.mRightText = rightText ;
+        mRightTextView.setText(rightText) ;
     }
 
-    public void setViewPager(ViewPager viewPager) {
-        this.mViewPager = viewPager;
+    public void setViewPager(ViewPager viewPager){
+        this.mViewPager = viewPager ;
     }
 
     @Override
@@ -216,7 +227,7 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
 
     @Override
     public void onPageSelected(int position) {
-        setCurrentIntemSelect(position);
+        setCurrentIntemSelect(position) ;
     }
 
     @Override
@@ -225,21 +236,20 @@ public class SubTabNavigator extends LinearLayout implements View.OnClickListene
     }
 
     private OnItemClickListener mListener;
-
     public void setListener(OnItemClickListener listener) {
         mListener = listener;
     }
-
-    public interface OnItemClickListener {
+    public interface OnItemClickListener{
         void onClick(View view);
     }
 
     public int getCurrentPosition() {
-        return mCurrentPosition;
+        return currentPositon;
     }
 
-    public void setCurrentPosition(int currentPosition) {
-        this.mCurrentPosition = currentPosition;
+
+    public void setCurrentPosition(int currentPositon) {
+        this.currentPositon = currentPositon;
         invalidate();
 
     }

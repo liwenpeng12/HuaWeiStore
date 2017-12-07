@@ -257,6 +257,39 @@ public class AppDetailActivity extends BaseActivity
         });
 
         mSubTab.setViewPager(mViewPager);
+
+        mSubTab.setListener(new SubTabNavigator.OnItemClickListener() {
+            @Override
+            public void onClick(View view) {
+                int tag = (int) view.getTag();
+                switch (tag) {
+
+                    case SubTabNavigator.TAG_LEFT_VIEW:
+                        showLeftView();
+                        break;
+
+                    case SubTabNavigator.TAG_NONE_VIEW:
+                        showNoneView();
+                        break;
+
+                    case SubTabNavigator.TAG_RIGHT_VIEW:
+                        showRightView();
+                        break;
+                }
+            }
+        });
+    }
+
+    private void showLeftView() {
+        mSubTab.setCurrentPosition(SubTabNavigator.TAG_LEFT_VIEW);
+    }
+
+    private void showNoneView() {
+        mSubTab.setCurrentPosition(SubTabNavigator.TAG_NONE_VIEW);
+    }
+
+    private void showRightView() {
+        mSubTab.setCurrentPosition(SubTabNavigator.TAG_RIGHT_VIEW);
     }
 
     /**
