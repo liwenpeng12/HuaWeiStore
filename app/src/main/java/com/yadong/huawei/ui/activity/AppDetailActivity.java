@@ -412,12 +412,13 @@ public class AppDetailActivity extends BaseActivity
     protected void onDestroy() {
         super.onDestroy();
         if(manager != null){
+            manager.pause(downInfo);
             manager.unRegisterObserver(this);
             if(downInfo != null){
                 dbUtil.update(downInfo);
             }
         }
-        FragmentFactory.removeAll();
+        AppDetailFragmentFactory.removeAll();
     }
 
     @Override

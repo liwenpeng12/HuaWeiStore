@@ -1,5 +1,6 @@
 package com.yadong.huawei.ui.fragment;
 
+import android.content.Intent;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,11 +17,13 @@ import com.yadong.huawei.model.net.bean.AppIntroductionBean;
 import com.yadong.huawei.presenter.contract.AppIntroductionContract;
 import com.yadong.huawei.presenter.fragment.AppIntroductionPresenter;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
+import com.yadong.huawei.ui.activity.GalleryActivity;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.FlowLayout;
 import com.yadong.huawei.ui.widget.FoldingTextView;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -108,6 +111,7 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
      * 设置横向的图片展示
      */
     private void setGallery() {
+        mGalleryContainer.removeAllViews();
         for (int i = 0; i < mIntroductionBean.getImageCompressList().size(); i++) {
             String url = mIntroductionBean.getImageCompressList().get(i);
             View screenView = View.inflate(getContext(), R.layout.appdetail_item_screen_image, null);
@@ -117,7 +121,12 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
             screenView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtil.show(getContext(),"老子被点击了");
+                    int tag = (int) v.getTag();
+                    List<String> images = mIntroductionBean.getImageCompressList();
+                    Intent intent = new Intent(getContext(), GalleryActivity.class);
+                    intent.putExtra("tag",tag) ;
+                    intent.putStringArrayListExtra("urlList", (ArrayList<String>) images);
+                    getActivity().startActivity(intent) ;
                 }
             });
             screenView.setTag(i);
