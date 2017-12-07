@@ -112,17 +112,6 @@ public abstract class BaseActivity extends RxAppCompatActivity implements IBaseV
         }
     }
 
-    /**
-     * 带退出动画的关闭
-     *
-     * @param isHaveAnim 是否有动画
-     */
-    public void finish(boolean isHaveAnim) {
-        finish();
-        if (isHaveAnim) {
-            exitAnim();
-        }
-    }
 
     @Override
     protected void onDestroy() {

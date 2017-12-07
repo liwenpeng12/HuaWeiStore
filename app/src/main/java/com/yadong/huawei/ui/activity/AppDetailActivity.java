@@ -264,7 +264,7 @@ public class AppDetailActivity extends BaseActivity
      */
     private void setDetailDown() {
         if(downInfo == null) {
-            mDownloadButton.setStartText("安装 " + Formatter.formatFileSize(UIUtils.getContext(),
+            mDownloadButton.setStartText("下载 " + Formatter.formatFileSize(UIUtils.getContext(),
                     Long.parseLong(mDetailBean.getSize())));
         }else{
             if(downInfo.getState() == DownState.DOWN){
@@ -384,9 +384,7 @@ public class AppDetailActivity extends BaseActivity
                 dbUtil.update(downInfo);
             }
         }
-        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_INTRODUCTION);
-        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_COMMENT);
-        FragmentFactory.removeFragment(FragmentFactory.TAB_APP_RECOMMEND);
+        FragmentFactory.removeAll();
     }
 
     @Override

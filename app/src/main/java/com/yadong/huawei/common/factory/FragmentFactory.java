@@ -45,21 +45,6 @@ public class FragmentFactory {
      */
     public static final int TAB_MINE = 4;
 
-    /**
-     * App详情_介绍
-     */
-    public static final int TAB_APP_INTRODUCTION = 5;
-
-    /**
-     * App详情_评论
-     */
-    public static final int TAB_APP_COMMENT = 6;
-
-    /**
-     * App详情_推荐
-     */
-    public static final int TAB_APP_RECOMMEND = 7;
-
 
     private static Map<Integer, BaseFragment> mFragments = new HashMap<>();
 
@@ -87,17 +72,6 @@ public class FragmentFactory {
                     break;
                 case TAB_MINE:
                     fragment = new MineFragment();
-                    break;
-
-
-                case TAB_APP_INTRODUCTION:
-                    fragment = new AppIntroductionFragment();
-                    break;
-                case TAB_APP_COMMENT:
-                    fragment = new AppCommentFragment();
-                    break;
-                case TAB_APP_RECOMMEND:
-                    fragment = new AppRecommendFragment();
                     break;
 
             }

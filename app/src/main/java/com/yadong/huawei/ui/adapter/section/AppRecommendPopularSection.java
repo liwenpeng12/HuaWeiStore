@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.model.net.bean.AppBean;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.widget.recyclerview.adapter.CommonAdapter;
@@ -80,7 +81,7 @@ public class AppRecommendPopularSection extends StatelessSection {
         }
 
         @Override
-        protected void convert(ViewHolder holder, final AppBean popularAppBean, int position) {
+        protected void convert(ViewHolder holder, final AppBean popularAppBean, final int position) {
             holder.setImageUrl(R.id.iv_app_icon, popularAppBean.getIcon());
             holder.setText(R.id.tv_app_name, popularAppBean.getName());
             holder.setText(R.id.tv_app_size, popularAppBean.getSizeDesc());
@@ -88,8 +89,9 @@ public class AppRecommendPopularSection extends StatelessSection {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    AppBean appBean = mDatas.get(position);
                     Intent intent = new Intent(mContext, AppDetailActivity.class);
-                    intent.putExtra("packageName", popularAppBean.getPackageName());
+                    intent.putExtra(Constants.PACKAGE_NAME, appBean.getPackageName());
                     ((AppDetailActivity) mContext).startActivity(intent);
                 }
             });

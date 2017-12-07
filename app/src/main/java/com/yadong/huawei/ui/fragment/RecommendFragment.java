@@ -128,7 +128,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
             public void goAppDetail(String packageName) {
                 Intent intent = new Intent(getContext(), AppDetailActivity.class);
                 intent.putExtra(Constants.PACKAGE_NAME,packageName);
-                mContext.startActivity(intent,true);
+                mContext.startActivity(intent);
             }
         });
     }

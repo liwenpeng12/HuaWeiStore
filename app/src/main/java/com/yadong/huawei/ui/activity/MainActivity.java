@@ -86,6 +86,12 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FragmentFactory.removeAll();
+    }
+
     /**
      * 动态添加
      * @param view

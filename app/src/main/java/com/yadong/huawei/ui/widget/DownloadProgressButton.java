@@ -160,6 +160,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
     public void setStartText(String text){
         this.startText = text ;
+        invalidate();
     }
 
 

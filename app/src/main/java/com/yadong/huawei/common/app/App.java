@@ -57,7 +57,7 @@ public class App extends Application {
      * 初始化工具类
      */
     private void initUtils() {
-        CrashHandler.getInstance().init(this);
+//        CrashHandler.getInstance().init(this);
         RetrofitUtils.getInstance().initOkHttp(this);
         GlobalDialogManager.getInstance().init();
         Utils.init(this);

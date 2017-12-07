@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.model.net.bean.AppBean;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
@@ -53,8 +54,8 @@ public class AppRecommendHotSection extends StatelessSection {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, AppDetailActivity.class);
-                intent.putExtra("packageName",hotAppBean.getPackageName());
-                ((AppDetailActivity)mContext).startActivity(intent,true);
+                intent.putExtra(Constants.PACKAGE_NAME,hotAppBean.getPackageName());
+                mContext.startActivity(intent);
             }
         });
     }

@@ -141,6 +141,6 @@ public class RankingFragment extends BaseFragment<RankingPresenter>
     public void onItemClick(int position, String packageName) {
         Intent intent = new Intent(getContext(), AppDetailActivity.class);
         intent.putExtra(Constants.PACKAGE_NAME, packageName);
-        mContext.startActivity(intent, true);
+        mContext.startActivity(intent);
     }
 }
