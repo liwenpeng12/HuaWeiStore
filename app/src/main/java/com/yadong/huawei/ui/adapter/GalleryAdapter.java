@@ -10,12 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.yadong.huawei.common.utils.UIUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import uk.co.senab.photoview.PhotoView;
 
 /**
  *
