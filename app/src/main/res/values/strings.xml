@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
+    <string name="app_name">华为Store</string>
     <string name="client_app_name">应用市场</string>
     <string name="str_loading">正在加载，请稍候…</string>
     <string name="setting_network">设置网络</string>
@@ -149,7 +149,7 @@
     <string name="app_installing_can_not_delete">应用正在安装，请稍后操作</string>
     <string name="app_is_stopped">该应用已停用</string>
     <string name="app_management">应用管理</string>
-    <string name="app_name">华为</string>
+
     <string name="app_reinstall">重新安装</string>
     <string name="app_syn_first_time_start_toast">已启动已购项目同步安装</string>
     <string name="app_uninstall">卸载</string>
