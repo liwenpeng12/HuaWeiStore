@@ -1,8 +1,8 @@
 package com.yadong.huawei.presenter.contract;
 
 import com.yadong.huawei.model.net.bean.RecommendBean;
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 推荐
@@ -11,7 +11,7 @@ import com.yadong.huawei.presenter.base.IBaseView;
  */
 public interface RecommendContract {
 
-    interface View extends IBaseView {
+    interface View extends BaseView {
 
         void getDataSuccess(RecommendBean recommendBean);
 
@@ -20,7 +20,7 @@ public interface RecommendContract {
         void getDataMoreSuccess(RecommendBean recommendBean);
     }
 
-    interface Presenter extends IBasePresenter {
+    interface Presenter extends BasePresenter {
 
         void getRecommendDataMore();
 

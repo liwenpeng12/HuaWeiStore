@@ -1,8 +1,8 @@
 package com.yadong.huawei.presenter.contract;
 
 import com.yadong.huawei.model.net.bean.TopBean;
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 排行
@@ -11,13 +11,13 @@ import com.yadong.huawei.presenter.base.IBaseView;
  */
 public interface RankingContract {
 
-    interface View extends IBaseView {
+    interface View extends BaseView {
         void getDataSuccess(TopBean bean);
 
         void getDataFail(String message);
     }
 
-    interface Presenter extends IBasePresenter {
+    interface Presenter extends BasePresenter {
         void getData();
     }
 

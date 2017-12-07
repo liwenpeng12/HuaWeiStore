@@ -13,7 +13,7 @@ import com.yadong.huawei.R;
 
 
 /**
- * 提示框 Created by HLQ on 2017/6/15
+ * 提示框
  */
 public class HintDialog extends DialogFragment {
 

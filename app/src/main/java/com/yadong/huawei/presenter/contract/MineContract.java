@@ -1,7 +1,7 @@
 package com.yadong.huawei.presenter.contract;
 
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 管理
@@ -10,11 +10,11 @@ import com.yadong.huawei.presenter.base.IBaseView;
  */
 public interface MineContract {
 
-    interface View extends IBaseView{
+    interface View extends BaseView {
 
     }
 
-    interface Presenter extends IBasePresenter {
+    interface Presenter extends BasePresenter {
 
 
     }

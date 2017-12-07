@@ -3,7 +3,6 @@ package com.yadong.huawei.ui.widget.recyclerview.base;
 import android.support.v4.util.SparseArrayCompat;
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public class ItemViewDelegateManager<T> {

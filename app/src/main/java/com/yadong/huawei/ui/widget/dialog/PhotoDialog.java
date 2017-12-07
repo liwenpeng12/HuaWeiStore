@@ -14,7 +14,7 @@ import com.yadong.huawei.R;
 
 
 /**
- * 高仿IOS拍照 选择相册 Created by HLQ on 2017/8/1
+ * 高仿IOS拍照 选择相册
  */
 public class PhotoDialog extends DialogFragment {
 

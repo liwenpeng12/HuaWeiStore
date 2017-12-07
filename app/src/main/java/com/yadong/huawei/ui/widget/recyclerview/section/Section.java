@@ -7,8 +7,6 @@ import com.yadong.huawei.ui.widget.recyclerview.base.ViewHolder;
 
 
 /**
- * Created by Anthony on 2016/8/17.
- * Class Note:
  *  Abstract Section used by SectionRVAdapter.
  */
 public abstract class Section {

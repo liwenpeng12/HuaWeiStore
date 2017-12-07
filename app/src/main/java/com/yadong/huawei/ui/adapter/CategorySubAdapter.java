@@ -15,7 +15,7 @@ import com.yadong.huawei.model.net.bean.CategoryBean;
 import java.util.List;
 
 /**
- * Created by xzhang on 2017/5/13.
+ *
  */
 
 public class CategorySubAdapter extends BaseAdapter {

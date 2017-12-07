@@ -15,7 +15,6 @@ import java.util.List;
 /**
  * 实现视差效果
  *  https://github.com/kanytu/android-parallax-recyclerview
- * Created by xzhang on 2017/5/21.
  */
 
 public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

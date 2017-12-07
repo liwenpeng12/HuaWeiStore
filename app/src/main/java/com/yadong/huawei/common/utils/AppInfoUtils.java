@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>Description:
- *
- * @author xzhang
  */
 
 public class AppInfoUtils {

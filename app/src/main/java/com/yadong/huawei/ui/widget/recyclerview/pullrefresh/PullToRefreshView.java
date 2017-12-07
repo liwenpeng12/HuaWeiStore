@@ -16,11 +16,8 @@ import android.widget.OverScroller;
 
 import com.yadong.huawei.R;
 
-
 /**
- * Created by Anthony on 2016/7/18.
  * 实现对子view 的上拉和下拉的监听实现，提供下拉和下拉的视图和接口
- *
  */
 public class PullToRefreshView extends ViewGroup {
 
@@ -147,12 +144,12 @@ public class PullToRefreshView extends ViewGroup {
                 footer.layout(0, getHeight(), getWidth(), getHeight() + footer.getMeasuredHeight());
             }
 
-//            if (header != null) {
-//                header.layout(0, 0, getWidth(), header.getMeasuredHeight());
-//            }
-//            if (footer != null) {
-//                footer.layout(0, getHeight() - footer.getMeasuredHeight(), getWidth(), getHeight());
-//            }
+            //            if (header != null) {
+            //                header.layout(0, 0, getWidth(), header.getMeasuredHeight());
+            //            }
+            //            if (footer != null) {
+            //                footer.layout(0, getHeight() - footer.getMeasuredHeight(), getWidth(), getHeight());
+            //            }
             contentView.layout(0, 0, contentView.getMeasuredWidth(), contentView.getMeasuredHeight());
         }
     }
@@ -385,7 +382,7 @@ public class PullToRefreshView extends ViewGroup {
             invalidate();
             if (!isLoading) {
                 isLoading = true;
-                if(mListener != null) {
+                if (mListener != null) {
                     mListener.onRefresh();
                 }
             }
@@ -396,7 +393,7 @@ public class PullToRefreshView extends ViewGroup {
             invalidate();
             if (!isLoading) {
                 isLoading = true;
-                if(mListener != null) {
+                if (mListener != null) {
                     mListener.onLoadMore();
                 }
             }
@@ -496,7 +493,7 @@ public class PullToRefreshView extends ViewGroup {
         invalidate();
         if (!isLoading) {
             isLoading = true;
-            if(mListener != null) {
+            if (mListener != null) {
                 mListener.onRefresh();
             }
         }
@@ -508,6 +505,7 @@ public class PullToRefreshView extends ViewGroup {
      */
     public interface OnRefreshListener {
         void onRefresh();
+
         void onLoadMore();
     }
 

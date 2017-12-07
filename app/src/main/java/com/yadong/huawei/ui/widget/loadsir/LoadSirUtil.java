@@ -10,10 +10,6 @@ import com.yadong.huawei.ui.widget.loadsir.core.TargetContext;
 
 
 /**
- * Description:TODO
- * Create Time:2017/9/4 16:24
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 public class LoadSirUtil {
     public static TargetContext getTargetContext(Object target) {

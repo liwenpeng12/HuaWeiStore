@@ -11,7 +11,6 @@ import com.yadong.huawei.R;
 
 
 /**
- * Created by HLQ on 2017/7/31
  */
 
 public class IOSLoadingDialog extends DialogFragment {

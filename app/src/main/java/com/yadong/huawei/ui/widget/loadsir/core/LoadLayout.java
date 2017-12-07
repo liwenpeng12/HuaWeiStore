@@ -11,10 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Description:TODO
- * Create Time:2017/9/2 17:02
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 
 class LoadLayout extends FrameLayout {

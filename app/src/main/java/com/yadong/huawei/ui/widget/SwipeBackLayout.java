@@ -25,7 +25,6 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 
 /**
- * Created by long on 2017/1/19.
  * 开源项目：https://github.com/ikew0ng/SwipeBackLayout
  */
 public class SwipeBackLayout extends FrameLayout {

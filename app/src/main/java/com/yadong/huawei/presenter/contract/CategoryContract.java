@@ -1,8 +1,8 @@
 package com.yadong.huawei.presenter.contract;
 
 import com.yadong.huawei.model.net.bean.CategoryBean;
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 分类
@@ -11,7 +11,7 @@ import com.yadong.huawei.presenter.base.IBaseView;
  */
 public interface CategoryContract {
 
-    interface View extends IBaseView{
+    interface View extends BaseView {
 
 
         void getDataSuccess(CategoryBean bean);
@@ -20,7 +20,7 @@ public interface CategoryContract {
 
     }
 
-    interface Presenter extends IBasePresenter {
+    interface Presenter extends BasePresenter {
 
         void getData();
 

@@ -11,7 +11,6 @@ import com.yadong.huawei.ui.widget.recyclerview.utils.WrapperUtils;
 
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

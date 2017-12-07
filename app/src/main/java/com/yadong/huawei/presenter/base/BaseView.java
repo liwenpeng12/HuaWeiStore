@@ -7,7 +7,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
  *
  * 基础 BaseView 接口
  */
-public interface IBaseView {
+public interface BaseView {
 
     /**
      * 绑定生命周期

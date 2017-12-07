@@ -11,7 +11,6 @@ import com.yadong.huawei.R;
 
 
 /**
- * Created by Anthony on 2016/7/18.
  */
 public class DefaultHeader extends BaseIndicator {
     private TextView mStringIndicator;

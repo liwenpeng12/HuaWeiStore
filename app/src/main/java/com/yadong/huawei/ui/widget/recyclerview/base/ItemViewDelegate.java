@@ -1,7 +1,6 @@
 package com.yadong.huawei.ui.widget.recyclerview.base;
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public interface ItemViewDelegate<T> {

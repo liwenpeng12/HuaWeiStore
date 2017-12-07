@@ -11,14 +11,14 @@ import com.yadong.huawei.R;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.common.manager.AppActivityManager;
 import com.yadong.huawei.dagger.component.AppComponent;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BaseView;
 
 import butterknife.ButterKnife;
 
 /**
  * 基类Activity
  */
-public abstract class BaseActivity extends RxAppCompatActivity implements IBaseView {
+public abstract class BaseActivity extends RxAppCompatActivity implements BaseView {
 
 
     protected ImmersionBar mImmersionBar;

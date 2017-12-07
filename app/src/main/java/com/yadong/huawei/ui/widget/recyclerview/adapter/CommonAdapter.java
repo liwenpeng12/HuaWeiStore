@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {

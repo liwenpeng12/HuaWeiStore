@@ -24,9 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>Description:
- *
- * @author xzhang
  */
 
 public class JsonParseUtils {

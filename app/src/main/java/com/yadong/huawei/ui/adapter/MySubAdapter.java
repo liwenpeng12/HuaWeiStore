@@ -15,7 +15,7 @@ import com.yadong.huawei.model.net.bean.MyGvBean;
 import java.util.List;
 
 /**
- * Created by xzhang on 2017/5/25.
+ *
  */
 
 public class MySubAdapter extends BaseAdapter {

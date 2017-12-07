@@ -5,7 +5,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
 /**
- * Created by xzhang on 2017/5/5.
  */
 
 public final class DensityUtil {

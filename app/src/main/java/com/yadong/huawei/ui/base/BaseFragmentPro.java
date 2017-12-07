@@ -10,8 +10,8 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 import com.yadong.huawei.ui.widget.loadsir.callback.Callback;
 import com.yadong.huawei.ui.widget.loadsir.core.LoadService;
 import com.yadong.huawei.ui.widget.loadsir.core.LoadSir;
@@ -23,8 +23,8 @@ import butterknife.ButterKnife;
 /**
  * 基类Fragment
  */
-public abstract class BaseFragmentPro<T extends IBasePresenter> extends RxFragment
-        implements IBaseView, Callback.OnReloadListener {
+public abstract class BaseFragmentPro<T extends BasePresenter> extends RxFragment
+        implements BaseView, Callback.OnReloadListener {
 
 
     protected LoadService mBaseLoadService;

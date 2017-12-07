@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {

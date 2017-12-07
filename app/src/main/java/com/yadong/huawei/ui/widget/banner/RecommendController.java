@@ -16,9 +16,6 @@ import com.yadong.huawei.common.utils.UIUtils;
 import java.util.List;
 
 /**
- * <p>Description:
- *
- * @author xzhang
  */
 
 public class RecommendController {

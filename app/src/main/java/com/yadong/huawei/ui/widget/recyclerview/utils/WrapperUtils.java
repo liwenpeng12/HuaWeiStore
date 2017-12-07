@@ -6,7 +6,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.ViewGroup;
 
 /**
- * Created by xzhang on 2017/5/21.
  */
 
 public class WrapperUtils {

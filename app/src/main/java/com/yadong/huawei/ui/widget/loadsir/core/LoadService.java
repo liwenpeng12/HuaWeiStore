@@ -9,10 +9,6 @@ import com.yadong.huawei.ui.widget.loadsir.callback.SuccessCallback;
 import java.util.List;
 
 /**
- * Description:TODO
- * Create Time:2017/9/6 10:05
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 public class LoadService<T> {
     private LoadLayout loadLayout;

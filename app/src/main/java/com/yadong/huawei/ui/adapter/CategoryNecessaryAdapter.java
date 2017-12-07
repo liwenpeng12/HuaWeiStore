@@ -8,7 +8,7 @@ import com.yadong.huawei.ui.widget.recyclerview.adapter.CommonAdapter;
 import com.yadong.huawei.ui.widget.recyclerview.base.ViewHolder;
 
 /**
- * Created by houyadong on 2017/12/7.
+ *
  */
 
 public class CategoryNecessaryAdapter extends CommonAdapter<AppBean> {

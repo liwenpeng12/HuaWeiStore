@@ -15,7 +15,6 @@ import android.view.View;
  *
  * RecyclerView分界线
  *
- * Created by xzhang on 2017/5/21.
  */
 
 public class RecycleViewDivider extends RecyclerView.ItemDecoration {

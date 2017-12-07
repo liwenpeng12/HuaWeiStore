@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description:TODO
- * Create Time:2017/9/2 16:36
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 public class LoadSir  {
     private static volatile LoadSir loadSir;

@@ -5,10 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Description:TODO
- * Create Time:2017/9/4 16:28
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 public class TargetContext {
     private Context context;

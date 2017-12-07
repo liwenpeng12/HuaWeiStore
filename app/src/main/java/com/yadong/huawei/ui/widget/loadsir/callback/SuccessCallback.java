@@ -4,10 +4,6 @@ import android.content.Context;
 import android.view.View;
 
 /**
- * Description:TODO
- * Create Time:2017/9/4 10:22
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 
 public class SuccessCallback extends Callback {

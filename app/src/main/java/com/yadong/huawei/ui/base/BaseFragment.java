@@ -10,8 +10,8 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yadong.huawei.common.app.App;
 import com.yadong.huawei.dagger.component.AppComponent;
-import com.yadong.huawei.presenter.base.IBasePresenter;
-import com.yadong.huawei.presenter.base.IBaseView;
+import com.yadong.huawei.presenter.base.BasePresenter;
+import com.yadong.huawei.presenter.base.BaseView;
 import com.yadong.huawei.ui.widget.LoadingPager;
 
 import javax.inject.Inject;
@@ -21,8 +21,8 @@ import butterknife.ButterKnife;
 /**
  * 基类Fragment
  */
-public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment
-        implements IBaseView {
+public abstract class BaseFragment<T extends BasePresenter> extends RxFragment
+        implements BaseView {
 
     protected BaseActivity mContext;
     protected LoadingPager mLoadingPager; //缓存Fragment view

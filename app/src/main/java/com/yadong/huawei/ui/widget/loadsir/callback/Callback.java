@@ -12,10 +12,6 @@ import java.io.Serializable;
 
 
 /**
- * Description:TODO
- * Create Time:2017/9/2 17:04
- * Author:KingJA
- * Email:kingjavip@gmail.com
  */
 public abstract class Callback implements Serializable {
     private View rootView;
