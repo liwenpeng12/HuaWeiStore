@@ -107,6 +107,11 @@ public class AppDetailActivity extends BaseActivity
     @Inject
     AppDetailPresenter mPresenter;
 
+    private DbDownUtil dbUtil;
+    private HttpDownManager manager;
+    private DownInfo downInfo;
+    private File outputFile;
+
     private boolean mExpand;//是否展开
     private String mPackageName;//传递过来的包名参数
     private AppDetailBean mDetailBean;
@@ -138,12 +143,6 @@ public class AppDetailActivity extends BaseActivity
                 .statusBarColor(R.color.tab_background)
                 .init();
     }
-
-
-    private DbDownUtil dbUtil;
-    private HttpDownManager manager;
-    private DownInfo downInfo;
-    private File outputFile;
 
     @Override
     public void initViews() {

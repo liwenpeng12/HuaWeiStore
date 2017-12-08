@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.model.net.bean.AppBean;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
+import com.yadong.huawei.ui.activity.AppMoreRecommendActivity;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
 import com.yadong.huawei.ui.widget.recyclerview.base.ViewHolder;
 import com.yadong.huawei.ui.widget.recyclerview.section.StatelessSection;
@@ -68,13 +70,15 @@ public class AppRecommendHotSection extends StatelessSection {
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
         holder.setText(R.id.titleText, title);
-        holder.setOnClickListener(R.id.more_btn, new View.OnClickListener() {
+        View view = holder.getView(R.id.title_layout);
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //                Intent intent = new Intent(mContext,AppMoreRecommendActivity.class);
-                //                intent.putExtra("type","hot");
-                //                intent.putExtra("packageName",packageName);
-                //                ((AppDetailActivity)mContext).startActivity(intent);
+                Logger.i("hote   "+"packageName "+packageName);
+                Intent intent = new Intent(mContext, AppMoreRecommendActivity.class);
+                intent.putExtra("type", "hot");
+                intent.putExtra("packageName", packageName);
+                mContext.startActivity(intent);
             }
         });
     }

@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/title_layout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/backgound_gray"
         android:paddingBottom="4.0dp"

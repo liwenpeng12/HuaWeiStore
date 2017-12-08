@@ -10,6 +10,7 @@ import com.yadong.huawei.R;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.model.net.bean.AppBean;
 import com.yadong.huawei.ui.activity.AppDetailActivity;
+import com.yadong.huawei.ui.activity.AppMoreRecommendActivity;
 import com.yadong.huawei.ui.widget.DownloadProgressButton;
 import com.yadong.huawei.ui.widget.recyclerview.base.ViewHolder;
 import com.yadong.huawei.ui.widget.recyclerview.section.StatelessSection;
@@ -67,13 +68,13 @@ public class AppRecommendTasteSection extends StatelessSection {
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
         holder.setText(R.id.titleText, title);
-        holder.setOnClickListener(R.id.more_btn, new View.OnClickListener() {
+        holder.setOnClickListener(R.id.title_layout, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //                Intent intent = new Intent(mContext,AppMoreRecommendActivity.class);
-                //                intent.putExtra("type","taste");
-                //                intent.putExtra("packageName",packageName);
-                //                ((AppDetailActivity)mContext).startActivity(intent);
+                Intent intent = new Intent(mContext, AppMoreRecommendActivity.class);
+                intent.putExtra("type", "taste");
+                intent.putExtra("packageName", packageName);
+                mContext.startActivity(intent);
             }
         });
     }
