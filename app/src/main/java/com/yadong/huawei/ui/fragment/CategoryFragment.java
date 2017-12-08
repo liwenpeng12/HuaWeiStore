@@ -15,6 +15,7 @@ import com.yadong.huawei.ui.activity.CategoryNecessaryActivity;
 import com.yadong.huawei.ui.activity.CategoryNewActivity;
 import com.yadong.huawei.ui.activity.CategorySubjectActivity;
 import com.yadong.huawei.ui.activity.CategorySubscribeActivity;
+import com.yadong.huawei.ui.activity.CategoryToolActivity;
 import com.yadong.huawei.ui.adapter.section.CategorySection;
 import com.yadong.huawei.ui.adapter.wrapper.CategoryTopWrapper;
 import com.yadong.huawei.ui.base.BaseFragment;
@@ -74,21 +75,32 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
     /**
      * 展示RecyclerView列表
      */
-    private void showRevData(CategoryBean bean) {
+    private void showRevData(final CategoryBean bean) {
         SectionRVAdapter adapter = new SectionRVAdapter(getContext());
 
-        CategorySection categoryContactsSection = new CategorySection(getContext(),
+        //主体
+        CategorySection section = new CategorySection(getContext(),
                 bean.getTitle(), bean.getCategoryDataBeanList());
+        adapter.addSection(section);
 
-        adapter.addSection(categoryContactsSection);
+        //头
+        CategoryTopWrapper wrapper = new CategoryTopWrapper(getContext(), adapter);
+        wrapper.addDataAll(bean.getCategoryTopBeanList());
 
-        CategoryTopWrapper categoryTopWrapper = new CategoryTopWrapper(getContext(), adapter);
-        categoryTopWrapper.addDataAll(bean.getCategoryTopBeanList());
+        mRecyclerView.setAdapter(wrapper);
 
-        mRecyclerView.setAdapter(categoryTopWrapper);
+        //头的点击事件
+        wrapper.setOnItemClickListener(this);
 
-        categoryTopWrapper.setOnItemClickListener(this);
-
+        //条目的点击事件
+        section.setOnItemClickListener(new CategorySection.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getContext(),CategoryToolActivity.class) ;
+                intent.putExtra("name",bean.getCategoryDataBeanList().get(position).getName());
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -128,7 +140,6 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter>
 
     @Override
     public void getDataFail(String message) {
-        System.out.println("getDataFail   1ci" + message);
         setCurrentState(LoadingPager.LoadResult.error);
         ToastUtil.show(getContext(), message);
     }

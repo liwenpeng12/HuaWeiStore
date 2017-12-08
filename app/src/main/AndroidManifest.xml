@@ -102,7 +102,7 @@
         <activity android:name=".ui.activity.CategoryNecessaryActivity" />
         <activity android:name=".ui.activity.CategoryNewActivity" />
         <activity android:name=".ui.activity.CategorySubjectActivity" />
-        <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.WebViewActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -113,8 +113,10 @@
             <!-- 元数据 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".ui.activity.CategoryToolActivity"></activity>
     </application>
 
 </manifest>
