@@ -137,30 +137,30 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     public void deleteHeaderView(View view) {
-//        if (mHeaderViews.size() > position && position >=0 ) {
-//            View v = mHeaderViews.get(position + BASE_ITEM_TYPE_HEADER, null);
-//            if (v != null) {
-//                mHeaderViews.remove(position + BASE_ITEM_TYPE_HEADER);
-//                if (mInnerAdapter instanceof MultiItemTypeAdapter) {
-//                    ((MultiItemTypeAdapter) mInnerAdapter).offset -= 1;
-//                }
-//                if (mNotifyAdapter != null)
-//                    mNotifyAdapter.notifyDataSetChanged();
-//            }
-//        }
+        //        if (mHeaderViews.size() > position && position >=0 ) {
+        //            View v = mHeaderViews.get(position + BASE_ITEM_TYPE_HEADER, null);
+        //            if (v != null) {
+        //                mHeaderViews.remove(position + BASE_ITEM_TYPE_HEADER);
+        //                if (mInnerAdapter instanceof MultiItemTypeAdapter) {
+        //                    ((MultiItemTypeAdapter) mInnerAdapter).offset -= 1;
+        //                }
+        //                if (mNotifyAdapter != null)
+        //                    mNotifyAdapter.notifyDataSetChanged();
+        //            }
+        //        }
 
-//        for(int i=0; i<mHeaderViews.size(); i++) {
-//            int key = mHeaderViews.keyAt(i);
-//            if(mHeaderViews.get(key) == view) {
-//                mHeaderViews.remove(key);
-//                if (mInnerAdapter instanceof MultiItemTypeAdapter) {
-//                    ((MultiItemTypeAdapter) mInnerAdapter).offset -= 1;
-//                }
-//                if (mNotifyAdapter != null)
-//                    mNotifyAdapter.notifyDataSetChanged();
-//                break;
-//            }
-//        }
+        //        for(int i=0; i<mHeaderViews.size(); i++) {
+        //            int key = mHeaderViews.keyAt(i);
+        //            if(mHeaderViews.get(key) == view) {
+        //                mHeaderViews.remove(key);
+        //                if (mInnerAdapter instanceof MultiItemTypeAdapter) {
+        //                    ((MultiItemTypeAdapter) mInnerAdapter).offset -= 1;
+        //                }
+        //                if (mNotifyAdapter != null)
+        //                    mNotifyAdapter.notifyDataSetChanged();
+        //                break;
+        //            }
+        //        }
 
         int key = findHeaderKeyByView(view);
         if (key != -1) {

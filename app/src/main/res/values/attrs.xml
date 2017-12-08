@@ -68,4 +68,10 @@
         <attr name="dividerDrawable" format="reference|color"/>
     </declare-styleable>
 
+
+
+    <declare-styleable name="RatioLayout">
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+
 </resources>

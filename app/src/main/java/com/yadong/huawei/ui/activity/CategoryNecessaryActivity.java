@@ -86,12 +86,12 @@ public class CategoryNecessaryActivity extends BaseActivity
 
     @Override
     public void getDataSuccess(CategoryNecessaryBean bean) {
-        mDataModel=bean;
+        mDataModel = bean;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         CategoryNecessaryAdapter adapter = new CategoryNecessaryAdapter(this);
         adapter.addDataAll(bean.getAppBeanList());
 
-        CategoryNecessaryTopWrapper categoryNecessaryTopWrapper = new CategoryNecessaryTopWrapper(this,adapter,bean.getHead());
+        CategoryNecessaryTopWrapper categoryNecessaryTopWrapper = new CategoryNecessaryTopWrapper(this, adapter, bean.getHead());
         mRecyclerView.setAdapter(categoryNecessaryTopWrapper);
         adapter.setOnItemClickListener(this);
     }
@@ -121,8 +121,8 @@ public class CategoryNecessaryActivity extends BaseActivity
     @Override
     public void onItemClick(View view, RecyclerView.ViewHolder holder, Object o, int position) {
         AppBean appBean = mDataModel.getAppBeanList().get(position);
-        Intent intent = new Intent(this,AppDetailActivity.class);
-        intent.putExtra(Constants.PACKAGE_NAME,appBean.getPackageName());
+        Intent intent = new Intent(this, AppDetailActivity.class);
+        intent.putExtra(Constants.PACKAGE_NAME, appBean.getPackageName());
         startActivity(intent);
     }
 

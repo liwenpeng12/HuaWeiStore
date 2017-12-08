@@ -37,18 +37,20 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
     private StateChangeListener mStateChangeListener;
 
     private int mNormalBacgroundColor;
-    private int mNormalTextColor ;
-    private int mLoadingTextColor ;
-    private int mLoadingBorderColor ;
-    private int mProgressBarColor ;
-    private int mInstallColor ;
-    private float mTextSize ;
+    private int mNormalTextColor;
+    private int mLoadingTextColor;
+    private int mLoadingBorderColor;
+    private int mProgressBarColor;
+    private int mInstallColor;
+    private float mTextSize;
 
-    private boolean isFinish = false ;
+    private boolean isFinish = false;
 
     public interface StateChangeListener {
         void onPauseTask();
+
         void onFinishTask();
+
         void onLoadingTask();
     }
 
@@ -66,7 +68,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
     public DownloadProgressButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        obtainStyledAttributes(context,attrs);
+        obtainStyledAttributes(context, attrs);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(mTextSize);
@@ -75,14 +77,14 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
 
     /* 获取用户自定义设置的属性值*/
-    private void obtainStyledAttributes(Context context,AttributeSet attrs) {
+    private void obtainStyledAttributes(Context context, AttributeSet attrs) {
         TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.DownloadProgressButton);
-        mNormalBacgroundColor = ta.getColor(R.styleable.DownloadProgressButton_normal_background_color,context.getResources().getColor(R.color.blue_text_007dff)) ;
-        mNormalTextColor = ta.getColor(R.styleable.DownloadProgressButton_normal_text_color,context.getResources().getColor(R.color.reserve_normal_textcolor));
-        mLoadingTextColor = ta.getColor(R.styleable.DownloadProgressButton_loading_text_color,context.getResources().getColor(R.color.detail_dowanload_progressbar_color));
-        mLoadingBorderColor = ta.getColor(R.styleable.DownloadProgressButton_loading_border_color,context.getResources().getColor(R.color.category_button_select_stroke));
-        mProgressBarColor = ta.getColor(R.styleable.DownloadProgressButton_loading_progress_color,context.getResources().getColor(R.color.detail_downloadbutton_processing));
-        mInstallColor = ta.getColor(R.styleable.DownloadProgressButton_install_color,context.getResources().getColor(R.color.detail_install_color));
+        mNormalBacgroundColor = ta.getColor(R.styleable.DownloadProgressButton_normal_background_color, context.getResources().getColor(R.color.blue_text_007dff));
+        mNormalTextColor = ta.getColor(R.styleable.DownloadProgressButton_normal_text_color, context.getResources().getColor(R.color.reserve_normal_textcolor));
+        mLoadingTextColor = ta.getColor(R.styleable.DownloadProgressButton_loading_text_color, context.getResources().getColor(R.color.detail_dowanload_progressbar_color));
+        mLoadingBorderColor = ta.getColor(R.styleable.DownloadProgressButton_loading_border_color, context.getResources().getColor(R.color.category_button_select_stroke));
+        mProgressBarColor = ta.getColor(R.styleable.DownloadProgressButton_loading_progress_color, context.getResources().getColor(R.color.detail_downloadbutton_processing));
+        mInstallColor = ta.getColor(R.styleable.DownloadProgressButton_install_color, context.getResources().getColor(R.color.detail_install_color));
         mTextSize = ta.getDimension(R.styleable.DownloadProgressButton_download_textSize, context.getResources().getDimension(R.dimen.cs_text_size_13sp));
         ta.recycle();
     }
@@ -117,7 +119,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
     //下载的时候
     private void drawProgressOnDownload(Canvas canvas) {
-        drawProgressRectBackground(canvas,mLoadingBorderColor);
+        drawProgressRectBackground(canvas, mLoadingBorderColor);
         drawProgressRectWithClip(canvas);
         int progress = (int) (100 * (getProgress() * 1.0f / getMax()));
         String progressValue = TextUtils.concat(String.valueOf(progress), "%").toString();
@@ -132,34 +134,34 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
     //暂停的时候
     private void drawProgressOnPause(Canvas canvas) {
-        drawProgressRectBackground(canvas,mLoadingBorderColor);
+        drawProgressRectBackground(canvas, mLoadingBorderColor);
         drawProgressRectWithClip(canvas);
         drawProgressText(canvas, "继续");
     }
 
     //下载完成的时候
     private void drawProgressOnFinished(Canvas canvas) {
-        drawProgressRectBackground(canvas,mLoadingBorderColor);
+        drawProgressRectBackground(canvas, mLoadingBorderColor);
         drawFinishText(canvas, "下载完成");
         if (mStateChangeListener != null && !isFinish) {
             mStateChangeListener.onFinishTask();
-            isFinish = true ;
+            isFinish = true;
         }
         setEnabled(false);
     }
 
     //还没有开始下载的时候
     private void drawProgressOnStart(Canvas canvas) {
-        drawProgressRectBackground(canvas,mLoadingBorderColor);
+        drawProgressRectBackground(canvas, mLoadingBorderColor);
 
-        drawStartBackground(canvas,mNormalBacgroundColor);
+        drawStartBackground(canvas, mNormalBacgroundColor);
         drawStartText(canvas, startText);
     }
 
-    private String startText = "下载" ;
+    private String startText = "下载";
 
-    public void setStartText(String text){
-        this.startText = text ;
+    public void setStartText(String text) {
+        this.startText = text;
         invalidate();
     }
 
@@ -232,7 +234,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
 
 
     //  绘制背景矩形
-    private void drawProgressRectBackground(Canvas canvas,int paintColor) {
+    private void drawProgressRectBackground(Canvas canvas, int paintColor) {
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
         mPaint.setStyle(Paint.Style.STROKE);
@@ -242,7 +244,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
         canvas.restore();
     }
 
-    private void drawStartBackground(Canvas canvas,int paintColor){
+    private void drawStartBackground(Canvas canvas, int paintColor) {
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -263,7 +265,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
         canvas.restore();
     }
 
-    private void drawStartText(Canvas canvas,String text){
+    private void drawStartText(Canvas canvas, String text) {
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
         mPaint.setColor(mNormalTextColor);
@@ -273,7 +275,7 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
         canvas.restore();
     }
 
-    private void drawFinishText(Canvas canvas,String text){
+    private void drawFinishText(Canvas canvas, String text) {
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
         mPaint.setColor(mInstallColor);
@@ -311,8 +313,8 @@ public class DownloadProgressButton extends ProgressBar implements View.OnClickL
         postInvalidateDelayed(40);
     }
 
-    public final void setState(int state){
-        mCurrentState = state ;
+    public final void setState(int state) {
+        mCurrentState = state;
         postInvalidateDelayed(40);
     }
 

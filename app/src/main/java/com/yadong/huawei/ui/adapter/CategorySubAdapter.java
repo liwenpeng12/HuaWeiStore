@@ -20,12 +20,12 @@ import java.util.List;
 
 public class CategorySubAdapter extends BaseAdapter {
 
-    private Context mContext ;
+    private Context mContext;
     private List<CategoryBean.CategoryTopBean> topBeanList;
 
     public CategorySubAdapter(Context context, List<CategoryBean.CategoryTopBean> titleBeanList) {
-        mContext = context ;
-        this.topBeanList = titleBeanList ;
+        mContext = context;
+        this.topBeanList = titleBeanList;
     }
 
     @Override
@@ -47,12 +47,12 @@ public class CategorySubAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         CategoryBean.CategoryTopBean topBean = topBeanList.get(position);
 
-        ViewHolder holder = null ;
-        if(convertView == null){
-            convertView = View.inflate(mContext, R.layout.appdetail_subcat_title,null);
-            holder = new ViewHolder() ;
+        ViewHolder holder = null;
+        if (convertView == null) {
+            convertView = View.inflate(mContext, R.layout.appdetail_subcat_title, null);
+            holder = new ViewHolder();
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.appicon = (ImageView) convertView.findViewById(R.id.appicon);
@@ -65,8 +65,8 @@ public class CategorySubAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
-        ImageView appicon ;
-        TextView ItemTitle ;
+        ImageView appicon;
+        TextView ItemTitle;
 
     }
 }

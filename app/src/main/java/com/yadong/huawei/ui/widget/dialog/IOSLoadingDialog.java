@@ -57,8 +57,8 @@ public class IOSLoadingDialog extends DialogFragment {
         // set cancel on touch outside
         getDialog().setCanceledOnTouchOutside(onTouchOutside);
         View loadingView = inflater.inflate(R.layout.dialog_ios_loading, container);
-//        TextView hintTextView = loadingView.findViewById(R.id.tv_ios_loading_dialog_hint);
-//        hintTextView.setText(hintMsg);
+        //        TextView hintTextView = loadingView.findViewById(R.id.tv_ios_loading_dialog_hint);
+        //        hintTextView.setText(hintMsg);
         return loadingView;
     }
 

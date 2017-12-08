@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public class CategorySubscribeBean {
-    List<AppBean> appBeanList ;
+    List<AppBean> appBeanList;
 
     public CategorySubscribeBean(List<AppBean> appBeanList) {
         this.appBeanList = appBeanList;

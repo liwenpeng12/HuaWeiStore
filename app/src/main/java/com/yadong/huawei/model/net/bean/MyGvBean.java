@@ -6,8 +6,8 @@ package com.yadong.huawei.model.net.bean;
 
 public class MyGvBean {
 
-    private String name ;
-    private int iconId ;
+    private String name;
+    private int iconId;
 
     public String getName() {
         return name;

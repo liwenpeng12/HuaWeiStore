@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class CategoryBean {
 
-    private List<CategoryTopBean> categoryTopBeanList ;//头部信息数据
+    private List<CategoryTopBean> categoryTopBeanList;//头部信息数据
 
-    private String title ;//标题
-    private List<CategoryDataBean> categoryDataBeanList ;//内容
+    private String title;//标题
+    private List<CategoryDataBean> categoryDataBeanList;//内容
 
-    public CategoryBean(String title,List<CategoryTopBean> categoryTopBeanList, List<CategoryDataBean> categoryDataBeanList) {
-        this.title = title ;
+    public CategoryBean(String title, List<CategoryTopBean> categoryTopBeanList, List<CategoryDataBean> categoryDataBeanList) {
+        this.title = title;
         this.categoryTopBeanList = categoryTopBeanList;
         this.categoryDataBeanList = categoryDataBeanList;
     }
@@ -32,8 +32,8 @@ public class CategoryBean {
 
     public static class CategoryTopBean {
 
-        private String iconUrl ;
-        private String name ;
+        private String iconUrl;
+        private String name;
 
         public CategoryTopBean(String iconUrl, String name) {
             this.iconUrl = iconUrl;
@@ -51,8 +51,8 @@ public class CategoryBean {
 
 
     public static class CategoryDataBean {
-        private String iconUrl ;
-        private String name ;
+        private String iconUrl;
+        private String name;
 
         public CategoryDataBean(String iconUrl, String name) {
             this.iconUrl = iconUrl;

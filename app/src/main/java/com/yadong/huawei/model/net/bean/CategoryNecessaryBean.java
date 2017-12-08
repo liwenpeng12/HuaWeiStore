@@ -10,8 +10,8 @@ import java.util.List;
 
 public class CategoryNecessaryBean {
 
-    private Head head ;
-    private List<AppBean> appBeanList ;
+    private Head head;
+    private List<AppBean> appBeanList;
 
     public CategoryNecessaryBean(Head head, List<AppBean> appBeanList) {
         this.head = head;
@@ -27,8 +27,8 @@ public class CategoryNecessaryBean {
     }
 
     public static class Head {
-        private String icon ;
-        private String intro ;
+        private String icon;
+        private String intro;
 
         public String getIcon() {
             return icon;

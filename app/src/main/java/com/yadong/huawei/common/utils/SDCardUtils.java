@@ -81,7 +81,8 @@ public class SDCardUtils {
 
     /**
      * 获取空闲的空间大小
-     * @return  空间大小
+     *
+     * @return 空间大小
      */
     public static long getFreeSpaceBytes() {
         long freeSpaceBytes;

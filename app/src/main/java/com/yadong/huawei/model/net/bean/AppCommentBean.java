@@ -10,8 +10,8 @@ import java.util.List;
 
 public class AppCommentBean {
 
-    private String score ;
-    private String starts ;
+    private String score;
+    private String starts;
     private List<RatingDstListBean> ratingDstList;
     private List<CommentsBean> comments;
 

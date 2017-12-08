@@ -52,11 +52,11 @@ public class AppCommentController {
     public void setData(AppCommentBean appCommentBean) {
         commentScore.setText(appCommentBean.getScore());
         commentStars.setRating(Float.parseFloat(appCommentBean.getStarts()));
-        int count = 0 ;
-        for(AppCommentBean.RatingDstListBean ratingDstListBean : appCommentBean.getRatingDstList()){
+        int count = 0;
+        for (AppCommentBean.RatingDstListBean ratingDstListBean : appCommentBean.getRatingDstList()) {
             count = count + ratingDstListBean.getRatingCounts();
         }
-        commentCount.setText(count+" 人评分");
+        commentCount.setText(count + " 人评分");
 
         fiveStarsProgressBar.setMax(count);
         fourStarsProgressBar.setMax(count);
@@ -65,26 +65,26 @@ public class AppCommentController {
         oneStarsProgressBar.setMax(count);
 
 
-        if(appCommentBean.getRatingDstList().size() < 5){
-            List<Integer> list = new ArrayList<>() ;
-            for(AppCommentBean.RatingDstListBean bean : appCommentBean.getRatingDstList()){
+        if (appCommentBean.getRatingDstList().size() < 5) {
+            List<Integer> list = new ArrayList<>();
+            for (AppCommentBean.RatingDstListBean bean : appCommentBean.getRatingDstList()) {
                 list.add(bean.getRating());
             }
 
-            if(!list.contains(1)){
-                appCommentBean.getRatingDstList().add(0,new AppCommentBean.RatingDstListBean(1,0));
+            if (!list.contains(1)) {
+                appCommentBean.getRatingDstList().add(0, new AppCommentBean.RatingDstListBean(1, 0));
             }
-            if(!list.contains(2)){
-                appCommentBean.getRatingDstList().add(1,new AppCommentBean.RatingDstListBean(2,0));
+            if (!list.contains(2)) {
+                appCommentBean.getRatingDstList().add(1, new AppCommentBean.RatingDstListBean(2, 0));
             }
-            if(!list.contains(3)){
-                appCommentBean.getRatingDstList().add(2,new AppCommentBean.RatingDstListBean(3,0));
+            if (!list.contains(3)) {
+                appCommentBean.getRatingDstList().add(2, new AppCommentBean.RatingDstListBean(3, 0));
             }
-            if(!list.contains(4)){
-                appCommentBean.getRatingDstList().add(3,new AppCommentBean.RatingDstListBean(4,0));
+            if (!list.contains(4)) {
+                appCommentBean.getRatingDstList().add(3, new AppCommentBean.RatingDstListBean(4, 0));
             }
-            if(!list.contains(5)){
-                appCommentBean.getRatingDstList().add(4,new AppCommentBean.RatingDstListBean(5,0));
+            if (!list.contains(5)) {
+                appCommentBean.getRatingDstList().add(4, new AppCommentBean.RatingDstListBean(5, 0));
             }
 
         }
@@ -96,9 +96,7 @@ public class AppCommentController {
         oneStarsProgressBar.setProgress(appCommentBean.getRatingDstList().get(0).getRatingCounts());
 
 
-
     }
-
 
 
     public View getContentView() {

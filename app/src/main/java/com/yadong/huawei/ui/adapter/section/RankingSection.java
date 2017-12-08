@@ -24,7 +24,7 @@ public class RankingSection extends StatelessSection {
     private String mTitle;
     private List<AppBean> mDataBeanList;
 
-    public RankingSection(Context context, String title,List<AppBean> appBeanList) {
+    public RankingSection(Context context, String title, List<AppBean> appBeanList) {
         super(R.layout.section_category_title, R.layout.section_ranking_content);
         this.mContext = context;
         this.mTitle = title;
@@ -40,7 +40,7 @@ public class RankingSection extends StatelessSection {
     }
 
     /**
-     *获取条目的 ViewHolder
+     * 获取条目的 ViewHolder
      */
     @Override
     public ViewHolder getItemViewHolder(View view, int viewType) {
@@ -54,17 +54,17 @@ public class RankingSection extends StatelessSection {
     public void onBindItemViewHolder(ViewHolder holder, final int position) {
         final AppBean bean = mDataBeanList.get(position);
 
-        holder.setText(R.id.appSerial,bean.getAliasName());
-        holder.setImageUrl(R.id.appicon,bean.getIcon()) ;
-        holder.setText(R.id.ItemTitle,bean.getName()) ;
-        holder.setText(R.id.ItemText_star,bean.getSizeDesc()) ;
-        holder.setText(R.id.memo,bean.getMemo()) ;
+        holder.setText(R.id.appSerial, bean.getAliasName());
+        holder.setImageUrl(R.id.appicon, bean.getIcon());
+        holder.setText(R.id.ItemTitle, bean.getName());
+        holder.setText(R.id.ItemText_star, bean.getSizeDesc());
+        holder.setText(R.id.memo, bean.getMemo());
 
         holder.setOnClickListener(R.id.AppListItem, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
-                    mListener.onItemClick(position,bean.getPackageName());
+                    mListener.onItemClick(position, bean.getPackageName());
                 }
             }
         });
@@ -76,7 +76,7 @@ public class RankingSection extends StatelessSection {
      */
     @Override
     public ViewHolder getHeaderViewHolder(Context context, View view) {
-        return new HeaderViewHolder(view) ;
+        return new HeaderViewHolder(view);
     }
 
     /**
@@ -84,7 +84,7 @@ public class RankingSection extends StatelessSection {
      */
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
-        holder.setText(R.id.item_title,mTitle);
+        holder.setText(R.id.item_title, mTitle);
     }
 
     /**
@@ -113,15 +113,15 @@ public class RankingSection extends StatelessSection {
      */
     class ItemViewHolder extends ViewHolder {
 
-        TextView appSerial ;
-        ImageView appicon ;
-        DownloadProgressButton downbtn ;
-        TextView ItemTitle ;
-        TextView ItemText_star ;
-        TextView memo ;
+        TextView appSerial;
+        ImageView appicon;
+        DownloadProgressButton downbtn;
+        TextView ItemTitle;
+        TextView ItemText_star;
+        TextView memo;
 
         public ItemViewHolder(View view) {
-            super(mContext,view);
+            super(mContext, view);
             appSerial = (TextView) view.findViewById(R.id.appSerial);
             appicon = (ImageView) view.findViewById(R.id.appicon);
             downbtn = (DownloadProgressButton) view.findViewById(R.id.downbtn);
@@ -132,7 +132,6 @@ public class RankingSection extends StatelessSection {
     }
 
 
-
     public OnItemClickListener mListener;
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -140,7 +139,7 @@ public class RankingSection extends StatelessSection {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(int position,String packageName);
+        void onItemClick(int position, String packageName);
     }
 
 }

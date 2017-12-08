@@ -49,7 +49,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         mImmersionBar
-                .statusBarDarkFont(true,0.1f)
+                .statusBarDarkFont(true, 0.1f)
                 .fitsSystemWindows(true)  //使用该属性,必须指定状态栏颜色
                 .statusBarColor(R.color.white)
                 .init();
@@ -123,11 +123,11 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BaseVi
         }
     }
 
-    public void enterAnim(){
+    public void enterAnim() {
         overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
     }
 
-    public void exitAnim(){
+    public void exitAnim() {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 

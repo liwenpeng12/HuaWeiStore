@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public final class DefIconFactory {
 
-    private final static int[] DEF_ICON_ID = new int[] {
+    private final static int[] DEF_ICON_ID = new int[]{
             R.drawable.ic_default_1,
             R.drawable.ic_default_2,
             R.drawable.ic_default_3,

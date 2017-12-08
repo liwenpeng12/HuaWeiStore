@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CategoryToolBean {
 
-    private List<String> bannerList ;
+    private List<String> bannerList;
     private List<CategoryToolAppBean> categoryToolAppBeanList;
 
     public CategoryToolBean(List<String> bannerList, List<CategoryToolAppBean> recommendAppBeanList) {
@@ -27,13 +27,19 @@ public class CategoryToolBean {
     }
 
     public static class CategoryToolAppBean {
-        /** 标题 */
-        private String title ;
-        /** 广告 */
-        private List<String> iconList ;
-        /** 应用集合 */
-        private List<AppBean> appList ;
-        private int type = 0 ;
+        /**
+         * 标题
+         */
+        private String title;
+        /**
+         * 广告
+         */
+        private List<String> iconList;
+        /**
+         * 应用集合
+         */
+        private List<AppBean> appList;
+        private int type = 0;
 
         public CategoryToolAppBean(String title, List<String> iconList, List<AppBean> appList, int type) {
             this.title = title;

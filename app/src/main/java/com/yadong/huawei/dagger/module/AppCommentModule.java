@@ -9,12 +9,9 @@ import dagger.Provides;
 
 
 /**
- *
- *
  * module
- *
+ * <p>
  * 专门用来提供实例的类,总而言之一句话,需要什么我们就提供什么
- *
  */
 @Module
 public class AppCommentModule {
@@ -41,8 +38,6 @@ public class AppCommentModule {
     public AppCommentContract.View provideView() {
         return mView;
     }
-
-
 
 
 }

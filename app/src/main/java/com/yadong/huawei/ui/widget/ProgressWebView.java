@@ -28,7 +28,7 @@ public class ProgressWebView extends WebView {
         setWebChromeClient(new WebChromeClient());
         //是否可以缩放
         getSettings().setSupportZoom(true);
-        getSettings().setBuiltInZoomControls(true); 
+        getSettings().setBuiltInZoomControls(true);
     }
 
     public class WebChromeClient extends android.webkit.WebChromeClient {

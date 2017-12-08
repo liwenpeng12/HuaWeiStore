@@ -59,7 +59,7 @@ public class ViewUpSearch extends LinearLayout {
         ObjectAnimator anim2 = ObjectAnimator.ofFloat(autoText, "alpha", 0f, 1f);
         ObjectAnimator anim3 = ObjectAnimator.ofFloat(autoText, "scaleX", scale, 1f);
         autoText.setPivotX(autoText.getWidth());
-        AnimatorSet animSet2= new AnimatorSet();
+        AnimatorSet animSet2 = new AnimatorSet();
         animSet2.play(anim1).with(anim2).with(anim3);
         animSet2.setDuration(300);
         animSet2.start();

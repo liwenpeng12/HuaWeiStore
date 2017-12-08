@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 实现视差效果
- *  https://github.com/kanytu/android-parallax-recyclerview
+ * https://github.com/kanytu/android-parallax-recyclerview
  */
 
 public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -78,7 +78,7 @@ public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<Re
             float left;
             if (holder != null) {
                 left = Math.min(1, ((ofCalculated) / (mHeader.getHeight() * mScrollMultiplier)));
-            }else {
+            } else {
                 left = 1;
             }
             mParallaxScroll.onParallaxScroll(left, of, mHeader);
@@ -243,6 +243,7 @@ public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<Re
             invalidate();
         }
     }
+
     /**
      * Set parallax scroll multiplier.
      *
@@ -254,13 +255,11 @@ public abstract class ParallaxRecyclerAdapter<T> extends RecyclerView.Adapter<Re
 
     /**
      * Get the current parallax scroll multiplier.
-     *
      */
     public float getScrollMultiplier() {
         return this.mScrollMultiplier;
     }
 }
-
 
 
 /**

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AppMoreRecommendBean {
 
-    private List<AppBean> moreAppBean ;
+    private List<AppBean> moreAppBean;
 
     public AppMoreRecommendBean(List<AppBean> moreAppBean) {
         this.moreAppBean = moreAppBean;

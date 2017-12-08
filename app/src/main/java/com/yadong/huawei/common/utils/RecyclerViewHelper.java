@@ -12,7 +12,6 @@ import com.yadong.huawei.ui.widget.DividerItemDecoration;
 
 
 /**
- *
  * 视图帮助类
  */
 public class RecyclerViewHelper {
@@ -24,13 +23,14 @@ public class RecyclerViewHelper {
 
     /**
      * 配置垂直列表RecyclerView
+     *
      * @param view
      */
     public static void initRecyclerViewV(Context context, RecyclerView view, boolean isDivided,
                                          RecyclerView.Adapter adapter) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        view.setHasFixedSize(true);
+        //        view.setHasFixedSize(true);
         view.setLayoutManager(layoutManager);
         view.setItemAnimator(new DefaultItemAnimator());
         if (isDivided) {
@@ -44,9 +44,9 @@ public class RecyclerViewHelper {
     }
 
 
-
     /**
      * 配置水平列表RecyclerView
+     *
      * @param view
      */
     public static void initRecyclerViewH(Context context, RecyclerView view, boolean isDivided,
@@ -67,6 +67,7 @@ public class RecyclerViewHelper {
 
     /**
      * 配置网格列表RecyclerView
+     *
      * @param view
      */
     public static void initRecyclerViewG(Context context, RecyclerView view, boolean isDivided,
@@ -87,6 +88,7 @@ public class RecyclerViewHelper {
 
     /**
      * 配置瀑布流列表RecyclerView
+     *
      * @param view
      */
     public static void initRecyclerViewSV(Context context, RecyclerView view, boolean isDivided,

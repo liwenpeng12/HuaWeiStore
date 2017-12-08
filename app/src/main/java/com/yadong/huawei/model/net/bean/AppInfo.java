@@ -10,11 +10,11 @@ import android.graphics.drawable.Drawable;
 
 public class AppInfo {
 
-    private String name ;
-    private String packageName ;
-    private Drawable icon ;
-    private long firstInstallTime ;
-    private String versionName ;
+    private String name;
+    private String packageName;
+    private Drawable icon;
+    private long firstInstallTime;
+    private String versionName;
 
     public String getName() {
         return name;

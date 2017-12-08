@@ -23,22 +23,22 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
         implements ManageContract.View {
 
     @BindView(R.id.update_label_textview)
-    TextView tvUpdateLabel ;
+    TextView tvUpdateLabel;
 
     @BindView(R.id.update_label_subtitle)
-    TextView tvUpdateLabelSubtitle ;
+    TextView tvUpdateLabelSubtitle;
 
     @BindView(R.id.install_manager_layout)
-    EnterLayout installManager ;
+    EnterLayout installManager;
 
     @BindView(R.id.apk_manager_layout)
-    EnterLayout apkManager ;
+    EnterLayout apkManager;
 
     @BindView(R.id.system_manager_layout)
-    EnterLayout systemManager ;
+    EnterLayout systemManager;
 
     @BindView(R.id.connect_computer)
-    EnterLayout connect ;
+    EnterLayout connect;
 
 
     @Override
@@ -77,7 +77,7 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
 
 
     @OnClick({R.id.install_manager_layout, R.id.apk_manager_layout,
-            R.id.system_manager_layout, R.id.connect_computer,R.id.update_manager_layout})
+            R.id.system_manager_layout, R.id.connect_computer, R.id.update_manager_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.install_manager_layout:

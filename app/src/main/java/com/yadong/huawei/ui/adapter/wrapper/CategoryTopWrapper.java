@@ -21,17 +21,17 @@ import java.util.List;
 
 public class CategoryTopWrapper extends HeaderAndFooterWrapper {
 
-    private Context mContext ;
-    private View headerView ;
-    private List<CategoryBean.CategoryTopBean> topBeanList ;
+    private Context mContext;
+    private View headerView;
+    private List<CategoryBean.CategoryTopBean> topBeanList;
 
-    private GridView gv_title_grid ;
+    private GridView gv_title_grid;
 
 
-    public CategoryTopWrapper(Context context , RecyclerView.Adapter adapter) {
+    public CategoryTopWrapper(Context context, RecyclerView.Adapter adapter) {
         super(adapter);
-        this.mContext = context ;
-        headerView = UIUtils.inflate(R.layout.header_category) ;
+        this.mContext = context;
+        headerView = UIUtils.inflate(R.layout.header_category);
         gv_title_grid = (GridView) headerView.findViewById(R.id.gv_title_grid);
         addHeaderView(headerView);
     }
@@ -45,15 +45,15 @@ public class CategoryTopWrapper extends HeaderAndFooterWrapper {
     }
 
     public void addDataAll(List<CategoryBean.CategoryTopBean> list) {
-        this.topBeanList = list ;
+        this.topBeanList = list;
 
-        CategorySubAdapter adapter = new CategorySubAdapter(mContext,topBeanList);
+        CategorySubAdapter adapter = new CategorySubAdapter(mContext, topBeanList);
         gv_title_grid.setNumColumns(topBeanList.size());
         gv_title_grid.setAdapter(adapter);
         gv_title_grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(mListener != null){
+                if (mListener != null) {
                     mListener.onItemClick(position);
                 }
             }
@@ -61,17 +61,18 @@ public class CategoryTopWrapper extends HeaderAndFooterWrapper {
 
     }
 
-    private OnItemClickListener  mListener ;
-    public void setOnItemClickListener(OnItemClickListener listener){
-        this.mListener = listener ;
+    private OnItemClickListener mListener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener;
     }
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
     public void clearData() {
-        if(topBeanList != null){
+        if (topBeanList != null) {
 
             topBeanList.clear();
         }

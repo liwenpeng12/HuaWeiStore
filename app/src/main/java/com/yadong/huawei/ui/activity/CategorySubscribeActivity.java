@@ -84,7 +84,7 @@ public class CategorySubscribeActivity extends BaseActivity
 
     @Override
     public void getDataSuccess(CategorySubscribeBean bean) {
-        mDataModel=bean;
+        mDataModel = bean;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         CategorySubscribeAdapter adapter = new CategorySubscribeAdapter(this);
         adapter.addDataAll(bean.getAppBeanList());

@@ -10,11 +10,11 @@ import dagger.Provides;
 
 /**
  * 分类
- *
+ * <p>
  * module
- *
+ * <p>
  * 专门用来提供实例的类,总而言之一句话,需要什么我们就提供什么
- *
+ * <p>
  * 提供排行页面的所有对象
  */
 @Module
@@ -42,8 +42,6 @@ public class RankingModule {
     public RankingContract.View provideView() {
         return mView;
     }
-
-
 
 
 }

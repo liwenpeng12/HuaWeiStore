@@ -138,19 +138,19 @@ public class AppDetailActivity extends BaseActivity
 
     private DbDownUtil dbUtil;
     private HttpDownManager manager;
-    private DownInfo downInfo ;
-    private File outputFile ;
+    private DownInfo downInfo;
+    private File outputFile;
 
     @Override
     public void initViews() {
         getIntentData();
 
-        manager= HttpDownManager.getInstance();
+        manager = HttpDownManager.getInstance();
         manager.registerObserver(this);
-        dbUtil= DbDownUtil.getInstance();
+        dbUtil = DbDownUtil.getInstance();
 
         downInfo = dbUtil.queryDownBy(mPackageName.hashCode());
-        if(downInfo == null) {
+        if (downInfo == null) {
             outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), mPackageName + ".apk");
         }
     }
@@ -295,19 +295,19 @@ public class AppDetailActivity extends BaseActivity
      * 设置下载按钮的详情
      */
     private void setDetailDown() {
-        if(downInfo == null) {
+        if (downInfo == null) {
             mDownloadButton.setStartText("下载 " + Formatter.formatFileSize(UIUtils.getContext(),
                     Long.parseLong(mDetailBean.getSize())));
-        }else{
-            if(downInfo.getState() == DownState.DOWN){
+        } else {
+            if (downInfo.getState() == DownState.DOWN) {
                 mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_DOWNLOADING);
                 manager.startDown(downInfo);
-            }else if(downInfo.getState() == DownState.PAUSE){
+            } else if (downInfo.getState() == DownState.PAUSE) {
                 mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_PAUSE);
-            }else if(downInfo.getState() == DownState.FINISH){
+            } else if (downInfo.getState() == DownState.FINISH) {
                 mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_BEGIN);
             }
-            mDownloadButton.setProgress((int) (100 * downInfo.getReadLength()/downInfo.getCountLength()));
+            mDownloadButton.setProgress((int) (100 * downInfo.getReadLength() / downInfo.getCountLength()));
         }
 
         mDownloadButton.setStateChangeListener(new DownloadProgressButton.StateChangeListener() {
@@ -326,7 +326,7 @@ public class AppDetailActivity extends BaseActivity
                             @Override
                             public void run() {
                                 //AppInfoUtils.install(downInfo.getSavePath());
-                                if(dbUtil != null && downInfo != null)
+                                if (dbUtil != null && downInfo != null)
                                     dbUtil.update(downInfo);
                             }
                         });
@@ -339,7 +339,7 @@ public class AppDetailActivity extends BaseActivity
             public void onLoadingTask() {
                 mDownloadButton.setMax(100);
 
-                if(downInfo == null){
+                if (downInfo == null) {
                     downInfo = new DownInfo(mDetailBean.getDownloadUrl());
                     downInfo.setId((long) mPackageName.hashCode());
                     downInfo.setState(DownState.START);
@@ -347,7 +347,7 @@ public class AppDetailActivity extends BaseActivity
                     dbUtil.save(downInfo);
 
                 }
-                if(downInfo.getState()!= DownState.FINISH){
+                if (downInfo.getState() != DownState.FINISH) {
                     manager.startDown(downInfo);
                 }
             }
@@ -410,10 +410,10 @@ public class AppDetailActivity extends BaseActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(manager != null){
+        if (manager != null) {
             manager.pause(downInfo);
             manager.unRegisterObserver(this);
-            if(downInfo != null){
+            if (downInfo != null) {
                 dbUtil.update(downInfo);
             }
         }
@@ -437,7 +437,7 @@ public class AppDetailActivity extends BaseActivity
 
     @Override
     public void onDownloadProgressed(DownInfo info) {
-        if(downInfo != null && info.getId() == downInfo.getId()) {
+        if (downInfo != null && info.getId() == downInfo.getId()) {
             mDownloadButton.setProgress((int) (100 * info.getReadLength() / info.getCountLength()));
         }
     }

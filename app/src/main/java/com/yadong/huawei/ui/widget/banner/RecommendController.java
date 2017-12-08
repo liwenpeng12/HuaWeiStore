@@ -116,7 +116,6 @@ public class RecommendController {
             }
 
 
-
             return convertView;
         }
     }

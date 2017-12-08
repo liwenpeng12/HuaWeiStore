@@ -11,8 +11,8 @@ import java.util.Map;
 
 public class TopBean {
 
-    private Map<String,List<AppBean>> appBeanMap ;
-    private List<TopTopBean> topTopBeanList ;
+    private Map<String, List<AppBean>> appBeanMap;
+    private List<TopTopBean> topTopBeanList;
 
     public TopBean(Map<String, List<AppBean>> appBeanMap, List<TopTopBean> topTopBeanList) {
         this.appBeanMap = appBeanMap;

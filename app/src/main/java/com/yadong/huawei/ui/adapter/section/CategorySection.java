@@ -39,7 +39,7 @@ public class CategorySection extends StatelessSection {
     }
 
     /**
-     *获取条目的 ViewHolder
+     * 获取条目的 ViewHolder
      */
     @Override
     public ViewHolder getItemViewHolder(View view, int viewType) {
@@ -72,7 +72,7 @@ public class CategorySection extends StatelessSection {
      */
     @Override
     public ViewHolder getHeaderViewHolder(Context context, View view) {
-        return new HeaderViewHolder(view) ;
+        return new HeaderViewHolder(view);
     }
 
     /**
@@ -80,7 +80,7 @@ public class CategorySection extends StatelessSection {
      */
     @Override
     public void onBindHeaderViewHolder(ViewHolder holder) {
-        holder.setText(R.id.item_title,mTitle);
+        holder.setText(R.id.item_title, mTitle);
     }
 
     /**
@@ -110,16 +110,15 @@ public class CategorySection extends StatelessSection {
      */
     class ItemViewHolder extends ViewHolder {
 
-        ImageView appicon ;
-        TextView ItemTitle ;
+        ImageView appicon;
+        TextView ItemTitle;
 
         public ItemViewHolder(View view) {
-            super(mContext,view);
+            super(mContext, view);
             appicon = (ImageView) view.findViewById(R.id.appicon);
             ItemTitle = (TextView) view.findViewById(R.id.item_title);
         }
     }
-
 
 
     public OnItemClickListener mListener;

@@ -10,9 +10,9 @@ import java.util.List;
 
 public class AppRecommendBean {
 
-    private List<AppBean> popularAppBeanList ;
-    private List<AppBean> tasteAppBeanList ;
-    private List<AppBean> hotAppBeanList ;
+    private List<AppBean> popularAppBeanList;
+    private List<AppBean> tasteAppBeanList;
+    private List<AppBean> hotAppBeanList;
 
     public AppRecommendBean(List<AppBean> popularAppBeanList, List<AppBean> tasteAppBeanList, List<AppBean> hotAppBeanList) {
         this.popularAppBeanList = popularAppBeanList;

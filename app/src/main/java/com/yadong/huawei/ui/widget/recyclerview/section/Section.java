@@ -7,11 +7,11 @@ import com.yadong.huawei.ui.widget.recyclerview.base.ViewHolder;
 
 
 /**
- *  Abstract Section used by SectionRVAdapter.
+ * Abstract Section used by SectionRVAdapter.
  */
 public abstract class Section {
 
-    public enum State { LOADING, LOADED, FAILED}
+    public enum State {LOADING, LOADED, FAILED}
 
     private State state = State.LOADED;
 
@@ -37,9 +37,10 @@ public abstract class Section {
 
     /**
      * Create a Section object with loading/failed states but no header and footer
-     * @param itemResourceId layout resource for its items
+     *
+     * @param itemResourceId    layout resource for its items
      * @param loadingResourceId layout resource for its loading mCurrentState
-     * @param failedResourceId layout resource for its failed mCurrentState
+     * @param failedResourceId  layout resource for its failed mCurrentState
      */
     public Section(int itemResourceId, int loadingResourceId, int failedResourceId) {
         this.itemResourceId = itemResourceId;
@@ -49,10 +50,11 @@ public abstract class Section {
 
     /**
      * Create a Section object with loading/failed states, a custom header but no footer
-     * @param headerResourceId layout resource for its header
-     * @param itemResourceId layout resource for its items
+     *
+     * @param headerResourceId  layout resource for its header
+     * @param itemResourceId    layout resource for its items
      * @param loadingResourceId layout resource for its loading mCurrentState
-     * @param failedResourceId layout resource for its failed mCurrentState
+     * @param failedResourceId  layout resource for its failed mCurrentState
      */
     public Section(int headerResourceId, int itemResourceId, int loadingResourceId, int failedResourceId) {
         this(itemResourceId, loadingResourceId, failedResourceId);
@@ -62,11 +64,12 @@ public abstract class Section {
 
     /**
      * Create a Section object with loading/failed states, a custom header and footer
-     * @param headerResourceId layout resource for its header
-     * @param footerResourceId layout resource for its footer
-     * @param itemResourceId layout resource for its items
+     *
+     * @param headerResourceId  layout resource for its header
+     * @param footerResourceId  layout resource for its footer
+     * @param itemResourceId    layout resource for its items
      * @param loadingResourceId layout resource for its loading mCurrentState
-     * @param failedResourceId layout resource for its failed mCurrentState
+     * @param failedResourceId  layout resource for its failed mCurrentState
      */
     public Section(int headerResourceId, int footerResourceId, int itemResourceId, int loadingResourceId, int failedResourceId) {
         this(headerResourceId, itemResourceId, loadingResourceId, failedResourceId);
@@ -76,6 +79,7 @@ public abstract class Section {
 
     /**
      * Set the State of this Section
+     *
      * @param state mCurrentState of this section
      */
     public final void setState(State state) {
@@ -84,6 +88,7 @@ public abstract class Section {
 
     /**
      * Return the current State of this Section
+     *
      * @return current mCurrentState of this section
      */
     public final State getState() {
@@ -92,6 +97,7 @@ public abstract class Section {
 
     /**
      * Check if this Section is visible
+     *
      * @return true if this Section is vibisle
      */
     public final boolean isVisible() {
@@ -100,6 +106,7 @@ public abstract class Section {
 
     /**
      * Set if this Section is visible
+     *
      * @param visible true if this Section is visible
      */
     public final void setVisible(boolean visible) {
@@ -108,6 +115,7 @@ public abstract class Section {
 
     /**
      * Check if this Section has a header
+     *
      * @return true if this Section has a header
      */
     public final boolean hasHeader() {
@@ -116,6 +124,7 @@ public abstract class Section {
 
     /**
      * Set if this Section has header
+     *
      * @param hasHeader true if this Section has a header
      */
     public final void setHasHeader(boolean hasHeader) {
@@ -124,6 +133,7 @@ public abstract class Section {
 
     /**
      * Check if this Section has a footer
+     *
      * @return true if this Section has a footer
      */
     public final boolean hasFooter() {
@@ -132,6 +142,7 @@ public abstract class Section {
 
     /**
      * Set if this Section has footer
+     *
      * @param hasFooter true if this Section has a footer
      */
     public final void setHasFooter(boolean hasFooter) {
@@ -140,6 +151,7 @@ public abstract class Section {
 
     /**
      * Return the layout resource id of the header
+     *
      * @return layout resource id of the header
      */
     public final Integer getHeaderResourceId() {
@@ -148,6 +160,7 @@ public abstract class Section {
 
     /**
      * Return the layout resource id of the footer
+     *
      * @return layout resource id of the footer
      */
     public final Integer getFooterResourceId() {
@@ -156,6 +169,7 @@ public abstract class Section {
 
     /**
      * Return the layout resource id of the item
+     *
      * @return layout resource id of the item
      */
     public final int getItemResourceId() {
@@ -164,6 +178,7 @@ public abstract class Section {
 
     /**
      * Return the layout resource id of the loading view
+     *
      * @return layout resource id of the loading view
      */
     public final Integer getLoadingResourceId() {
@@ -172,6 +187,7 @@ public abstract class Section {
 
     /**
      * Return the layout resource id of the failed view
+     *
      * @return layout resource id of the failed view
      */
     public final Integer getFailedResourceId() {
@@ -181,7 +197,8 @@ public abstract class Section {
     /**
      * Bind the data to the ViewHolder for the Content of this Section, that can be the Items,
      * Loading view or Failed view, depending on the current mCurrentState of the section
-     * @param holder ViewHolder for the Content of this Section
+     *
+     * @param holder   ViewHolder for the Content of this Section
      * @param position position of the item in the Section, not in the RecyclerView
      */
     public final void onBindContentViewHolder(ViewHolder holder, int position) {
@@ -203,6 +220,7 @@ public abstract class Section {
     /**
      * Return the total of items of this Section, including content items (according to the section
      * mCurrentState) plus header and footer
+     *
      * @return total of items of this section
      */
     public final int getSectionItemsTotal() {
@@ -222,26 +240,29 @@ public abstract class Section {
                 throw new IllegalStateException("Invalid mCurrentState");
         }
 
-        return contentItemsTotal + (hasHeader? 1 : 0) + (hasFooter? 1 : 0);
+        return contentItemsTotal + (hasHeader ? 1 : 0) + (hasFooter ? 1 : 0);
     }
 
     /**
      * Return the total of items of this Section
+     *
      * @return total of items of this Section
      */
     public abstract int getContentItemsTotal();
 
     /**
      * Return the ViewHolder for the Header of this Section
+     *
      * @param view View inflated by resource returned by getHeaderResourceId
      * @return ViewHolder for the Header of this Section
      */
     public ViewHolder getHeaderViewHolder(Context context, View view) {
-        return new SectionRVAdapter.EmptyViewHolder(context,view);
+        return new SectionRVAdapter.EmptyViewHolder(context, view);
     }
 
     /**
      * Bind the data to the ViewHolder for the Header of this Section
+     *
      * @param holder ViewHolder for the Header of this Section
      */
     public void onBindHeaderViewHolder(ViewHolder holder) {
@@ -250,15 +271,17 @@ public abstract class Section {
 
     /**
      * Return the ViewHolder for the Footer of this Section
+     *
      * @param view View inflated by resource returned by getFooterResourceId
      * @return ViewHolder for the Footer of this Section
      */
     public ViewHolder getFooterViewHolder(Context context, View view) {
-        return new SectionRVAdapter.EmptyViewHolder(context,view);
+        return new SectionRVAdapter.EmptyViewHolder(context, view);
     }
 
     /**
      * Bind the data to the ViewHolder for the Footer of this Section
+     *
      * @param holder ViewHolder for the Footer of this Section
      */
     public void onBindFooterViewHolder(ViewHolder holder) {
@@ -267,27 +290,33 @@ public abstract class Section {
 
     /**
      * Return the ViewHolder for a single Item of this Section
+     *
      * @param view View inflated by resource returned by getItemResourceId
      * @return ViewHolder for the Item of this Section
      */
     public abstract ViewHolder getItemViewHolder(View view, int viewType);
+
     /**
      * Bind the data to the ViewHolder for an Item of this Section
-     * @param holder ViewHolder for the Item of this Section
+     *
+     * @param holder   ViewHolder for the Item of this Section
      * @param position position of the item in the Section, not in the RecyclerView
      */
     public abstract void onBindItemViewHolder(ViewHolder holder, int position);
 
     /**
      * Return the ViewHolder for the Loading mCurrentState of this Section
+     *
      * @param view View inflated by resource returned by getItemResourceId
      * @return ViewHolder for the Loading mCurrentState of this Section
      */
     public ViewHolder getLoadingViewHolder(Context context, View view) {
-        return new SectionRVAdapter.EmptyViewHolder(context,view);
+        return new SectionRVAdapter.EmptyViewHolder(context, view);
     }
+
     /**
      * Bind the data to the ViewHolder for Loading mCurrentState of this Section
+     *
      * @param holder ViewHolder for the Loading mCurrentState of this Section
      */
     public void onBindLoadingViewHolder(ViewHolder holder) {
@@ -296,14 +325,17 @@ public abstract class Section {
 
     /**
      * Return the ViewHolder for the Failed mCurrentState of this Section
+     *
      * @param view View inflated by resource returned by getItemResourceId
      * @return ViewHolder for the Failed of this Section
      */
     public ViewHolder getFailedViewHolder(Context context, View view) {
-        return new SectionRVAdapter.EmptyViewHolder(context,view);
+        return new SectionRVAdapter.EmptyViewHolder(context, view);
     }
+
     /**
      * Bind the data to the ViewHolder for the Failed mCurrentState of this Section
+     *
      * @param holder ViewHolder for the Failed mCurrentState of this Section
      */
     public void onBindFailedViewHolder(ViewHolder holder) {

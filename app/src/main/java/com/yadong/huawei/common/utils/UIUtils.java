@@ -107,6 +107,7 @@ public class UIUtils {
 
     /**
      * 是否是主线程
+     *
      * @return
      */
     public static boolean isRunOnMainThread() {

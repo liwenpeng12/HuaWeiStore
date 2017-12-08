@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  */
-public class LoadSir  {
+public class LoadSir {
     private static volatile LoadSir loadSir;
     private Builder builder;
 

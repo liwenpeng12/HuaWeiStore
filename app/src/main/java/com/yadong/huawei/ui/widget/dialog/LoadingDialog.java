@@ -14,7 +14,6 @@ import com.yadong.huawei.common.manager.GlobalDialogManager;
 
 
 /**
- *
  * Android 普通加载框
  */
 public class LoadingDialog extends DialogFragment /*implements DialogInterface.OnKeyListener*/ {
@@ -68,16 +67,16 @@ public class LoadingDialog extends DialogFragment /*implements DialogInterface.O
         });
 
         //不响应返回键
-//        dialog.setOnKeyListener(this);
+        //        dialog.setOnKeyListener(this);
         return loadingView;
     }
 
 
-//    @Override
-//    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            return true;
-//        }
-//        return false;
-//    }
+    //    @Override
+    //    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+    //        if (keyCode == KeyEvent.KEYCODE_BACK) {
+    //            return true;
+    //        }
+    //        return false;
+    //    }
 }

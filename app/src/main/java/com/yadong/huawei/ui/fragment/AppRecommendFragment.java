@@ -61,7 +61,7 @@ public class AppRecommendFragment extends BaseFragment<AppRecommendPresenter>
 
     @Override
     public void getDataSuccess(AppRecommendBean bean) {
-        this.mRecommendBean=bean;
+        this.mRecommendBean = bean;
         showRevData();
         setCurrentState(LoadingPager.LoadResult.success);
     }
@@ -72,14 +72,14 @@ public class AppRecommendFragment extends BaseFragment<AppRecommendPresenter>
     private void showRevData() {
         SectionRVAdapter adapter = new SectionRVAdapter(getContext());
 
-        adapter.addSection(new AppRecommendPopularSection(getContext(),"流行应用",
-                mRecommendBean.getPopularAppBeanList(),mPackageName));
+        adapter.addSection(new AppRecommendPopularSection(getContext(), "流行应用",
+                mRecommendBean.getPopularAppBeanList(), mPackageName));
 
-        adapter.addSection(new AppRecommendTasteSection(getContext(),"兴趣相近的用户也安装了",
-                mRecommendBean.getTasteAppBeanList(),mPackageName));
+        adapter.addSection(new AppRecommendTasteSection(getContext(), "兴趣相近的用户也安装了",
+                mRecommendBean.getTasteAppBeanList(), mPackageName));
 
-        adapter.addSection(new AppRecommendHotSection(getContext(),"本周热议的社区应用",
-                mRecommendBean.getHotAppBeanList(),mPackageName));
+        adapter.addSection(new AppRecommendHotSection(getContext(), "本周热议的社区应用",
+                mRecommendBean.getHotAppBeanList(), mPackageName));
 
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -88,7 +88,7 @@ public class AppRecommendFragment extends BaseFragment<AppRecommendPresenter>
 
     @Override
     public void getDataFail(String message) {
-        ToastUtil.show(getContext(),message);
+        ToastUtil.show(getContext(), message);
         setCurrentState(LoadingPager.LoadResult.error);
     }
 

@@ -66,7 +66,7 @@ public class AppCommentFragment extends BaseFragment<AppCommentPresenter>
     public void getDataSuccess(AppCommentBean bean) {
         this.mAppCommentBean = bean;
         showRevData();
-//        mBaseLoadService.showSuccess();
+        //        mBaseLoadService.showSuccess();
         setCurrentState(LoadingPager.LoadResult.success);
     }
 
@@ -107,7 +107,7 @@ public class AppCommentFragment extends BaseFragment<AppCommentPresenter>
     @Override
     public void getDataFail(String message) {
         ToastUtil.show(getContext(), message);
-//        setCurrentState(ErrorCallback.class);
+        //        setCurrentState(ErrorCallback.class);
         setCurrentState(LoadingPager.LoadResult.error);
     }
 

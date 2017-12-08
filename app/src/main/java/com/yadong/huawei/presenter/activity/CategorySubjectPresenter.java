@@ -2,9 +2,10 @@ package com.yadong.huawei.presenter.activity;
 
 import com.yadong.huawei.common.utils.JsonParseUtils;
 import com.yadong.huawei.common.utils.RetrofitUtils;
-import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.model.net.request.ApiService;
-import com.yadong.huawei.presenter.contract.AppDetailContract;
+import com.yadong.huawei.presenter.contract.CategorySubjectContract;
+
+import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -16,22 +17,22 @@ import okhttp3.ResponseBody;
  *
  */
 
-public class AppDetailPresenter implements AppDetailContract.Presenter {
+public class CategorySubjectPresenter implements CategorySubjectContract.Presenter {
 
 
-    private AppDetailContract.View mView;
+    private CategorySubjectContract.View mView;
     private ApiService mApiService;
 
-    public AppDetailPresenter(AppDetailContract.View view) {
+    public CategorySubjectPresenter(CategorySubjectContract.View view) {
         this.mView = view;
         mApiService = RetrofitUtils.getApiService();
     }
 
     @Override
-    public void getData(String packageName) {
+    public void getData() {
         mView.showLoading();
         mApiService
-                .getAppDetailData(packageName)
+                .getCategorySubjectData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(mView.<ResponseBody>bindToLife())
@@ -39,8 +40,8 @@ public class AppDetailPresenter implements AppDetailContract.Presenter {
                     @Override
                     public void accept(@NonNull ResponseBody responseBody) throws Exception {
                         String string = responseBody.string();
-                        AppDetailBean detailBean = JsonParseUtils.parseAppDetailBean(string);
-                        mView.getDataSuccess(detailBean);
+                        List<String> list = JsonParseUtils.parseCategorySubject(string);
+                        mView.getDataSuccess(list);
                         mView.hideLoading();
                     }
                 }, new Consumer<Throwable>() {

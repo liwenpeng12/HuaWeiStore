@@ -5,7 +5,7 @@ import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 管理
- *
+ * <p>
  * 契约借口
  */
 public interface ManageContract {

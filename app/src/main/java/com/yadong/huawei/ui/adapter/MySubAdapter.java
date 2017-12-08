@@ -20,12 +20,12 @@ import java.util.List;
 
 public class MySubAdapter extends BaseAdapter {
 
-    private Context mContext ;
+    private Context mContext;
     private List<MyGvBean> gvBeanList;
 
     public MySubAdapter(Context context, List<MyGvBean> gvBeanList) {
-        mContext = context ;
-        this.gvBeanList = gvBeanList ;
+        mContext = context;
+        this.gvBeanList = gvBeanList;
     }
 
     @Override
@@ -47,12 +47,12 @@ public class MySubAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         MyGvBean gvBean = gvBeanList.get(position);
 
-        ViewHolder holder = null ;
-        if(convertView == null){
-            convertView = View.inflate(mContext, R.layout.appdetail_subcat_title,null);
-            holder = new ViewHolder() ;
+        ViewHolder holder = null;
+        if (convertView == null) {
+            convertView = View.inflate(mContext, R.layout.appdetail_subcat_title, null);
+            holder = new ViewHolder();
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.appicon = (ImageView) convertView.findViewById(R.id.appicon);
@@ -66,8 +66,8 @@ public class MySubAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
-        ImageView appicon ;
-        TextView ItemTitle ;
+        ImageView appicon;
+        TextView ItemTitle;
 
     }
 }

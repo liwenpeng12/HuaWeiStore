@@ -13,9 +13,10 @@ import java.util.List;
 
 public class AppDetailPagerAdapter extends FragmentStatePagerAdapter {
 
-    private List<Fragment> fragments ;
-    public void setFragments(List<Fragment> fragments){
-        this.fragments = fragments ;
+    private List<Fragment> fragments;
+
+    public void setFragments(List<Fragment> fragments) {
+        this.fragments = fragments;
     }
 
     public AppDetailPagerAdapter(FragmentManager fm) {
@@ -34,10 +35,10 @@ public class AppDetailPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        Fragment fragment=null;
-        try{
-            fragment=(Fragment)super.instantiateItem(container,position);
-        }catch (Exception e){
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) super.instantiateItem(container, position);
+        } catch (Exception e) {
 
         }
         return fragment;

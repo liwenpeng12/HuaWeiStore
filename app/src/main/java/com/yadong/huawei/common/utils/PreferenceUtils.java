@@ -18,7 +18,7 @@ public class PreferenceUtils {
     private PreferenceUtils() {
     }
 
-    private static  Context context = App.getInstance();
+    private static Context context = App.getInstance();
 
     private static SharedPreferences initSharedPreference() {
         if (sp == null) {

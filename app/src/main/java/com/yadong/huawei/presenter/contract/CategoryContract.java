@@ -6,7 +6,7 @@ import com.yadong.huawei.presenter.base.BaseView;
 
 /**
  * 分类
- *
+ * <p>
  * 契约借口
  */
 public interface CategoryContract {

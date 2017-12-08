@@ -17,7 +17,7 @@ import java.util.UUID;
 /**
  * A custom RecyclerView with Sections with custom Titles.
  * Sections are displayed in the same order they were added.
- *
+ * <p>
  * item view can only be one type!!!!
  */
 public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
@@ -61,7 +61,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the header viewholder from the section
-                        viewHolder = section.getHeaderViewHolder(mContext,view);
+                        viewHolder = section.getHeaderViewHolder(mContext, view);
                         break;
                     }
                     case VIEW_TYPE_FOOTER: {
@@ -73,13 +73,13 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the footer viewholder from the section
-                        viewHolder = section.getFooterViewHolder(mContext,view);
+                        viewHolder = section.getFooterViewHolder(mContext, view);
                         break;
                     }
                     case VIEW_TYPE_ITEM_LOADED: {
                         view = LayoutInflater.from(parent.getContext()).inflate(section.getItemResourceId(), parent, false);
                         // get the item viewholder from the section
-                        viewHolder = section.getItemViewHolder(view,viewType);
+                        viewHolder = section.getItemViewHolder(view, viewType);
                         break;
                     }
                     case VIEW_TYPE_LOADING: {
@@ -91,7 +91,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the loading viewholder from the section
-                        viewHolder = section.getLoadingViewHolder(mContext,view);
+                        viewHolder = section.getLoadingViewHolder(mContext, view);
                         break;
                     }
                     case VIEW_TYPE_FAILED: {
@@ -103,7 +103,7 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         view = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
                         // get the failed loadData viewholder from the section
-                        viewHolder = section.getFailedViewHolder(mContext,view);
+                        viewHolder = section.getFailedViewHolder(mContext, view);
                         break;
                     }
                     default:
@@ -143,9 +143,9 @@ public class SectionRVAdapter extends RecyclerView.Adapter<ViewHolder> {
         return tag;
     }
 
-    public String updateSection(String tag,Section section){
-        addSection(tag,section);
-        return tag ;
+    public String updateSection(String tag, Section section) {
+        addSection(tag, section);
+        return tag;
     }
 
     /**

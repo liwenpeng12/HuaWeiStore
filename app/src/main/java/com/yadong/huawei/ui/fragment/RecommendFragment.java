@@ -23,7 +23,7 @@ import butterknife.BindView;
 
 /**
  * 推荐
- *
+ * <p>
  * V层
  */
 public class RecommendFragment extends BaseFragment<RecommendPresenter>
@@ -127,7 +127,7 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter>
             @Override
             public void goAppDetail(String packageName) {
                 Intent intent = new Intent(getContext(), AppDetailActivity.class);
-                intent.putExtra(Constants.PACKAGE_NAME,packageName);
+                intent.putExtra(Constants.PACKAGE_NAME, packageName);
                 mContext.startActivity(intent);
             }
         });

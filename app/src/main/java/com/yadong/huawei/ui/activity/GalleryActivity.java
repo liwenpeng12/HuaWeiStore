@@ -97,8 +97,8 @@ public class GalleryActivity extends BaseActivity implements ViewPager.OnPageCha
      * 初始化viewPager
      */
     private void initViewPager() {
-        GalleryAdapter adapter = new GalleryAdapter(this,urlList) ;
-        mViewPager.setAdapter(adapter) ;
+        GalleryAdapter adapter = new GalleryAdapter(this, urlList);
+        mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(curOffset);
         mViewPager.addOnPageChangeListener(this);
     }

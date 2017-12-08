@@ -8,11 +8,11 @@ import java.util.List;
 
 public class AppIntroductionBean {
 
-    private List<String> imageCompressList ;
-    private List<String> imagesList ;
-    private AppInfoBean appInfoBean ;
-    private List<String> tagList ;
-    private List<AppDetailInfoBean> appDetailInfoBeanList ;
+    private List<String> imageCompressList;
+    private List<String> imagesList;
+    private AppInfoBean appInfoBean;
+    private List<String> tagList;
+    private List<AppDetailInfoBean> appDetailInfoBeanList;
 
     public AppIntroductionBean(List<String> imageCompressList, List<String> imagesList, AppInfoBean appInfoBean, List<String> tagList, List<AppDetailInfoBean> appDetailInfoBeanList) {
         this.imageCompressList = imageCompressList;
@@ -43,8 +43,8 @@ public class AppIntroductionBean {
     }
 
     public static class AppDetailInfoBean {
-        private String body ;
-        private String title ;
+        private String body;
+        private String title;
 
         public String getBody() {
             return body;
@@ -61,12 +61,12 @@ public class AppIntroductionBean {
     }
 
 
-    public static class AppInfoBean{
-        private String developer ;
-        private String releaseDate ;
-        private String size ;
-        private String tariffDesc ;
-        private String version ;
+    public static class AppInfoBean {
+        private String developer;
+        private String releaseDate;
+        private String size;
+        private String tariffDesc;
+        private String version;
 
         public AppInfoBean(String developer, String releaseDate, String size, String tariffDesc, String version) {
             this.developer = developer;

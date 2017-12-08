@@ -39,17 +39,15 @@ public class AppInfoUtils {
     private static final String APP_DETAILS_CLASS_NAME = "com.android.settings.InstalledAppDetails";
 
 
-
-
-    public static List<AppInfo> getAppInfos(Context context){
-        List<AppInfo> appInfoList = new ArrayList<>() ;
+    public static List<AppInfo> getAppInfos(Context context) {
+        List<AppInfo> appInfoList = new ArrayList<>();
 
         //获取包管理器
         PackageManager pm = context.getPackageManager();
         //获取已安装的包信息
         List<PackageInfo> packageInfos = pm.getInstalledPackages(0);
 
-        for(PackageInfo packageInfo : packageInfos){
+        for (PackageInfo packageInfo : packageInfos) {
             //获取包名
             String packageName = packageInfo.packageName;
             //获取应用图标
@@ -63,40 +61,40 @@ public class AppInfoUtils {
             //获取版本名称
             String versionName = packageInfo.versionName;
 
-            AppInfo appInfo = new AppInfo(name,packageName,icon,firstInstallTime,versionName);
+            AppInfo appInfo = new AppInfo(name, packageName, icon, firstInstallTime, versionName);
             appInfoList.add(appInfo);
         }
-        return appInfoList ;
+        return appInfoList;
     }
 
-    public static void uninstallApplication(Context context,String packageName){
-        Intent intent = new Intent() ;
+    public static void uninstallApplication(Context context, String packageName) {
+        Intent intent = new Intent();
         intent.setAction("android.intent.action.DELETE");
         intent.addCategory("android.intent.category.DEFAULT");
-        intent.setData(Uri.parse("package:"+packageName));
+        intent.setData(Uri.parse("package:" + packageName));
         context.startActivity(intent);
     }
 
-    public static void openApplication(Context context,String packageName) {
-        Intent intent=isexit(context,packageName);
-        if(intent==null){
-            System.out.println("APP not found!....:"+packageName);
+    public static void openApplication(Context context, String packageName) {
+        Intent intent = isexit(context, packageName);
+        if (intent == null) {
+            System.out.println("APP not found!....:" + packageName);
         }
         context.startActivity(intent);
     }
 
     /**
      * 通过packagename判断应用是否安装
-     * @param context
      *
+     * @param context
      * @return 跳转的应用主activity Intent
-     * */
+     */
 
-    public static Intent isexit(Context context,String pk_name){
+    public static Intent isexit(Context context, String pk_name) {
         //获取包管理器
         PackageManager packageManager = context.getPackageManager();
         //通过包名获取Intent
-        Intent it= packageManager.getLaunchIntentForPackage(pk_name);
+        Intent it = packageManager.getLaunchIntentForPackage(pk_name);
         return it;
     }
 
@@ -119,7 +117,7 @@ public class AppInfoUtils {
         context.startActivity(intent);
     }
 
-    public static void install(String path){
+    public static void install(String path) {
         Intent installIntent = new Intent(Intent.ACTION_VIEW);
         installIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         installIntent.setDataAndType(Uri.parse("file://" + path),

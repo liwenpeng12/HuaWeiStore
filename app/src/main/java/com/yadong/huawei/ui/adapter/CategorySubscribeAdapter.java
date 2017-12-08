@@ -19,9 +19,9 @@ public class CategorySubscribeAdapter extends CommonAdapter<AppBean> {
 
     @Override
     protected void convert(ViewHolder holder, AppBean appBean, int position) {
-        holder.setText(R.id.appTitle,appBean.getName());
-        holder.setText(R.id.app_size,appBean.getSizeDesc());
-        holder.setText(R.id.app_des,appBean.getMemo());
-        holder.setImageUrl(R.id.appicon,appBean.getIcon());
+        holder.setText(R.id.appTitle, appBean.getName());
+        holder.setText(R.id.app_size, appBean.getSizeDesc());
+        holder.setText(R.id.app_des, appBean.getMemo());
+        holder.setImageUrl(R.id.appicon, appBean.getIcon());
     }
 }

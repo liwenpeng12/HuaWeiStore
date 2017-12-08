@@ -9,8 +9,8 @@ import java.util.List;
  */
 
 public class CategoryNewBean {
-    private Head head ;
-    private List<AppBean> appBeanList ;
+    private Head head;
+    private List<AppBean> appBeanList;
 
     public CategoryNewBean(Head head, List<AppBean> appBeanList) {
         this.head = head;
@@ -26,8 +26,8 @@ public class CategoryNewBean {
     }
 
     public static class Head {
-        private String icon ;
-        private String intro ;
+        private String icon;
+        private String intro;
 
         public String getIcon() {
             return icon;

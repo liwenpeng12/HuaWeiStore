@@ -124,14 +124,14 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
                     int tag = (int) v.getTag();
                     List<String> images = mIntroductionBean.getImageCompressList();
                     Intent intent = new Intent(getContext(), GalleryActivity.class);
-                    intent.putExtra("tag",tag) ;
+                    intent.putExtra("tag", tag);
                     intent.putStringArrayListExtra("urlList", (ArrayList<String>) images);
-                    getActivity().startActivity(intent) ;
+                    getActivity().startActivity(intent);
                 }
             });
             screenView.setTag(i);
 
-            ImageLoader.load(getContext(),url,screenImageView,R.drawable.app_icon_default);
+            ImageLoader.load(getContext(), url, screenImageView, R.drawable.app_icon_default);
             mGalleryContainer.addView(screenView);
         }
     }
@@ -159,7 +159,7 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtil.show(getContext(),tv.getText());
+                    ToastUtil.show(getContext(), tv.getText());
                 }
             });
             mFlowLayout.addView(labView);
@@ -181,8 +181,8 @@ public class AppIntroductionFragment extends BaseFragment<AppIntroductionPresent
 
     @Override
     public void getDataFail(String message) {
-        ToastUtil.show(getContext(),message);
-//        setCurrentState(ErrorCallback.class);
+        ToastUtil.show(getContext(), message);
+        //        setCurrentState(ErrorCallback.class);
         setCurrentState(LoadingPager.LoadResult.error);
     }
 

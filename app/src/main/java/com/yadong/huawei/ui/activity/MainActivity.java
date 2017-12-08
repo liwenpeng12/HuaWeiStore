@@ -25,8 +25,8 @@ public class MainActivity extends BaseActivity {
     ViewPager mViewPager;
 
     private FixPagerAdapter mFixPagerAdapter;
-    private List<Fragment> fragments ;
-    private List<String> mTitles ;
+    private List<Fragment> fragments;
+    private List<String> mTitles;
 
     @Override
     public int setLayout() {
@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
      * 初始化fragment
      */
     private void initFragment() {
-        mTitles =new ArrayList<>();
+        mTitles = new ArrayList<>();
         mTitles.clear();
 
         mTitles.add("推荐");
@@ -62,12 +62,12 @@ public class MainActivity extends BaseActivity {
         mTitles.add("我的");
 
 
-        fragments = new ArrayList<>() ;
-        for(int i = 0; i < mTitles.size() ; i ++){
-            fragments.add(FragmentFactory.createFragment(i)) ;
+        fragments = new ArrayList<>();
+        for (int i = 0; i < mTitles.size(); i++) {
+            fragments.add(FragmentFactory.createFragment(i));
         }
 
-        mFixPagerAdapter = new FixPagerAdapter(getSupportFragmentManager()) ;
+        mFixPagerAdapter = new FixPagerAdapter(getSupportFragmentManager());
         mFixPagerAdapter.setTitles(mTitles);
         mFixPagerAdapter.setFragments(fragments);
 
@@ -94,22 +94,24 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 动态添加
+     *
      * @param view
      */
     public void add(View view) {
-//        BaseFragment fragment = FragmentFactory.createFragment(5);
-//        fragments.add(fragment);
-//        mFixPagerAdapter.addData("大爷", fragments);
+        //        BaseFragment fragment = FragmentFactory.createFragment(5);
+        //        fragments.add(fragment);
+        //        mFixPagerAdapter.addData("大爷", fragments);
     }
 
     /**
      * 动态删除
+     *
      * @param view
      */
     public void remove(View view) {
-//        BaseFragment fragment = FragmentFactory.createFragment(5);
-//        fragments.remove(fragment);
-//        mFixPagerAdapter.removeData("大爷", fragments);
+        //        BaseFragment fragment = FragmentFactory.createFragment(5);
+        //        fragments.remove(fragment);
+        //        mFixPagerAdapter.removeData("大爷", fragments);
     }
 
 

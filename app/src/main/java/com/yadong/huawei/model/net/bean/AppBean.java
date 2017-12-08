@@ -8,18 +8,18 @@ package com.yadong.huawei.model.net.bean;
 
 public class AppBean {
 
-    private String appId ;
-    private String appVersionName ;
-    private String downCountDesc ;
-    private String downurl ;
-    private String icon ;
-    private String intro ;
-    private String memo ;
-    private String name ;
-    private String packageName ;
-    private String sizeDesc ;
-    private String stars ;
-    private String aliasName ;
+    private String appId;
+    private String appVersionName;
+    private String downCountDesc;
+    private String downurl;
+    private String icon;
+    private String intro;
+    private String memo;
+    private String name;
+    private String packageName;
+    private String sizeDesc;
+    private String stars;
+    private String aliasName;
     private String detailId;
 
     public AppBean(String appId, String appVersionName, String downCountDesc, String downurl, String icon, String intro, String memo, String name, String packageName, String sizeDesc, String stars, String aliasName, String detailId) {
@@ -34,8 +34,8 @@ public class AppBean {
         this.packageName = packageName;
         this.sizeDesc = sizeDesc;
         this.stars = stars;
-        this.aliasName = aliasName ;
-        this.detailId = detailId ;
+        this.aliasName = aliasName;
+        this.detailId = detailId;
     }
 
     public String getDetailId() {

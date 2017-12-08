@@ -68,7 +68,7 @@ public abstract class BaseFragmentPro<T extends BasePresenter> extends RxFragmen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        System.out.println("onActivityCreated  1ci  "  +!mIsLoad);
+        System.out.println("onActivityCreated  1ci  " + !mIsLoad);
         if (getUserVisibleHint() && mRootView != null && !mIsLoad) {
             System.out.println("onActivityCreated  1ci");
             mIsLoad = true;
@@ -82,7 +82,7 @@ public abstract class BaseFragmentPro<T extends BasePresenter> extends RxFragmen
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
-        System.out.println("setUserVisibleHint  1ci  "  +!mIsLoad);
+        System.out.println("setUserVisibleHint  1ci  " + !mIsLoad);
         if (isVisibleToUser && isVisible() && mRootView != null && !mIsLoad) {
             mIsLoad = true;
             System.out.println("setUserVisibleHint  1次");

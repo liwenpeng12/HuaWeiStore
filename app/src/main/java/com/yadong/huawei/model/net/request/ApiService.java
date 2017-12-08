@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-     String BASE_URL = "http://112.124.22.238:8081/appstore/";
+    String BASE_URL = "http://112.124.22.238:8081/appstore/";
 
     /**
      * 推荐页面的所有数据

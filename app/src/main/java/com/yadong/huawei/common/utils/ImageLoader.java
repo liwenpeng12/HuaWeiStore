@@ -25,7 +25,7 @@ public final class ImageLoader {
 
     public static void load(Context context, String url, ImageView view, int defaultResId) {
         if (NetUtil.isWifiConnected(context) || NetUtil.isNetworkAvailable(context)) {
-            Glide.with(App.getInstance()).load(url).into(view) ;
+            Glide.with(App.getInstance()).load(url).into(view);
         } else {
             view.setScaleType(ImageView.ScaleType.MATRIX);
             view.setImageResource(defaultResId);

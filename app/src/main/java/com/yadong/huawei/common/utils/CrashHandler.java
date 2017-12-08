@@ -69,8 +69,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
                 Log.e(TAG, "error : ", e);
             }
             // 退出程序,注释下面的重启启动程序代码
-//        android.os.Process.killProcess(android.os.Process.myPid());
-//        System.exit(1);
+            //        android.os.Process.killProcess(android.os.Process.myPid());
+            //        System.exit(1);
 
             // 重新启动程序，注释上面的退出程序
             Intent intent = new Intent();
@@ -98,7 +98,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override
             public void run() {
                 Looper.prepare();
-                ToastUtil.show(App.getInstance(),"很抱歉，程序出现异常，即将重启");
+                ToastUtil.show(App.getInstance(), "很抱歉，程序出现异常，即将重启");
                 Looper.loop();
             }
         }.start();
@@ -116,6 +116,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
     /**
      * 记录异常信息
+     *
      * @param ex
      * @return
      * @throws IOException
@@ -153,6 +154,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
     /**
      * 获取手机信息
+     *
      * @param pw
      * @throws NameNotFoundException
      */
