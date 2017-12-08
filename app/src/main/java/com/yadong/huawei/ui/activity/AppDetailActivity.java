@@ -3,6 +3,7 @@ package com.yadong.huawei.ui.activity;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.support.v4.view.ViewPager;
 import android.text.format.Formatter;
 import android.view.View;
@@ -12,11 +13,13 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.EmptyUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.factory.AppDetailFragmentFactory;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
+import com.yadong.huawei.common.utils.AppInfoUtils;
 import com.yadong.huawei.common.utils.Constants;
 import com.yadong.huawei.common.utils.ImageLoader;
 import com.yadong.huawei.common.utils.ToastUtil;
@@ -34,6 +37,7 @@ import com.yadong.huawei.ui.widget.SubTabNavigator;
 import com.zhxu.library.download.DownInfo;
 import com.zhxu.library.download.DownState;
 import com.zhxu.library.download.HttpDownManager;
+import com.zhxu.library.utils.AppUtil;
 import com.zhxu.library.utils.DbDownUtil;
 
 import java.io.File;
@@ -305,7 +309,7 @@ public class AppDetailActivity extends BaseActivity
             } else if (downInfo.getState() == DownState.PAUSE) {
                 mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_PAUSE);
             } else if (downInfo.getState() == DownState.FINISH) {
-                mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_BEGIN);
+                mDownloadButton.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_FINISH);
             }
             mDownloadButton.setProgress((int) (100 * downInfo.getReadLength() / downInfo.getCountLength()));
         }
@@ -318,6 +322,7 @@ public class AppDetailActivity extends BaseActivity
 
             @Override
             public void onFinishTask() {
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -325,7 +330,8 @@ public class AppDetailActivity extends BaseActivity
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                //AppInfoUtils.install(downInfo.getSavePath());
+
+                                AppInfoUtils.install(downInfo.getSavePath());
                                 if (dbUtil != null && downInfo != null)
                                     dbUtil.update(downInfo);
                             }

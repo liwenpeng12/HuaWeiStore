@@ -8,11 +8,18 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.v4.content.FileProvider;
+import android.widget.Toast;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.yadong.huawei.model.net.bean.AppInfo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.functions.Function;
 
 /**
  */
@@ -89,7 +96,6 @@ public class AppInfoUtils {
      * @param context
      * @return 跳转的应用主activity Intent
      */
-
     public static Intent isexit(Context context, String pk_name) {
         //获取包管理器
         PackageManager packageManager = context.getPackageManager();
@@ -118,10 +124,18 @@ public class AppInfoUtils {
     }
 
     public static void install(String path) {
-        Intent installIntent = new Intent(Intent.ACTION_VIEW);
-        installIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        installIntent.setDataAndType(Uri.parse("file://" + path),
-                "application/vnd.android.package-archive");
-        UIUtils.getContext().startActivity(installIntent);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        // 由于没有在Activity环境下启动Activity,设置下面的标签
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if(Build.VERSION.SDK_INT>=24) { //判读版本是否在7.0以上
+            AppUtils.installApp(path,"com.yadong.install");
+        }else{
+            intent.setDataAndType(Uri.parse("file://" + path),
+                    "application/vnd.android.package-archive");
+            UIUtils.getContext().startActivity(intent);
+        }
     }
+
+
+
 }
