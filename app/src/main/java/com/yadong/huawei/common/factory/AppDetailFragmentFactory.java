@@ -5,11 +5,6 @@ import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.fragment.AppCommentFragment;
 import com.yadong.huawei.ui.fragment.AppIntroductionFragment;
 import com.yadong.huawei.ui.fragment.AppRecommendFragment;
-import com.yadong.huawei.ui.fragment.CategoryFragment;
-import com.yadong.huawei.ui.fragment.ManageFragment;
-import com.yadong.huawei.ui.fragment.MineFragment;
-import com.yadong.huawei.ui.fragment.RankingFragment;
-import com.yadong.huawei.ui.fragment.RecommendFragment;
 
 import java.util.HashMap;
 import java.util.Map;

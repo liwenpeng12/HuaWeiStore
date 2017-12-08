@@ -5,7 +5,6 @@ import android.os.Handler;
 
 import com.blankj.utilcode.util.Utils;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
-import com.yadong.huawei.common.utils.CrashHandler;
 import com.yadong.huawei.common.utils.RetrofitUtils;
 import com.yadong.huawei.dagger.component.AppComponent;
 import com.yadong.huawei.dagger.component.DaggerAppComponent;

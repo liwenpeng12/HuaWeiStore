@@ -2,9 +2,6 @@ package com.yadong.huawei.common.factory;
 
 
 import com.yadong.huawei.ui.base.BaseFragment;
-import com.yadong.huawei.ui.fragment.AppCommentFragment;
-import com.yadong.huawei.ui.fragment.AppIntroductionFragment;
-import com.yadong.huawei.ui.fragment.AppRecommendFragment;
 import com.yadong.huawei.ui.fragment.CategoryFragment;
 import com.yadong.huawei.ui.fragment.ManageFragment;
 import com.yadong.huawei.ui.fragment.MineFragment;

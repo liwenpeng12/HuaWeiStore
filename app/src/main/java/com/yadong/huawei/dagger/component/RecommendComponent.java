@@ -8,8 +8,6 @@ import com.yadong.huawei.ui.fragment.RecommendFragment;
 import dagger.Component;
 
 /**
- * 推荐
- *
  * Component 连接器
  * 连接inject和module的连接器
  *

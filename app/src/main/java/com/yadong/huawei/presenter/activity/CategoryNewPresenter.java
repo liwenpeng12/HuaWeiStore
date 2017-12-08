@@ -2,9 +2,9 @@ package com.yadong.huawei.presenter.activity;
 
 import com.yadong.huawei.common.utils.JsonParseUtils;
 import com.yadong.huawei.common.utils.RetrofitUtils;
-import com.yadong.huawei.model.net.bean.CategoryNecessaryBean;
+import com.yadong.huawei.model.net.bean.CategoryNewBean;
 import com.yadong.huawei.model.net.request.ApiService;
-import com.yadong.huawei.presenter.contract.CategoryNecessaryContract;
+import com.yadong.huawei.presenter.contract.CategoryNewContract;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -16,13 +16,13 @@ import okhttp3.ResponseBody;
  *
  */
 
-public class CategoryNecessaryPresenter implements CategoryNecessaryContract.Presenter {
+public class CategoryNewPresenter implements CategoryNewContract.Presenter {
 
 
-    private CategoryNecessaryContract.View mView;
+    private CategoryNewContract.View mView;
     private ApiService mApiService;
 
-    public CategoryNecessaryPresenter(CategoryNecessaryContract.View view) {
+    public CategoryNewPresenter(CategoryNewContract.View view) {
         this.mView = view;
         mApiService = RetrofitUtils.getApiService();
     }
@@ -31,7 +31,7 @@ public class CategoryNecessaryPresenter implements CategoryNecessaryContract.Pre
     public void getData() {
         mView.showLoading();
         mApiService
-                .getCategoryNecessaryData()
+                .getCategoryNewData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(mView.<ResponseBody>bindToLife())
@@ -39,7 +39,7 @@ public class CategoryNecessaryPresenter implements CategoryNecessaryContract.Pre
                     @Override
                     public void accept(@NonNull ResponseBody responseBody) throws Exception {
                         String string = responseBody.string();
-                        CategoryNecessaryBean detailBean = JsonParseUtils.parseCategoryNecessaryBean(string);
+                        CategoryNewBean detailBean = JsonParseUtils.parseCategoryNewBean(string);
                         mView.getDataSuccess(detailBean);
                         mView.hideLoading();
                     }

@@ -2,10 +2,8 @@ package com.yadong.huawei.presenter.activity;
 
 import com.yadong.huawei.common.utils.JsonParseUtils;
 import com.yadong.huawei.common.utils.RetrofitUtils;
-import com.yadong.huawei.model.net.bean.AppDetailBean;
 import com.yadong.huawei.model.net.bean.CategorySubscribeBean;
 import com.yadong.huawei.model.net.request.ApiService;
-import com.yadong.huawei.presenter.contract.AppDetailContract;
 import com.yadong.huawei.presenter.contract.CategorySubscribeContract;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
