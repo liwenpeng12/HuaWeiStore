@@ -118,7 +118,9 @@
 
         <activity android:name=".ui.activity.CategoryToolActivity" />
         <activity android:name=".ui.activity.AppMoreRecommendActivity" />
-        <activity android:name=".ui.activity.InstallAppInfoActivity"></activity>
+        <activity android:name=".ui.activity.InstallAppInfoActivity" />
+        <activity android:name=".ui.activity.CleanCacheActivity" />
+        <activity android:name=".ui.activity.ApkManagementActivity"></activity>
     </application>
 
 </manifest>

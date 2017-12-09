@@ -11,6 +11,8 @@ import com.yadong.huawei.dagger.component.DaggerManageComponent;
 import com.yadong.huawei.dagger.module.ManageModule;
 import com.yadong.huawei.presenter.contract.ManageContract;
 import com.yadong.huawei.presenter.fragment.ManagePresenter;
+import com.yadong.huawei.ui.activity.ApkManagementActivity;
+import com.yadong.huawei.ui.activity.CleanCacheActivity;
 import com.yadong.huawei.ui.activity.InstallAppInfoActivity;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.EnterLayout;
@@ -89,12 +91,12 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
                 break;
              //安装包管理
             case R.id.apk_manager_layout:
-//                startActivity(new Intent(getContext(), ApkManagementActivity.class));
+                startActivity(new Intent(getContext(), ApkManagementActivity.class));
                 break;
 
             //空间清理
             case R.id.system_manager_layout:
-//                startActivity(new Intent(getContext(), CleanCacheActivity.class));
+                startActivity(new Intent(getContext(), CleanCacheActivity.class));
                 break;
 
             case R.id.connect_computer:
