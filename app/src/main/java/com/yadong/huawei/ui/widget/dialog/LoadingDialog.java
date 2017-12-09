@@ -2,7 +2,11 @@ package com.yadong.huawei.ui.widget.dialog;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +16,13 @@ import android.widget.TextView;
 import com.yadong.huawei.R;
 import com.yadong.huawei.common.manager.GlobalDialogManager;
 
+import java.lang.reflect.Field;
+
 
 /**
  * Android 普通加载框
  */
-public class LoadingDialog extends DialogFragment /*implements DialogInterface.OnKeyListener*/ {
+public class LoadingDialog extends DialogFragment implements DialogInterface.OnKeyListener {
 
     /**
      * 默认点击外面无效
@@ -46,6 +52,37 @@ public class LoadingDialog extends DialogFragment /*implements DialogInterface.O
         return this;
     }
 
+
+    /**
+     * 利用反射区调用DialogFragment的commitAllowingStateLoss()方法
+     * @param manager
+     * @param tag
+     */
+    public void showAllowingStateLoss(FragmentManager manager, String tag){
+        try {
+            Field dismissed = DialogFragment.class.getDeclaredField("mDismissed");
+            dismissed.setAccessible(true);
+            dismissed.set(this, false);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        try {
+            Field shown = DialogFragment.class.getDeclaredField("mShownByMe");
+            shown.setAccessible(true);
+            shown.set(this, true);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.add(this, tag);
+        ft.commitAllowingStateLoss();
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Dialog dialog = getDialog();
@@ -62,21 +99,22 @@ public class LoadingDialog extends DialogFragment /*implements DialogInterface.O
         hintTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GlobalDialogManager.getInstance().dismiss();
+                //                GlobalDialogManager.getInstance().dismiss();
             }
         });
 
         //不响应返回键
-        //        dialog.setOnKeyListener(this);
+        dialog.setOnKeyListener(this);
         return loadingView;
     }
 
 
-    //    @Override
-    //    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-    //        if (keyCode == KeyEvent.KEYCODE_BACK) {
-    //            return true;
-    //        }
-    //        return false;
-    //    }
+    @Override
+    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -11,6 +11,7 @@ import com.yadong.huawei.ui.widget.dialog.LoadingDialog;
 public class GlobalDialogManager {
 
     private LoadingDialog mLoadingDialog;
+    private boolean mIsShow;//是否显示
 
     private GlobalDialogManager() {
     }
@@ -29,15 +30,25 @@ public class GlobalDialogManager {
         }
     }
 
-    public void show(FragmentManager manager) {
-        if (mLoadingDialog != null) {
-            mLoadingDialog.show(manager, "");
+    /**
+     * 展示加载框
+     *
+     * @param manager
+     */
+    public synchronized void show(FragmentManager manager) {
+        if (manager != null && mLoadingDialog != null && !mIsShow) {
+            mLoadingDialog.showAllowingStateLoss(manager, "");
+            mIsShow = true;
         }
     }
 
-    public void dismiss() {
-        if (mLoadingDialog != null) {
+    /**
+     * 隐藏加载框
+     */
+    public synchronized void dismiss() {
+        if (mLoadingDialog != null && mIsShow) {
             mLoadingDialog.dismiss();
+            mIsShow = false;
         }
 
     }
