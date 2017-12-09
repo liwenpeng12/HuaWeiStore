@@ -1,14 +1,17 @@
 package com.yadong.huawei.ui.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.yadong.huawei.R;
+import com.yadong.huawei.common.utils.ToastUtil;
 import com.yadong.huawei.common.utils.UIUtils;
 import com.yadong.huawei.dagger.component.DaggerManageComponent;
 import com.yadong.huawei.dagger.module.ManageModule;
 import com.yadong.huawei.presenter.contract.ManageContract;
 import com.yadong.huawei.presenter.fragment.ManagePresenter;
+import com.yadong.huawei.ui.activity.InstallAppInfoActivity;
 import com.yadong.huawei.ui.base.BaseFragment;
 import com.yadong.huawei.ui.widget.EnterLayout;
 import com.yadong.huawei.ui.widget.LoadingPager;
@@ -80,24 +83,26 @@ public class ManageFragment extends BaseFragment<ManagePresenter>
             R.id.system_manager_layout, R.id.connect_computer, R.id.update_manager_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            //安装管理
             case R.id.install_manager_layout:
-
+               startActivity(new Intent(getContext(),InstallAppInfoActivity.class));
                 break;
-
+             //安装包管理
             case R.id.apk_manager_layout:
-
+//                startActivity(new Intent(getContext(), ApkManagementActivity.class));
                 break;
 
+            //空间清理
             case R.id.system_manager_layout:
-
+//                startActivity(new Intent(getContext(), CleanCacheActivity.class));
                 break;
 
             case R.id.connect_computer:
-
+                ToastUtil.show(getContext(),"连接电脑");
                 break;
 
             case R.id.update_manager_layout:
-
+                ToastUtil.show(getContext(),"更新管理");
                 break;
         }
     }

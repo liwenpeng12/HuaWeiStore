@@ -117,7 +117,8 @@
         </provider>
 
         <activity android:name=".ui.activity.CategoryToolActivity" />
-        <activity android:name=".ui.activity.AppMoreRecommendActivity"></activity>
+        <activity android:name=".ui.activity.AppMoreRecommendActivity" />
+        <activity android:name=".ui.activity.InstallAppInfoActivity"></activity>
     </application>
 
 </manifest>
