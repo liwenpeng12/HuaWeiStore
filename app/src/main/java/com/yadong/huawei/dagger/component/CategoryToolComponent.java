@@ -1,11 +1,9 @@
 package com.yadong.huawei.dagger.component;
 
 
-import com.yadong.huawei.dagger.module.CategoryNewModule;
 import com.yadong.huawei.dagger.module.CategoryToolModule;
 import com.yadong.huawei.dagger.score.ActivityScore;
-import com.yadong.huawei.ui.activity.CategoryNewActivity;
-import com.yadong.huawei.ui.activity.CategoryToolActivity;
+import com.yadong.huawei.module.activity.tool.CategoryToolActivity;
 
 import dagger.Component;
 

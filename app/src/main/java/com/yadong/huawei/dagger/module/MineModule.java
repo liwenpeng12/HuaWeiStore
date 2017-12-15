@@ -1,8 +1,8 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.presenter.contract.MineContract;
-import com.yadong.huawei.presenter.fragment.MinePresenter;
+import com.yadong.huawei.module.fragment.mine.MineContract;
+import com.yadong.huawei.module.fragment.mine.MinePresenter;
 
 import dagger.Module;
 import dagger.Provides;

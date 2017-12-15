@@ -1,8 +1,8 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.presenter.activity.CategorySubscribePresenter;
-import com.yadong.huawei.presenter.contract.CategorySubscribeContract;
+import com.yadong.huawei.module.activity.subscribe.CategorySubscribePresenter;
+import com.yadong.huawei.module.activity.subscribe.CategorySubscribeContract;
 
 import dagger.Module;
 import dagger.Provides;

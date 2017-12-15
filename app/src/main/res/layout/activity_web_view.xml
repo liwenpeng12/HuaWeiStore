@@ -9,7 +9,7 @@
         android:id="@+id/title"
         layout="@layout/title" />
 
-    <com.yadong.huawei.ui.widget.ProgressWebView
+    <com.yadong.huawei.module.widget.ProgressWebView
         android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

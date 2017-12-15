@@ -1,10 +1,10 @@
 package com.yadong.huawei.common.factory;
 
 
-import com.yadong.huawei.ui.base.BaseFragment;
-import com.yadong.huawei.ui.fragment.AppCommentFragment;
-import com.yadong.huawei.ui.fragment.AppIntroductionFragment;
-import com.yadong.huawei.ui.fragment.AppRecommendFragment;
+import com.yadong.huawei.module.base.BaseFragment;
+import com.yadong.huawei.module.fragment.appcomment.AppCommentFragment;
+import com.yadong.huawei.module.fragment.appintroduction.AppIntroductionFragment;
+import com.yadong.huawei.module.fragment.apprecommend.AppRecommendFragment;
 
 import java.util.HashMap;
 import java.util.Map;

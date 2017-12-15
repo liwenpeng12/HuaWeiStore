@@ -113,21 +113,21 @@
             android:layout_height="8.0dp"
             android:background="@color/black_alpha_03"/>
 
-        <com.yadong.huawei.ui.widget.EnterLayout
+        <com.yadong.huawei.module.widget.EnterLayout
             android:id="@+id/install_manager_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             />
 
-        <com.yadong.huawei.ui.widget.EnterLayout
+        <com.yadong.huawei.module.widget.EnterLayout
             android:id="@+id/apk_manager_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             />
 
-        <com.yadong.huawei.ui.widget.EnterLayout
+        <com.yadong.huawei.module.widget.EnterLayout
             android:id="@+id/system_manager_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
             />
 
 
-        <com.yadong.huawei.ui.widget.EnterLayout
+        <com.yadong.huawei.module.widget.EnterLayout
             android:id="@+id/connect_computer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

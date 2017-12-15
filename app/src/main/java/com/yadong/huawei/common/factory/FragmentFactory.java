@@ -1,12 +1,12 @@
 package com.yadong.huawei.common.factory;
 
 
-import com.yadong.huawei.ui.base.BaseFragment;
-import com.yadong.huawei.ui.fragment.CategoryFragment;
-import com.yadong.huawei.ui.fragment.ManageFragment;
-import com.yadong.huawei.ui.fragment.MineFragment;
-import com.yadong.huawei.ui.fragment.RankingFragment;
-import com.yadong.huawei.ui.fragment.RecommendFragment;
+import com.yadong.huawei.module.base.BaseFragment;
+import com.yadong.huawei.module.fragment.category.CategoryFragment;
+import com.yadong.huawei.module.fragment.manage.ManageFragment;
+import com.yadong.huawei.module.fragment.mine.MineFragment;
+import com.yadong.huawei.module.fragment.ranking.RankingFragment;
+import com.yadong.huawei.module.fragment.recommend.RecommendFragment;
 
 import java.util.HashMap;
 import java.util.Map;

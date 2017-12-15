@@ -3,7 +3,7 @@ package com.yadong.huawei.dagger.component;
 
 import com.yadong.huawei.dagger.module.AppRecommendModule;
 import com.yadong.huawei.dagger.score.FragmentScope;
-import com.yadong.huawei.ui.fragment.AppRecommendFragment;
+import com.yadong.huawei.module.fragment.apprecommend.AppRecommendFragment;
 
 import dagger.Component;
 

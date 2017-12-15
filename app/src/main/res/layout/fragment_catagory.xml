@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <!--弹性的RecyclerView-->
-    <com.yadong.huawei.ui.widget.recyclerview.layoutmanager.PullRecyclerViewGroup
+    <com.yadong.huawei.module.widget.recyclerview.layoutmanager.PullRecyclerViewGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,11 +18,11 @@
 
         </android.support.v7.widget.RecyclerView>
 
-    </com.yadong.huawei.ui.widget.recyclerview.layoutmanager.PullRecyclerViewGroup>
+    </com.yadong.huawei.module.widget.recyclerview.layoutmanager.PullRecyclerViewGroup>
 
 
 
-    <com.yadong.huawei.ui.widget.ViewUpSearch
+    <com.yadong.huawei.module.widget.ViewUpSearch
         android:id="@+id/view_up_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

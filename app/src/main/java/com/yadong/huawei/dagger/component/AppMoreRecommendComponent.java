@@ -1,11 +1,9 @@
 package com.yadong.huawei.dagger.component;
 
 
-import com.yadong.huawei.dagger.module.AppDetailModule;
 import com.yadong.huawei.dagger.module.AppMoreRecommendModule;
 import com.yadong.huawei.dagger.score.ActivityScore;
-import com.yadong.huawei.ui.activity.AppDetailActivity;
-import com.yadong.huawei.ui.activity.AppMoreRecommendActivity;
+import com.yadong.huawei.module.activity.more.AppMoreRecommendActivity;
 
 import dagger.Component;
 

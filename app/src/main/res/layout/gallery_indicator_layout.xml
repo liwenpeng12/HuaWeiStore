@@ -12,7 +12,7 @@
         android:layout_height="170dp"
         android:orientation="vertical">
         <!-- 自动滑动gallery -->
-        <com.yadong.huawei.ui.widget.banner.AutoGallery
+        <com.yadong.huawei.module.widget.banner.AutoGallery
             android:id="@+id/headline_image_gallery"
             android:layout_width="match_parent"
             android:layout_height="170dp"
@@ -22,7 +22,7 @@
 
 
         <!-- 滑动图片的指示器 -->
-        <com.yadong.huawei.ui.widget.banner.FlowIndicator
+        <com.yadong.huawei.module.widget.banner.FlowIndicator
             android:id="@+id/headline_circle_indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:layout_marginBottom="@dimen/res_textsize_15dp"
             app:radius="5dp"
             app:space="2dp">
-        </com.yadong.huawei.ui.widget.banner.FlowIndicator>
+        </com.yadong.huawei.module.widget.banner.FlowIndicator>
 
     </RelativeLayout>
 

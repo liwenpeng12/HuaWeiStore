@@ -3,7 +3,7 @@ package com.yadong.huawei.dagger.component;
 
 import com.yadong.huawei.dagger.module.CategorySubscribeModule;
 import com.yadong.huawei.dagger.score.ActivityScore;
-import com.yadong.huawei.ui.activity.CategorySubscribeActivity;
+import com.yadong.huawei.module.activity.subscribe.CategorySubscribeActivity;
 
 import dagger.Component;
 

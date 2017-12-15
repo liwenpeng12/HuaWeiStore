@@ -1,8 +1,8 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.presenter.contract.AppRecommendContract;
-import com.yadong.huawei.presenter.fragment.AppRecommendPresenter;
+import com.yadong.huawei.module.fragment.apprecommend.AppRecommendContract;
+import com.yadong.huawei.module.fragment.apprecommend.AppRecommendPresenter;
 
 import dagger.Module;
 import dagger.Provides;

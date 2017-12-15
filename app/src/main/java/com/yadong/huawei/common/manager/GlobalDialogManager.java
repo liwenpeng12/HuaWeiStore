@@ -2,7 +2,7 @@ package com.yadong.huawei.common.manager;
 
 import android.app.FragmentManager;
 
-import com.yadong.huawei.ui.widget.dialog.LoadingDialog;
+import com.yadong.huawei.module.widget.dialog.LoadingDialog;
 
 /**
  * Dialog管理类

@@ -3,7 +3,7 @@ package com.yadong.huawei.dagger.component;
 
 import com.yadong.huawei.dagger.module.RankingModule;
 import com.yadong.huawei.dagger.score.FragmentScope;
-import com.yadong.huawei.ui.fragment.RankingFragment;
+import com.yadong.huawei.module.fragment.ranking.RankingFragment;
 
 import dagger.Component;
 

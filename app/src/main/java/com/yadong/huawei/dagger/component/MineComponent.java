@@ -3,7 +3,7 @@ package com.yadong.huawei.dagger.component;
 
 import com.yadong.huawei.dagger.module.MineModule;
 import com.yadong.huawei.dagger.score.FragmentScope;
-import com.yadong.huawei.ui.fragment.MineFragment;
+import com.yadong.huawei.module.fragment.mine.MineFragment;
 
 import dagger.Component;
 

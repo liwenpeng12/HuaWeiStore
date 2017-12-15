@@ -5,7 +5,7 @@
               android:orientation="vertical"
               android:background="@color/backgound_fcfcfc">
 
-    <com.yadong.huawei.ui.widget.recyclerview.layoutmanager.PullRecyclerViewGroup
+    <com.yadong.huawei.module.widget.recyclerview.layoutmanager.PullRecyclerViewGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,6 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </com.yadong.huawei.ui.widget.recyclerview.layoutmanager.PullRecyclerViewGroup>
+    </com.yadong.huawei.module.widget.recyclerview.layoutmanager.PullRecyclerViewGroup>
 
 </LinearLayout>

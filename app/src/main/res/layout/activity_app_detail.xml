@@ -30,7 +30,7 @@
         <include
             layout="@layout/app_detail_item_head"/>
 
-        <com.yadong.huawei.ui.widget.SubTabNavigator
+        <com.yadong.huawei.module.widget.SubTabNavigator
             android:id="@+id/sub_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

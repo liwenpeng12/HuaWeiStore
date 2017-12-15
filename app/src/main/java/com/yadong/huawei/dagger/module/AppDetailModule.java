@@ -1,8 +1,8 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.presenter.activity.AppDetailPresenter;
-import com.yadong.huawei.presenter.contract.AppDetailContract;
+import com.yadong.huawei.module.activity.appdetail.AppDetailPresenter;
+import com.yadong.huawei.module.activity.appdetail.AppDetailContract;
 
 import dagger.Module;
 import dagger.Provides;

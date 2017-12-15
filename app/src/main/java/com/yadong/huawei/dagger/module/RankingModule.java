@@ -1,8 +1,8 @@
 package com.yadong.huawei.dagger.module;
 
 
-import com.yadong.huawei.presenter.contract.RankingContract;
-import com.yadong.huawei.presenter.fragment.RankingPresenter;
+import com.yadong.huawei.module.fragment.ranking.RankingContract;
+import com.yadong.huawei.module.fragment.ranking.RankingPresenter;
 
 import dagger.Module;
 import dagger.Provides;

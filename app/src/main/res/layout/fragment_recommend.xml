@@ -5,7 +5,7 @@
               android:orientation="vertical">
 
 
-    <com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView
+    <com.yadong.huawei.module.widget.recyclerview.pullrefresh.PullToRefreshView
         android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,6 +18,6 @@
             />
 
 
-    </com.yadong.huawei.ui.widget.recyclerview.pullrefresh.PullToRefreshView>
+    </com.yadong.huawei.module.widget.recyclerview.pullrefresh.PullToRefreshView>
 
 </LinearLayout>

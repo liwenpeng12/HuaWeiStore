@@ -55,7 +55,7 @@
                     android:layout_marginBottom="8.0dp"
                     android:text="应用标签"/>
 
-                <com.yadong.huawei.ui.widget.FlowLayout
+                <com.yadong.huawei.module.widget.FlowLayout
                     android:id="@+id/flowLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

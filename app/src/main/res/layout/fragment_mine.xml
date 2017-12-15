@@ -40,19 +40,19 @@
                     android:layout_height="8.0dp"
                     android:background="@color/black_alpha_03"/>
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/book_game_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"/>
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/buy_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"/>
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/huaban_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                     android:background="@color/black_alpha_03"/>
 
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/setting_computer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,19 +72,19 @@
 
                     />
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/faq_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"/>
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/check_update_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"/>
 
-                <com.yadong.huawei.ui.widget.EnterLayout
+                <com.yadong.huawei.module.widget.EnterLayout
                     android:id="@+id/about_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
